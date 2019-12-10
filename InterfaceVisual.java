@@ -7,17 +7,17 @@ import java.awt.event.*;
  * @author (votre nom)
  * @version (un numéro de version ou une date)
  */
-public class InterfaceVisual extends JFrame
+public class InterfaceVisual extends JPanel
 {
     // variables d'instance - remplacez l'exemple qui suit par le vôtre
     private InterfaceGame myGameInterface; 
-    
+
     /**
      * Constructeur d'objets de classe Interface_Visual
      */
-    public InterfaceVisual(InterfaceGame theInterface)
+    public InterfaceVisual(Room myRoom, Player myPlayer, InterfaceGame theInterface)
     {
-        visualizeRoom(theInterface.getGame().getChoosenPlayer()); 
+        visualizeRoom(myPlayer); 
     }
 
     /**
@@ -45,7 +45,7 @@ public class InterfaceVisual extends JFrame
         }
     }
     
-     /**
+        /**
      * Un exemple de méthode - remplacez ce commentaire par le vôtre
      *
      * @param  y   le paramètre de la méthode
@@ -53,11 +53,9 @@ public class InterfaceVisual extends JFrame
      */
     public void visualizeRoom(Player myPlayer)
     {
-        JPanel visualPanel;
-        Icon iconRoom = new ImageIcon(new ImageIcon(getPictureRoom(myPlayer)).getImage().getScaledInstance(100,100,Image.SCALE_DEFAULT));
+        Icon iconRoom = new ImageIcon(new ImageIcon(getPictureRoom(myPlayer)).getImage().getScaledInstance(1000,1000,Image.SCALE_DEFAULT));
         JLabel mypicture = new JLabel(iconRoom, JLabel.CENTER);
-        visualPanel = new JPanel();
-        visualPanel.add(mypicture);
-        visualPanel.setSize(1200,1200);
+        this.add(mypicture);
+        this.setSize(1200,1200);
     }
 }
