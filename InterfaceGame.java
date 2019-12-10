@@ -7,33 +7,36 @@ import java.awt.event.*;
  * @author CROUZET G8
  * @version 27/11/2019
  */
-public class InterfaceGame extends JFrame implements ActionListener
+public class InterfaceGame extends JFrame 
 {
     // instance variables - replace the example below with your own
-    private Player player;
     private Game game;
+    private ControlDirection control;
+    private Doable doable;
+    private InterfaceVisual map;
+    private InterfaceInfo message;
     
-    //new Player("test", new Room("test"))
     /**
      * Constructor for objects of class GameInterface
      */
     public InterfaceGame(Game g)
     {
         super();
-        game = g;
+        game =g;
         
         InfoBar info = new InfoBar(this);
         
-        ControlDirection control = new ControlDirection(this);
+        control = new ControlDirection(this);
         
-        Doable doable = new Doable(this); 
+        doable = new Doable(this);
         
-        InterfaceVisual map = new InterfaceVisual(this);// need to be replace by InterfaceVisuel
+        map = new InterfaceVisual(getGame().getPlayer().getCurrentRoom(),getGame().getPlayer(), this);
         
-        InterfaceInfo message = new InterfaceInfo(this);
+        message = new InterfaceInfo(this);
         
         GridBagConstraints c = new GridBagConstraints();
         this.setLayout(new GridBagLayout());
+        
         
         c.fill = GridBagConstraints.PAGE_START;
         c.gridx = 0;
@@ -75,15 +78,17 @@ public class InterfaceGame extends JFrame implements ActionListener
         return game;
     }
    
+    public InterfaceVisual getVisual(){
+        return map;
+    }
+    
+    public InterfaceInfo getInfo(){
+        return message;
+    }
+    
     public void main()
     {
         
-        
-        
-        
     }
-    public void actionPerformed(ActionEvent e)
-    {
-        
-    }
+
 }
