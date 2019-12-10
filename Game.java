@@ -17,7 +17,7 @@ public class Game
     private Special theCreatedSpecial;
     private int timer;
     private int count;
-
+    private InterfaceGame interfaceGame;
     /**
      * Constructor of the Game
      */
@@ -25,6 +25,7 @@ public class Game
     {
         room = new ArrayList<Room>();
         createRoom();
+        //interfaceGame = new InterfaceGame();
     }
     
     /**
@@ -38,7 +39,7 @@ public class Game
       return "";
     }
     
-        /**
+    /**
      * Method to choose the player : deliveroo or stolen ant
      * 
      * @return type : "deliver" for deliveroo ant 
@@ -72,6 +73,7 @@ public class Game
      */
     public void createRoom()
     {
+        // Here we create the rooms
         Room roomPlayer = new Room("PlayerRoom");
         room.add(roomPlayer);
         Room roomOpponent = new Room("OpponentRoom");
@@ -148,7 +150,44 @@ public class Game
         room.add(roomF);
         Room roomG = new Room("G");
         room.add(roomG);
+        //Here we create the doors between two rooms - initialization of the Hashmap
+        new Door(roomPlayer, "East", room1, "West");
+        new Door(room1, "North", room2, "South");
+        //new Door(room1, "East", room3, "West", theLock);
+        new Door(room3, "East", room4, "West");
+        new Door(room4, "East", room5, "West");
+        new Door(room5, "South", room6, "North");
+        //new Door(room6, "South", room7, "North", theLock);
+        new Door(room7, "East", room8, "West");
+        new Door(room8, "South", room9, "North");
+        new Door(room9, "South", room10, "North");
+        new Door(room10, "West", room11, "East");
+        new Door(room11, "West", room12, "East");
+        new Door(room12, "West", room13, "East");
+        new Door(room13, "North", room14, "South");
+        //new Door(room14, "East", room15, "West", theLock);
+        new Door(room14, "North", room16, "South");
+        new Door(room16, "East", room17, "West");
+        new Door(room17, "East", room7, "West");
+        //new Door(room5, "West", room18, "East", theLock);
+        new Door(room18, "East", room19, "West");
+        new Door(room19, "North", room20, "South");
+        new Door(room20, "East", room21, "West");
+        new Door(room21, "East", room22, "West");
+        new Door(room22, "East", room23, "West");
+        new Door(room23, "South", room24, "North");
+        new Door(room24, "South", room25, "North");
+        //new Door(room25, "South", room26, "North", theLock);
+        new Door(room26, "West", room28, "East");
+        new Door(room28, "West", room29, "East");
+        new Door(room26, "South", room27, "North");
+        new Door(room27, "South", roomOpponent, "North");
+        
+             
+        
     }
+    
+ 
     
     public Player getPlayer(){
         return playerChoose;
