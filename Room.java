@@ -33,8 +33,8 @@ public class Room
        HashMap<String, Door> exits = new HashMap<String, Door>();
        //the Hashmap is empty, when a door is created, it is added as an exit in the Hashmap
        
-       List<Human> human = new ArrayList<Human>();
-       List<Item> item = new ArrayList<Item>();
+       human = new ArrayList<Human>();
+       item = new ArrayList<Item>();
        
     }
 
@@ -144,7 +144,7 @@ public class Room
      */
     public void addItem(Item anItem)
     {
-        
+        item.add(anItem);
     }
     
     /**
@@ -154,6 +154,6 @@ public class Room
      */
     public void removeItem(Item anItem)
     {
-        
+        item.remove(anItem);
     }
 }
