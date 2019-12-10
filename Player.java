@@ -92,7 +92,7 @@ public class Player extends Character
     }
     
     /**
-     * Take an delivery in the Room and put it the bag
+     * Take a delivery in the Room and put it in the bag
      * @parameter loot who is an item in the room who is a item class
      * 
      */
