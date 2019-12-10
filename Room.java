@@ -123,6 +123,20 @@ public class Room
          return null; 
     }
     
+     /**
+     * displays the boxin the room.
+     *
+     */
+    public Delivery getDelivery()
+    {
+         for ( Item i : item) {
+             if(i instanceof Delivery){  
+                 return ( (Delivery)i);
+             }     
+         }
+         return null; 
+    }
+    
     /**
      * adds an item
      *

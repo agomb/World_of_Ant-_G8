@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=InterfaceVisual
 comment0.text=\r\n\ D\u00E9crivez\ votre\ classe\ Interface_Visual\ ici.\r\n\r\n\ @author\ (votre\ nom)\r\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\r\n
-comment1.params=theInterface
-comment1.target=InterfaceVisual(InterfaceGame)
+comment1.params=myRoom\ myPlayer\ theInterface
+comment1.target=InterfaceVisual(Room,\ Player,\ InterfaceGame)
 comment1.text=\r\n\ Constructeur\ d'objets\ de\ classe\ Interface_Visual\r\n
 comment2.params=myPlayer
 comment2.target=java.lang.String\ getPictureRoom(Player)

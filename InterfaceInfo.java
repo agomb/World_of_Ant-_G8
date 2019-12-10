@@ -113,6 +113,12 @@ public class InterfaceInfo extends JPanel implements ActionListener
         information.add(theMessage);
     }
     
+    public void updateInfo(){
+        Character c = myGameInterface.getGame().getPlayer();
+        Player p = (Player)c; 
+        TreasureBox t = p.getCurrentRoom().getBox();
+        information.add(t.getDescription());
+    }
     
     private String getMessage(){      
         return(information.get(i));

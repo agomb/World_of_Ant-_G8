@@ -29,23 +29,27 @@ public class InterfaceVisual extends JPanel
     public String getPictureRoom(Player myPlayer)
     {
         if((myPlayer.getCurrentRoom().getDescription() == "PlayerRoom") && (myPlayer instanceof DeliverooAnt )){
-            return "delivery_room.jpg";
+            return "delivery_room";
         }else if(myPlayer.getCurrentRoom().getDescription() == "PlayerRoom" && (myPlayer instanceof StolenAnt )){
-            return "thief_room.jpg";
+            return "thief_room";
         }else if(myPlayer.getCurrentRoom().getDescription() == "2" || myPlayer.getCurrentRoom().getDescription() == "6" || myPlayer.getCurrentRoom().getDescription() == "20" || myPlayer.getCurrentRoom().getDescription() == "27" || myPlayer.getCurrentRoom().getDescription() == "10"){
-            return "box_room.jpg";
+            return "box_room";
         }else if(myPlayer.getCurrentRoom().getDescription() == "3" || myPlayer.getCurrentRoom().getDescription() == "7" || myPlayer.getCurrentRoom().getDescription() == "15" || myPlayer.getCurrentRoom().getDescription() == "18" || myPlayer.getCurrentRoom().getDescription() == "21" || myPlayer.getCurrentRoom().getDescription() == "29"){
-            return "up_room.jpg";
+            return "up_room";
         }else if(myPlayer.getCurrentRoom().getDescription()== "A" || myPlayer.getCurrentRoom().getDescription() == "B" || myPlayer.getCurrentRoom().getDescription() == "D" || myPlayer.getCurrentRoom().getDescription() == "E"){
-            return "human_room.jpg";
+            return "human_room";
         }else if(myPlayer.getCurrentRoom().getDescription() == "C" || myPlayer.getCurrentRoom().getDescription() == "F" || myPlayer.getCurrentRoom().getDescription() == "G"){
-            return "box_human_room.jpg";
+            return "box_human_room";
+        }else if((myGameInterface.getGame().getComputer().getCurrentRoom().getDescription() == myPlayer.getCurrentRoom().getDescription()) && (myPlayer instanceof StolenAnt)){
+            return getPictureRoom(myPlayer)+"_fourmi1";
+        } else if((myGameInterface.getGame().getComputer().getCurrentRoom().getDescription() == myPlayer.getCurrentRoom().getDescription()) && (myPlayer instanceof DeliverooAnt)){
+            return getPictureRoom(myPlayer)+"_fourmi2";
         }else{
-            return "room.jpg";
+            return "room";
         }
     }
     
-        /**
+    /**
      * Un exemple de méthode - remplacez ce commentaire par le vôtre
      *
      * @param  y   le paramètre de la méthode
@@ -53,9 +57,11 @@ public class InterfaceVisual extends JPanel
      */
     public void visualizeRoom(Player myPlayer)
     {
-        Icon iconRoom = new ImageIcon(new ImageIcon(getPictureRoom(myPlayer)).getImage().getScaledInstance(1000,1000,Image.SCALE_DEFAULT));
+        Icon iconRoom = new ImageIcon(new ImageIcon(getPictureRoom(myPlayer)+".jpg").getImage().getScaledInstance(100,100,Image.SCALE_DEFAULT));
         JLabel mypicture = new JLabel(iconRoom, JLabel.CENTER);
         this.add(mypicture);
         this.setSize(1200,1200);
     }
+
+   
 }
