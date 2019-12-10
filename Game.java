@@ -18,6 +18,7 @@ public class Game
     private int timer;
     private int count;
     private InterfaceGame interfaceGame;
+    private Lock theLock;
     /**
      * Constructor of the Game
      */
@@ -153,11 +154,11 @@ public class Game
         //Here we create the doors between two rooms - initialization of the Hashmap
         new Door(roomPlayer, "East", room1, "West");
         new Door(room1, "North", room2, "South");
-        //new Door(room1, "East", room3, "West", theLock);
+        new Door(room1, "East", room3, "West", theLock);
         new Door(room3, "East", room4, "West");
         new Door(room4, "East", room5, "West");
         new Door(room5, "South", room6, "North");
-        //new Door(room6, "South", room7, "North", theLock);
+        new Door(room6, "South", room7, "North", theLock);
         new Door(room7, "East", room8, "West");
         new Door(room8, "South", room9, "North");
         new Door(room9, "South", room10, "North");
@@ -165,11 +166,11 @@ public class Game
         new Door(room11, "West", room12, "East");
         new Door(room12, "West", room13, "East");
         new Door(room13, "North", room14, "South");
-        //new Door(room14, "East", room15, "West", theLock);
+        new Door(room14, "East", room15, "West", theLock);
         new Door(room14, "North", room16, "South");
         new Door(room16, "East", room17, "West");
         new Door(room17, "East", room7, "West");
-        //new Door(room5, "West", room18, "East", theLock);
+        new Door(room5, "West", room18, "East", theLock);
         new Door(room18, "East", room19, "West");
         new Door(room19, "North", room20, "South");
         new Door(room20, "East", room21, "West");
@@ -177,7 +178,7 @@ public class Game
         new Door(room22, "East", room23, "West");
         new Door(room23, "South", room24, "North");
         new Door(room24, "South", room25, "North");
-        //new Door(room25, "South", room26, "North", theLock);
+        new Door(room25, "South", room26, "North", theLock);
         new Door(room26, "West", room28, "East");
         new Door(room28, "West", room29, "East");
         new Door(room26, "South", room27, "North");
