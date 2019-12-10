@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Special
+comment0.text=\r\n\ This\ class\ create\ an\ special\ item\ which\ can\ give\ a\ bonus\ or\ a\ malus\ to\ someone.\ \r\n\ It\ reduces\ or\ increase\ the\ vital\ or\ honor\ point.\r\n\r\n\ @author\ Group\ 8\ -\ Marion\ Guernot\u00E9,\ Dylan\ Mielot,\ Fanny\ Barb\u00E9,\ Alix\ Nagot,\ Ambre\ Dumontet,\ Ang\u00E9lique\ Gombert,\ Thibault\ Crouzet\r\n\ @version\ 19/11/2019\r\n
+comment1.params=sName
+comment1.target=Special(java.lang.String)
+comment1.text=\r\n\ Instanciate\ an\ special\ object,\ by\ giving\ a\ name\ and\ a\ bonus\ value\ (which\ can\ be\ positive\ or\ negative).\r\n\ @param\ sName\ which\ allows\ to\ give\ a\ name\ to\ the\ object\r\n\ @param\ aBonus\ which\ will\ be\ used\ to\ modify\ hp\ or\ vp.\r\n
+comment2.params=
+comment2.target=int\ getImpact()
+comment2.text=\r\n\ Give\ the\ value\ of\ the\ bonus.\r\n\ @return\ bonus,\ which\ will\ be\ used\ to\ modify\ hp\ or\ vp.\r\n
+numComments=3

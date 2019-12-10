@@ -1,0 +1,215 @@
+import java.util.ArrayList;
+import java.util.List;
+/**
+ * This super-class allow to create a character which gonna be played by user
+ *
+ * @author Group 8 - Marion Guernoté, Dylan Mielot, Fanny Barbe, Alix Nagot, Ambre Dumontet, Angélique Gombert, Thibault Crouzet
+ * @version (un numéro de version ou une date)
+ */
+public class Player extends Character
+{
+    
+    private List<Item> bag; //simulate the inventory of the ant
+    private int sizeBag; // the maximum size of the bag
+    private Room currentRoom; // the room where the player is
+    private Room depot; //his room where he can store his delivery
+    private int hp; //the hp of the player
+    
+    
+    /**
+     * Create a player by giving a name and instantiate the current room 
+     */
+    public Player(String pName, Room playerRoom)
+    {
+        super(pName);
+        bag = new ArrayList<Item>();
+        sizeBag = 20; 
+        currentRoom = playerRoom;
+        depot = playerRoom;
+    }
+    
+    /**
+     * Change the room where the player is
+     * @param roomToMove the room where the player go
+     */
+    public void setCurrentRoom(Room roomToMove)
+    {
+        currentRoom = roomToMove;
+        
+        //!\ afficher les bonnes sorties
+            //up_Butoon.setEnabled(false);
+            //up_Butoon.setEnabled(true);
+        //!\ afficher les bonnes couleurs de sorties
+    }
+    
+    /**
+     * return the inventory of the player
+     * @return bag which
+     * is a list of Item
+     */
+    public List<Item> getBag()
+    {
+        return bag;
+    }
+    
+    /**
+     * return the depot room
+     * @return depot which is the room where ant can pick up if it's a deliveroo and drop if it's a stolen
+     */
+    public Room getDepot()
+    {
+        return depot;
+    }
+    
+    /**
+     * return the maximum size of the inventory
+     * return sizeBag whho is a integer representing the maximum size of the inventory
+     */
+    public int getSizeBag()
+    {
+        return sizeBag;
+    }
+    
+    /**
+     * Return the room where the player is
+     * @ return the current room where the player is
+     */
+    public Room getCurrentRoom()
+    {
+        return currentRoom;
+    }
+    
+    /**
+     * Allow the ant to move between the rooms by crossing a door among the exits available
+     */
+    public void moveRoom()
+    {
+        currentRoom.checkExits(); // verifie les sorties de la piece
+        //demande la sortie et récupère la Door
+        //Door exitDoor = new Door();
+        //Room futureRoom = Door.crossDoor(currentRoom, exitDoor); // renvoie la piece dans laquelle on sort en travarsant l'exitDoor
+        //setCurrentRoom(futureRoom); // la room dans laquelle on se trouve devient la room de sortie
+    }
+    
+    /**
+     * Take an delivery in the Room and put it the bag
+     * @parameter loot who is an item in the room who is a item class
+     * 
+     */
+    public void pickUpDelivery(Delivery loot)
+    {
+        bag.add(loot);
+        //Interface_Info.setMessage("You picked a delivery");
+    }
+    
+     /**
+     * Open a treasure box and pick up items
+     * @parameter loot who is an item in the room who is a item class
+     * 
+     */
+    public void pickUpBox(TreasureBox box)
+    {
+        if (box.getLock().getIsLocked() == true) {
+            for ( int i = 0 ; i< bag.size() ; i++) {
+                Item a = bag.get(i);
+                if(a instanceof Key){  
+                    box.getLock().unlock((Key)a);
+                    bag.remove(i);
+                    break;
+                }             
+            }     
+        } 
+        
+        if (box.getLock().getIsLocked() == false) {
+
+             for ( Special s : box.getListSpecial()) {
+                 setHp(s.getImpact());
+                 box.getListSpecial().remove(s);
+             }
+             
+             for ( Key k : box.getListKeys()) {
+                if (bag.size() < getSizeBag()){
+                     bag.add(k); 
+                     box.getListKeys().remove(k);
+                }
+             }
+        }
+        
+    }
+    
+    /**
+     * Drop an item in the room
+     * @parameter  thedropName reprensent the name of the item that will be droped is the room
+     * @return thedrop is the item that is droped in the room
+     */
+    public void drop()
+    {
+        for ( Item i : bag) {
+            if(i instanceof Delivery){  
+                 bag.remove(i);
+            } 
+            
+        }
+    }
+
+    /**
+     * modify the hp
+     * cannot pass the hp bellow 0 or more that 100
+     * @parameter thehp represent how much the delievroo ant will lose or gain hp
+     */
+    public void setHp(int thehp)
+    {
+        if(thehp > 0)
+        {
+            addHp(thehp);
+        }
+        else
+        {
+            loseHp(thehp);
+        }
+    }
+    
+    /**
+     * Add Hp to the delivroo ant
+     * cannot pass the hp more that 100
+     * @parameter thehp represent how much hp the delievroo ant will gain
+     */
+    public void addHp(int theHp)
+    {
+        if((this.hp + theHp) >= 100)
+        {
+            this.hp = 100;
+        }
+        else 
+        {
+            this.hp += theHp;
+        }
+    }
+    
+    /**
+     * lose hp
+     * cannot pass the hp bellow 0
+     * @parameter thehp represent how much hp the delievroo ant will lose
+     */
+    public void loseHp(int theHp)
+    {
+        if((this.hp - theHp) <= 0)
+        {
+            this.hp = 0;
+        }
+        else 
+        {
+            this.hp -= theHp;
+        }
+    }
+    
+    /**
+     * return the hp
+     * @return the hp of the stolen ant who is a integer
+     */
+    public int getHp()
+    {
+        // Insérez votre code ici
+        return hp;
+    } 
+}

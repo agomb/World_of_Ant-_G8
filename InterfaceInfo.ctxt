@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=InterfaceInfo
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Interface_info\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=anInterface
+comment1.target=InterfaceInfo(InterfaceGame)
+comment1.text=\r\n\ Allow\ to\ create\ the\ information\ interface\ which\ will\ display\ messages\ from\ the\ game\r\n
+comment2.params=theMessage
+comment2.target=void\ setMessage(java.lang.String)
+comment3.params=
+comment3.target=java.lang.String\ getMessage()
+comment4.params=
+comment4.target=void\ nextMessage()
+comment5.params=
+comment5.target=void\ previousMessage()
+comment6.params=e
+comment6.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment7.params=border\ description\ container
+comment7.target=void\ addCompForBorder(javax.swing.border.Border,\ javax.swing.JLabel,\ java.awt.Container)
+comment7.text=\r\n\ Allow\ to\ display\ text\ inside\ border\r\n
+numComments=8

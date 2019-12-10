@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=TreasureBoxTest
+comment0.text=\r\n\ Classe-test\ TreasureBoxTest.\r\n\r\n\ @author\ Group\ 8\ -\ Marion\ Guernot\u00E9,\ Dylan\ Mielot,\ Fanny\ Barbe,\ Alix\ Nagot,\ Ambre\ Dumontet,\ Ang\u00E9lique\ Gombert,\ Thibault\ Crouzet\r\n\ @version\ 19/11/2019\r\n
+comment1.params=
+comment1.target=void\ testBoxLocked()
+comment1.text=\r\n\ Test\ if\ getters\ work\ correctly.\r\n
+comment2.params=
+comment2.target=void\ testRemove()
+comment2.text=\r\n\ Test\ if\ items\ are\ removed\ correctly.\r\n
+numComments=3

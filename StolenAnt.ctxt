@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=StolenAnt
+comment0.text=\r\n\ The\ stolen\ ant\ class\ is\ one\ of\ the\ two\ player\ class\r\n\ This\ class\ can\ steal\ object\ in\ a\ room,\ gain\ and\ lose\ vp\ when\ cruched\ by\ a\ human\ or\ hitted\ by\ a\ deliveroo\ ant\r\n\ A\ stolen\ ant\ have\ by\ default\ 100\ vp\ and\ need\ to\ be\ given\ a\ name\r\n\ \r\n\ @Default\ vp\ \=\=\ 100\r\n\ \r\n\ @author\ Group\ 8\ -\ Marion\ Guernot\u00E9,\ Dylan\ Mielot,\ Fanny\ Barbe,\ Alix\ Nagot,\ Ambre\ Dumontet,\ Ang\u00E9lique\ Gombert,\ Thibault\ Crouzet\r\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\r\n
+comment1.params=sName\ playerRoom
+comment1.target=StolenAnt(java.lang.String,\ Room)
+comment1.text=\r\n\ Constructeur\ d'objets\ de\ classe\ StolenAnt\r\n\ give\ the\ natural\ vp(vital\ point)\r\n
+comment2.params=
+comment2.target=void\ drop()
+comment2.text=\r\n\ drop\ delivery\ stolen\ in\ his\ depot\r\n\ @override\ \r\n
+comment3.params=loot\ deliveroo
+comment3.target=void\ pickUpDelivery(Delivery,\ DeliverooAnt)
+comment3.text=\r\n\ Steal\ a\ delivery\ in\ all\ the\ map\ which\ make\ lost\ hp\ to\ the\ deliveroo\ ant\r\n\ @parameter\ loot\ which\ is\ deliveries\ to\ deliver.\ \r\n\ @override\ \r\n
+numComments=4

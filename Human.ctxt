@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Human
+comment0.text=\r\n\ The\ Human\ class\ is\ the\ class\ corresponding\ to\ the\ Non\ Player\ Character.\r\n\ Those\ humans\ cannot\ move\ from\ their\ respectives\ rooms\r\n\ The\ human\ has\ a\ name\ and\ can\ crush\ the\ stolen\ ant\r\n\ \r\n\ @author\ Group\ 8\ -\ Marion\ Guernot\u00E9,\ Dylan\ Mielot,\ Fanny\ Barbe,\ Alix\ Nagot,\ Ambre\ Dumontet,\ Ang\u00E9lique\ Gombert,\ Thibault\ Crouzet\r\n\ @version\ 1\r\n
+comment1.params=theName
+comment1.target=Human(java.lang.String)
+comment1.text=\r\n\ Constructor\ of\ the\ Human\ class\r\n\ Use\ the\ constructor\ of\ the\ Charater\ class\r\n\ @parameter\ theName\ who\ is\ a\ String\ and\ verified\ by\ the\ constructor\ of\ the\ Character\ class.\r\n
+comment2.params=thief
+comment2.target=void\ crush(StolenAnt)
+comment2.text=\r\n\ Inflic\ 25\ dammage\ to\ the\ life\ of\ the\ StolenAnt\r\n\ @param\ thief\ who\ represent\ the\ Stolen\ Ant\ and\ who\ will\ be\ cruch\ by\ the\ human\r\n\ \r\n
+numComments=3

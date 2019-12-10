@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Character
+comment0.text=\r\n\ \ The\ Character\ class\ is\ the\ super\ class\ corresponding\ to\ all\ the\ entities\ inside\ the\ game.\r\n\ The\ entities\ can\ be\ either\ a\ player\ or\ a\ human\ (Non\ Player\ Character)\r\n\ This\ classe\ gives\ a\ name\ to\ the\ entity\ (object)\r\n\r\n\ @author\ G8\ -\ Marion\ Guernot\u00E9,\ Dylan\ Mielot,\ Fanny\ Barbe,\ Alix\ Nagot,\ Ambre\ Dumontet,\ Ang\u00E9lique\ Gombert,\ Thibault\ Crouzet\r\n\ @version\ 20/11/2019\r\n
+comment1.params=cName
+comment1.target=Character(java.lang.String)
+comment1.text=\r\n\ Constructor\ of\ the\ Character\ class.\r\n\ Constructs\ an\ instance\ of\ an\ entity\ and\ give\ it\ a\ name\ who\ is\ a\ string\r\n\ But\ if\ the\ name\ given\ is\ empty\ or\ no\ name\ if\ given\ the\ default\ name\ would\ be\ "Standard".\r\n\ \r\n\ @default\ name\ \=\ "Standard"\r\n
+comment2.params=
+comment2.target=Character()
+comment3.params=
+comment3.target=java.lang.String\ getName()
+comment3.text=\r\n\ return\ the\ name\ of\ the\ character\r\n\ @return\ the\ name\ of\ the\ character\ who\ is\ a\ String\r\n
+numComments=4

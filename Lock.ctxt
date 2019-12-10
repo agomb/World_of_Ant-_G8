@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Lock
+comment0.text=\r\n\ The\ Lock\ class\ describe\ if\ a\ door\ or\ a\ chest\ is\ locked\ and\ how\ to\ unlocked\ it.\r\n\ @Default\ isLocked\ \=\=\ true\r\n\ \r\n\ @author\ Crouzet\ G8\r\n\ @version\ 19/11/2019\r\n
+comment1.params=idKey
+comment1.target=Lock(int)
+comment2.params=akey
+comment2.target=Lock(Key)
+comment3.params=aKey
+comment3.target=boolean\ unlock(int)
+comment3.text=\r\n\ @parameter\ aKey\ who\ is\ the\ id\ a\ key\r\n\ if\ you\ give\ the\ correct\ key\ it\ will\ unlock\ the\ object\r\n\ else\ return\ an\ error\ (boolean)\r\n\ @return\ \r\n\ true\ \=>\ operation\ was\ done\ succesfluly\ and\ the\ door/chest\ is\ opened\r\n\ false\ \=>\ operation\ failed\ and\ the\ door/chest\ is\ not\ opened\r\n
+comment4.params=theKey
+comment4.target=boolean\ unlock(Key)
+comment5.params=
+comment5.target=boolean\ unlock()
+comment6.params=
+comment6.target=boolean\ getIsLocked()
+comment6.text=\r\n\ Return\ the\ status\ of\ the\ object\ true\ if\ locked\ and\ false\ if\ unlocked\r\n\ Containt\ inside\ the\ isLocked\ attributes\r\n\ @return\ boolean\ islocked\r\n
+numComments=7

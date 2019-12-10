@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=StolenAntTest
+comment0.text=\r\n\ The\ test\ class\ StolenAntTest.\r\n\r\n\ @author\ \ Crouzet\ G8\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=StolenAntTest()
+comment1.text=\r\n\ Default\ constructor\ for\ test\ class\ StolenAntTest\r\n
+comment2.params=
+comment2.target=void\ setUp()
+comment2.text=\r\n\ Sets\ up\ the\ different\ parameters\ needed\ for\ the\ test.\r\n\ thief\ who\ is\ a\ stolen\ ant\ object\r\n
+comment3.params=
+comment3.target=void\ testSetVpMinusValid()
+comment4.params=
+comment4.target=void\ testSetVpMinusInValid()
+comment5.params=
+comment5.target=void\ testSetVpPlusValid()
+comment6.params=
+comment6.target=void\ testSetVpPlusInvalid()
+comment7.params=
+comment7.target=void\ testGetVpValid()
+comment8.params=
+comment8.target=void\ testGetVpInvalid()
+numComments=9

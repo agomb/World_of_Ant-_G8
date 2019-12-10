@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Delivery
+comment0.text=\r\n\ This\ class\ allows\ to\ instanciate\ a\ delivery\ which\ can\ be\ deliver\ by\ a\ ant.\r\n\r\n\ @author\ Group\ 8\ -\ Marion\ Guernot\u00E9,\ Dylan\ Mielot,\ Fanny\ Barbe,\ Alix\ Nagot,\ Ambre\ Dumontet,\ Ang\u00E9lique\ Gombert,\ Thibault\ Crouzet\r\n\ @version\ 19/11/2019\r\n
+comment1.params=dName\ goalR
+comment1.target=Delivery(java.lang.String,\ Room)
+comment1.text=\r\n\ Create\ the\ delivery\ with\ a\ name\ and\ its\ destination\r\n\ @param\ dName\ allows\ to\ give\ a\ name\ to\ the\ object\r\n\ @param\ goalR\ is\ the\ room\ goal\ to\ drop\ the\ object.\r\n
+comment2.params=
+comment2.target=Room\ getGoal()
+comment2.text=\r\n\ Give\ the\ room\ goal\ of\ the\ delivery\r\n\ @return\ goal,\ the\ room\ goal\ of\ the\ delivery\r\n
+numComments=3

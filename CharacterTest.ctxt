@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=CharacterTest
+comment0.text=\r\n\ The\ test\ class\ for\ the\ Character\ class.\r\n\r\n\ @author\ \ Crouzet\ G8\r\n\ @version\ 1\r\n
+comment1.params=
+comment1.target=CharacterTest()
+comment1.text=\r\n\ Default\ constructor\ for\ test\ class\ CharacterTest\r\n
+comment2.params=
+comment2.target=void\ setUp()
+comment2.text=\r\n\ Sets\ up\ the\ different\ element\ needed\ for\ the\ different\ test\r\n
+comment3.params=
+comment3.target=void\ testNameInValid()
+comment3.text=\r\n\ Test\ if\ the\ name\ is\ invalid/empty\r\n\ This\ test\ will\ allways\ be\ false\ except\ if\ the\ name\ is\ incorrect\ and\ different\ from\ the\ default\ name\r\n
+comment4.params=
+comment4.target=void\ testNameValid()
+comment4.text=\r\n\ Test\ if\ the\ name\ is\ valid\r\n\ This\ test\ will\ be\ true\ except\ if\ the\ name\ is\ incorrect\ or\ equals\ to\ the\ default\ name\r\n
+comment5.params=
+comment5.target=void\ testNameDefaultValid()
+comment5.text=\r\n\ Test\ if\ the\ name\ is\ the\ default\ name\r\n\ This\ test\ will\ be\ true\ except\ if\ the\ name\ is\ incorrect\ and\ different\ from\ the\ default\ name\r\n
+numComments=6
