@@ -181,10 +181,7 @@ public class Game
         new Door(room26, "West", room28, "East");
         new Door(room28, "West", room29, "East");
         new Door(room26, "South", room27, "North");
-        new Door(room27, "South", roomOpponent, "North");
-        
-             
-        
+        new Door(room27, "South", roomOpponent, "North");  
     }
     
  
