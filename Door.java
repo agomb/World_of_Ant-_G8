@@ -32,7 +32,6 @@ public class Door
         room2 = r2;
         theKey = keyDoor;
         theLock = lockDoor;
-        
     }
     
     /**
@@ -60,26 +59,7 @@ public class Door
     {
         return theLock;
     }
-    
-    /**
-     * Give the keys on the box
-     * @return keys, the list of keys on the box
-     */
-    public List<Key> getListKeysDoors()
-    {
-        return keyDoors;
-    }
-    
-    /**
-     * Give the keys on the box
-     * @return keys, the list of keys on the box
-     */
-    public Key getKey()
-    {
-        return theKey;
 
-    }
-    
     /**
      * This method return the next room to move to but if the door is locked and you don't have the right key it will return a error type
      * This error need to be catch by the calling method
