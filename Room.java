@@ -42,11 +42,15 @@ public class Room
      * displays the possible exits in the room.
      * @ return List<String> the list of exit that exists (directions)
      */
-    //public List<String> getExit()
-    //{
-    //    List<String> theExits = new ArrayList<String>();
-    //    return theExits;
-    //}
+    public Door getDoor(String direction)
+    {
+        for(Map.Entry<String, Door> e : this.exits.entrySet())
+        {
+            if(direction.equals(e.getKey()))
+                return e.getValue();
+        }
+        return null;
+    }
     
     /**
      * displays the possible exits in the room.
@@ -56,7 +60,6 @@ public class Room
     {
         // Make the exits available clickable
         List<String> exitsAvailable = new ArrayList<String>();
-        System.out.println("Exits available :\n");
         for(Map.Entry<String, Door> e : this.exits.entrySet())
         {
             //System.out.println(e.getKey()+"\n");

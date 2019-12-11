@@ -51,7 +51,6 @@ public class Door
     */
     public static void createDoor(Room r1, String direction1, Room r2, String direction2, Key keyDoor, Lock lockDoor)
     {
-        lock = theLock;
         Door createdDoor = new Door(r1, direction1, r2, direction2, keyDoor, lockDoor);
         r1.addExit(r1,direction1, createdDoor);
         r2.addExit(r2,direction2, createdDoor);
@@ -72,23 +71,17 @@ public class Door
     }
     
     /**
-     * Give the keys on the box
-     * @return keys, the list of keys on the box
-     */
-    public Key getKey()
-    {
-        return theKey;
-    }
-    
-    /**
      * This method return the next room to move to but if the door is locked and you don't have the right key it will return a error type
      * This error need to be catch by the calling method
      *
      * 
      * @return     error or the next room
      */
-    public Room cross()
+    public Room crossDoor(Room currentRoom)
     {
-       return room2;
+       if (room1 == currentRoom)
+            return room2;
+       else 
+            return room1;
     }
 }
