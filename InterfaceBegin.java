@@ -49,16 +49,16 @@ public class InterfaceBegin extends JFrame implements ActionListener
         
         sto = new JButton("Stolen Ant");
         sto.setBackground(Color.yellow);
-        sto.setPreferredSize(new Dimension(100, 100));
+        sto.setPreferredSize(new Dimension(150, 150));
         sto.addActionListener(this);
         
         del = new JButton("Deliveroo Ant");
         del.setBackground(Color.magenta);
-        del.setPreferredSize(new Dimension(100, 100));
+        del.setPreferredSize(new Dimension(150, 150));
         del.addActionListener(this);
         
-        b2.add(sto);
-        b2.add(del);
+        b2.add(sto, BorderLayout.WEST);
+        b2.add(del, BorderLayout.CENTER);
         
         // Game rules panel
         pan5 = new JPanel();

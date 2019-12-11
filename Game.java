@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class Game
 {
-    // variables d'instance - 
+    // variables d'instance - remplacez l'exemple qui suit par le vôtre
     private List<Room> room; //countain rooms of the map
     private Player playerChoose; //character plays by the player
     private Player playerUnplay; //character plays by the computer
@@ -17,8 +17,7 @@ public class Game
     private Special theCreatedSpecial;
     private int timer;
     private int count;
-    private InterfaceBegin interfaceBegin;
-    private Lock theLock;
+    private InterfaceGame interfaceGame;
     /**
      * Constructor of the Game
      */
@@ -26,8 +25,19 @@ public class Game
     {
         room = new ArrayList<Room>();
         createRoom();
+        //interfaceGame = new InterfaceGame();
     }
     
+    /**
+     * Method to choose the player : deliveroo or stolen ant
+     * 
+     * @return type : "deliver" for deliveroo ant 
+     *                "stolen" for stolen ant    
+     */
+    public String choosePlayer()
+    {
+      return "";
+    }
     
     /**
      * Method to choose the player : deliveroo or stolen ant
@@ -55,33 +65,14 @@ public class Game
     }
     
     /**
-     * This method initialize the doors and rooms
-     *Each room of the underground has a number and the doors have directions 
+     * Un exemple de méthode - remplacez ce commentaire par le vôtre
      *
+     * @param  y   un paramètre pour cette méthode
+     * @param  x   un autre paramètre
+     * @return     la somme des deux paramètres
      */
     public void createRoom()
     {
-        Key theCreatedKey1 = new Key("key1");
-        Key theCreatedKey5 = new Key("key5");
-        Key theCreatedKey6 = new Key("key6");
-        Key theCreatedKey14 = new Key("key14");
-        Key theCreatedKey25 = new Key("key25");
-        Key theCreatedKeyRuby = new Key("keyRuby");
-        
-        Lock theCreatedLockRuby = new Lock(theCreatedKeyRuby); 
-        
-        Special theCreatedSpecialBonus = new Special("bonus");
-        Special theCreatedSpecialMalus = new Special("malus");
-        
-        TreasureBox box2 = new TreasureBox("Box2", theCreatedKey1, null);
-        TreasureBox box6 = new TreasureBox("Box6", theCreatedKey5, null);
-        TreasureBox box10 = new TreasureBox("Box10", null, theCreatedSpecialMalus);
-        TreasureBox box20 = new TreasureBox("Box20", theCreatedKey6, theCreatedSpecialMalus);
-        TreasureBox boxRuby = new TreasureBox("BoxRuby", null, theCreatedSpecialMalus, theCreatedLockRuby);
-        TreasureBox boxC = new TreasureBox("BoxC", theCreatedKey14, theCreatedSpecialBonus);
-        TreasureBox boxF = new TreasureBox("BoxF", theCreatedKey25, theCreatedSpecialMalus); 
-        TreasureBox boxG = new TreasureBox("BoxG", theCreatedKeyRuby, null);
-        
         // Here we create the rooms
         Room roomPlayer = new Room("PlayerRoom");
         room.add(roomPlayer);
@@ -91,7 +82,6 @@ public class Game
         room.add(room1);
         Room room2 = new Room("2");
         room.add(room2);
-        room2.addItem((Item)box2);
         Room room3 = new Room("3");
         room.add(room3);
         Room room4 = new Room("4");
@@ -100,7 +90,6 @@ public class Game
         room.add(roomPlayer);
         Room room6 = new Room("6");
         room.add(room6);
-        room6.addItem((Item)box6);
         Room room7 = new Room("7");
         room.add(room7);
         Room room8 = new Room("8");
@@ -109,7 +98,6 @@ public class Game
         room.add(room9);
         Room room10 = new Room("10");
         room.add(room10);
-        room10.addItem((Item)box10);
         Room room11 = new Room("11");
         room.add(room11);
         Room room12 = new Room("12");
@@ -130,7 +118,6 @@ public class Game
         room.add(room19);
         Room room20 = new Room("20");
         room.add(room20);
-        room20.addItem((Item)box20);
         Room room21 = new Room("21");
         room.add(room21);
         Room room22 = new Room("22");
@@ -145,7 +132,6 @@ public class Game
         room.add(room26);
         Room room27 = new Room("27");
         room.add(room27);
-        room27.addItem((Item)boxRuby);
         Room room28 = new Room("28");
         room.add(room28);
         Room room29 = new Room("29");
@@ -156,14 +142,12 @@ public class Game
         room.add(roomB);
         Room roomC = new Room("C");
         room.add(roomC);
-        roomC.addItem((Item)boxC);
         Room roomD = new Room("D");
         room.add(roomD);
         Room roomE = new Room("E");
         room.add(roomE);
         Room roomF = new Room("F");
         room.add(roomF);
-        roomF.addItem((Item)boxF);
         Room roomG = new Room("G");
         room.add(roomG);
 
@@ -202,6 +186,8 @@ public class Game
 
         roomG.addItem((Item)boxG);
     }
+    
+ 
     
     public Player getPlayer(){
         return playerChoose;
