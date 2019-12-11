@@ -4,7 +4,7 @@ import javax.swing.BorderFactory;
 import javax.swing.border.*;
 import javax.swing.*;
 import java.util.ArrayList;
-  
+import java.awt.Color;  
 /**
  * This class print the messages and informations for the player
  *
@@ -38,16 +38,18 @@ public class InterfaceInfo extends JPanel implements ActionListener
          // Create a label to display the interface name
         title = new JLabel("Message", JLabel.CENTER);
         title.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,35));
+        title.setBackground(Color.WHITE);
         
         //Create different border to design        
         raisedbevel = BorderFactory.createRaisedBevelBorder();
         loweredbevel = BorderFactory.createLoweredBevelBorder();
+        
         //let space around border
         paneEdge = BorderFactory.createEmptyBorder(0,10,10,10);
          
         //Create a panel to put our border with the messages inside
         compoundBorders = new JPanel();
-        
+        compoundBorders.setBackground(Color.WHITE);
         //set the border
         compoundBorders.setBorder(paneEdge);
         compoundBorders.setLayout(new BoxLayout(compoundBorders,BoxLayout.Y_AXIS));     
@@ -59,10 +61,13 @@ public class InterfaceInfo extends JPanel implements ActionListener
         
         //Create a panel to put button next and previous
         action = new JPanel();
+        action.setBackground(Color.WHITE);
         next = new JButton("Next");
         next.addActionListener(this);
+        next.setBackground(Color.WHITE);
         previous = new JButton("Previous");
         previous.addActionListener(this);
+        previous.setBackground(Color.WHITE);
         
         action.setLayout(new GridLayout(1,2)); 
         action.add(previous);
@@ -74,6 +79,7 @@ public class InterfaceInfo extends JPanel implements ActionListener
         finalPanel.add(title);
         finalPanel.add(compoundBorders);
         finalPanel.add(action);
+        finalPanel.setBackground(Color.WHITE);
         
         previous.setEnabled(false);
         

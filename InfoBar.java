@@ -44,6 +44,7 @@ public class InfoBar extends JPanel implements ActionListener
         super();
         myGameInterface = anInterface;
         
+        
         //getting the bag capacity and life/honor point attribute of the player
         currentcapacity = myGameInterface.getGame().getPlayer().getBag().size();
         currentlife = myGameInterface.getGame().getPlayer().getHp();
@@ -51,6 +52,7 @@ public class InfoBar extends JPanel implements ActionListener
         
         
         bagCunter = new JProgressBar();
+        bagCunter.setBackground(Color.WHITE);
         bagCunter.setString("Bag capacity :"+currentcapacity + "/"+20);
         bagCunter.setStringPainted(true);
         bagCunter.setValue(currentcapacity);
@@ -63,6 +65,7 @@ public class InfoBar extends JPanel implements ActionListener
         
         
         life = new JProgressBar();
+        life.setBackground(Color.WHITE);
         life.setString("Current life :"+currentlife + "/"+100);
         life.setStringPainted(true);
         life.setValue(currentlife);
@@ -74,6 +77,7 @@ public class InfoBar extends JPanel implements ActionListener
         
         //the timer section who start at 300s (5minutes)      
         time = new JLabel();
+        time.setBackground(Color.WHITE);
         
         task = new TimerTask() {
             public void run() {

@@ -24,6 +24,7 @@ public class Door
     
     /**
      * Constructeurs d'objets de classe Door
+
      */
     public Door(Room r1, String direction1, Room r2, String direction2, Key keyDoor, Lock lockDoor)
     {
@@ -36,6 +37,7 @@ public class Door
     
     /**
      * Constructeurs d'objets de classe Door
+
     */
     public static void createDoor(Room r1, String direction1, Room r2, String direction2)
     {
@@ -75,6 +77,7 @@ public class Door
     public Key getKey()
     {
         return theKey;
+
     }
     
     /**

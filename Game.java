@@ -175,8 +175,7 @@ public class Game
 
         //Here we create the doors between two rooms - initialization of the Hashmap
 
-
-        
+               
         
         Delivery d1 = new Delivery("d1", roomA);
         Delivery d2 = new Delivery("d2", roomB);
@@ -226,6 +225,7 @@ public class Game
             roomOpponent.addItem((Item)d13);
             roomOpponent.addItem((Item)d14);
         //}
+
         Door.createDoor(roomPlayer, "East", room1, "West");
         Door.createDoor(room1, "North", room2, "South");
         Door.createDoor(room1, "East", room3, "West", theCreatedKey1, Lock1);
@@ -264,6 +264,7 @@ public class Game
         Door.createDoor(room10, "Up", roomE, "Down");
         Door.createDoor(room29, "Up", roomG, "Down");
         Door.createDoor(room21, "Up", roomF, "Down");
+
         //roomG.addItem((Item)boxG);
 
     }
