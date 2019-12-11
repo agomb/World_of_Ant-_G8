@@ -102,7 +102,7 @@ public class Player extends Character
         //Interface_Info.setMessage("You picked a delivery");
     }
     
-     /**
+    /**
      * Open a treasure box and pick up items
      * @parameter loot who is an item in the room who is a item class
      * 

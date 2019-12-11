@@ -16,7 +16,7 @@ public class Item
      */
     public Item(String iName)
     {
-        if (nameItem.length() > 0 )
+        if (iName.length() > 0 )
         {
             nameItem = iName;
         } 
