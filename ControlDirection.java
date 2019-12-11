@@ -3,14 +3,14 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.awt.Color;
 /**
- * This class create the interface.
+ * This class create the interface to control the direction of the ant (player).
  * @author Group8 (Alix and Dylan) 
  * @version 2019-11-26
  */
 
 public class ControlDirection extends JPanel implements ActionListener 
 {   
-    private JButton northButton, southButton, eastButton, westButton, upButton, downButton ;
+    private JButton northButton, southButton, eastButton, westButton, upButton, downButton ; // the different button for each direction including up and down
     private InterfaceGame myGameInterface;
     
     public ControlDirection (InterfaceGame anInterface){
@@ -46,8 +46,8 @@ public class ControlDirection extends JPanel implements ActionListener
         myPanel_control1.add(upButton);
         myPanel_control1.add(downButton);
         
-        //Frame
         
+        //placement inside the panel
         this.setLayout(new BorderLayout());
         this.add(northButton, BorderLayout.NORTH);
         this.add(eastButton, BorderLayout.EAST);
@@ -91,7 +91,7 @@ public class ControlDirection extends JPanel implements ActionListener
     }
     
     /**
-     * 
+     * Implement the movement of the player when a button is pressed 
      */
     public void actionPerformed(ActionEvent e)
     {

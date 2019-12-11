@@ -19,7 +19,8 @@ public class Item
         if (iName.length() > 0 )
         {
             nameItem = iName;
-        } 
+        }
+        else nameItem = "item";
     }
     
      /**

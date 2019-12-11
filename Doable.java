@@ -3,7 +3,7 @@ import java.awt.event.*;
 import javax.swing.*; 
 
 /**
- * This class is 
+ * This class is all the button corespond to the diffeerent action that a player can do except the movement
  * 
  * @author Group 8 (Alix and Dylan) 
  * @version 2019-11-26
@@ -53,6 +53,9 @@ public class Doable extends JPanel implements ActionListener //creation class (p
         myButtonTreasure.setEnabled(false); // function for don't clic on the button
     }
     
+    /**
+     * All gestion of the different actions done by the buttons
+     */
 
     public void actionPerformed(ActionEvent e)
     {

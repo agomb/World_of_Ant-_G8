@@ -26,6 +26,7 @@ public class Player extends Character
         sizeBag = 20; 
         currentRoom = playerRoom;
         depot = playerRoom;
+        hp = 100;
     }
     
     /**
@@ -120,19 +121,12 @@ public class Player extends Character
             }     
         } 
         
-        if (box.getLock().getIsLocked() == false) {
+         if (box.getLock().getIsLocked() == false) {
+            setHp(box.getSpecial().getImpact());
 
-             for ( Special s : box.getListSpecial()) {
-                 setHp(s.getImpact());
-                 box.getListSpecial().remove(s);
-             }
-             
-             for ( Key k : box.getListKeys()) {
-                if (bag.size() < getSizeBag()){
-                     bag.add(k); 
-                     box.getListKeys().remove(k);
-                }
-             }
+            if (box.getKey() != null && bag.size() < getSizeBag()){
+                bag.add(box.getKey()); 
+            }
         }
         
     }
@@ -142,14 +136,16 @@ public class Player extends Character
      * @parameter  thedropName reprensent the name of the item that will be droped is the room
      * @return thedrop is the item that is droped in the room
      */
-    public void drop()
+    public Item drop()
     {
         for ( Item i : bag) {
             if(i instanceof Delivery){  
                  bag.remove(i);
+                 return i;
             } 
             
         }
+        return null;
     }
 
     /**

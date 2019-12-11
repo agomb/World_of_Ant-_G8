@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
- * Write a description of class InfoBar here.
+ * This class print the life, bag current capacity of the player and the time left.
  *
  * @author Dylan Thibault G8
  * @version 27/11/2019
@@ -46,8 +46,6 @@ public class InfoBar extends JPanel implements ActionListener
         
         
         //getting the bag capacity and life/honor point attribute of the player
-        
-        
         currentcapacity = myGameInterface.getGame().getPlayer().getBag().size();
         currentlife = myGameInterface.getGame().getPlayer().getHp();
         
@@ -60,7 +58,7 @@ public class InfoBar extends JPanel implements ActionListener
         bagCunter.setValue(currentcapacity);
         bagCunter.setMaximum(20);
         bagCunter.setSize(200, 100);
-        //bagCunter.setBackground(Color.orange); //modify orange to an other color if you want
+        
         bagCunter.setVisible(true);
         
         
@@ -72,7 +70,7 @@ public class InfoBar extends JPanel implements ActionListener
         life.setStringPainted(true);
         life.setValue(currentlife);
         life.setMaximum(100);
-        //life.setBackground(Color.red); //modify red to an other color if you want
+        
         life.setVisible(true);
         
         
@@ -98,7 +96,7 @@ public class InfoBar extends JPanel implements ActionListener
                     timer.purge();
                     jop1 = new JOptionPane();
                     jop1.showMessageDialog(null, "Game Over", "The Game has ended", JOptionPane.INFORMATION_MESSAGE);
-
+                    //this section is used when the time is up and finish the game
                     
                     
                 }
@@ -120,14 +118,17 @@ public class InfoBar extends JPanel implements ActionListener
     
     
     }
-
+    
+    /**
+     * Start the timer
+     */
     public void start()
     {
         timer.scheduleAtFixedRate(task,1000,1000);
     }
     
     /**
-     * Modify the frame when a specific action is used
+     * Modify the frame when a specific action is used and the time pass
      */
     private void actualisation(Player player)
     {

@@ -6,10 +6,10 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.awt.Color;  
 /**
- * Write a description of class Interface_info here.
+ * This class print the messages and informations for the player
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author G8
+ * @version 11/12/2019
  */
 public class InterfaceInfo extends JPanel implements ActionListener
 {
@@ -31,19 +31,9 @@ public class InterfaceInfo extends JPanel implements ActionListener
         myGameInterface = anInterface;
         i = 0; //initialize the number of messages
         information = new ArrayList<String>();
-        content = new JLabel("There is no message yet", JLabel.CENTER);
+        content = new JLabel("There is no message yet", JLabel.CENTER); //message printed when there are no others messages
         
-        /**
-        setMessage("message 1");
-        setMessage("message 2");
-        setMessage("message 3");
-        setMessage("message 4");
-        setMessage("message 5");
-        setMessage("message 6");
-        setMessage("message 7");
-        setMessage("message 8");
-        **/
-        
+          
         
          // Create a label to display the interface name
         title = new JLabel("Message", JLabel.CENTER);
@@ -115,10 +105,17 @@ public class InterfaceInfo extends JPanel implements ActionListener
         this.setSize(250, 100);
     }
 
+    /**
+     * Add a new message to the list of message
+     * @Parameter String theMessage => correspond to the new message
+     */
     private void setMessage(String theMessage){      
         information.add(theMessage);
     }
     
+    /**
+     * Update the message list 
+     */
     public void updateInfo(){
         Character c = myGameInterface.getGame().getPlayer();
         Player p = (Player)c; 
@@ -126,10 +123,18 @@ public class InterfaceInfo extends JPanel implements ActionListener
         information.add(t.getDescription());
     }
     
+    /**
+     * Return the message
+     * @Return String
+     */
     private String getMessage(){      
         return(information.get(i));
     }
     
+    /**
+     * Print the next message
+     * Verify if there is only one message, or if you are at the end of the list
+     */
     private void nextMessage()
     {       
             if(information.size() <= 1 )
@@ -169,6 +174,10 @@ public class InterfaceInfo extends JPanel implements ActionListener
             
            
     }
+    /**
+     * Print the previous message
+     * Verify if there is only one message, or if you are at the start of the list
+     */
     private void previousMessage()
     {       
             if(information.size() <= 1 )
@@ -211,6 +220,9 @@ public class InterfaceInfo extends JPanel implements ActionListener
             
     }
     
+    /**
+     * Print the next or previous message 
+     */
      public void actionPerformed(ActionEvent e) {     
         if(e.getSource() == next){
             

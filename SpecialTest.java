@@ -13,20 +13,29 @@ import org.junit.Test;
 public class SpecialTest
 {
     // Variable of the SpecialTest class
-    private int bonus;
+    
     private Special spe;
 
     /**
      * Test if getters work correctly.
      */
     @Test
-    public void testSpecial()
+    public void testgetImpactBonus()
     {
-        bonus = 5;
-        spe = new Special("Toto", bonus);
-        assertEquals(bonus, spe.getBonus());
+        
+        spe = new Special("bonus");
+        assertEquals(15,spe.getImpact() );
     }
-    
+    /**
+     * Test if getters work correctly.
+     */
+    @Test
+    public void testgetImpact()
+    {
+        
+        spe = new Special("malus");
+        assertEquals(-15,spe.getImpact() );
+    }
    
     
 }

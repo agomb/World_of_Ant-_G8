@@ -11,8 +11,7 @@ public class TreasureBox extends Item
     private Key keyBox; // list of keys countains in the box
     private Special specialBox; // list of special item countains in the box
     private Lock lockBox; // lock which will allows to open the box
-    private List<Key> keys;
-    private List<Special> specials;
+
 
     /**
      * Create a treasure box without lock 
@@ -25,6 +24,7 @@ public class TreasureBox extends Item
         super(tName);
         keyBox = theKey;
         specialBox = theSpecial;
+        
     }
     
     /**
@@ -51,7 +51,7 @@ public class TreasureBox extends Item
         return keyBox;
     }
     
-    /**
+     /**
      * Give the special item on the box
      * @return keys, the list of items on the box
      */
@@ -60,23 +60,6 @@ public class TreasureBox extends Item
         return specialBox;
     }
     
-    /**
-     * Give the keys on the box
-     * @return keys, the list of keys on the box
-     */
-    public List<Key> getListKeys()
-    {
-        return keys;
-    }
-    
-    /**
-     * Give the special item on the box
-     * @return keys, the list of items on the box
-     */
-     public List<Special> getListSpecial()
-    {
-        return specials;
-    }
     
     public Lock getLock()
     {
@@ -89,22 +72,27 @@ public class TreasureBox extends Item
      */
      public String getDescription()
     {
-        String s = "In this box there is : \n " ;
-       for ( Special spe : specials) {
-           if (spe.getImpact() < 0 ){
+       String s = "In this box there is : \n " ;
+       if (specialBox.getImpact() < 0 ){
                s = s + " a malus, you loose ";  
-           }else{
+       }else{
                s = s + " a bonus, you win ";
-           }
-           s = s +  Integer.toString(spe.getImpact()) + "hp \n" ;     
        }
-       int nb = 0;
-       for ( Key k : keys) {
-           nb++;
-       }
-        
-       s = s + "You pick up " +nb + "key(s)";
+       s = s +  Integer.toString(specialBox.getImpact()) + "hp \n" ;     
+ 
+       s = s + "You pick up 1 key";
         
        return s;
-    }
+    } 
+    
+    /**
+     * Remove all the item and key contain inside the treasure box
+     * 
+     */
+    public void removeItem()
+    {
+       keyBox = null;
+       specialBox = null;
+       
+    } 
 }
