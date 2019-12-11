@@ -182,10 +182,13 @@ public class Game
         new Door(room28, "West", room29, "East");
         new Door(room26, "South", room27, "North");
         new Door(room27, "South", roomOpponent, "North");
-        
-        
-        
-        
+        new Door(room3, "Up", roomB, "Down");
+        new Door(room18, "Up", roomD, "Down");
+        new Door(room7, "Up", roomC, "Down");
+        new Door(room15, "Up", roomA, "Down");
+        new Door(room10, "Up", roomE, "Down");
+        new Door(room29, "Up", roomG, "Down");
+        new Door(room21, "Up", roomF, "Down");
     }
     
  
