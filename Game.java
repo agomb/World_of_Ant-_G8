@@ -24,8 +24,10 @@ public class Game
     public Game()
     {
         room = new ArrayList<Room>();
+        
+
         createRoom();
-        //interfaceGame = new InterfaceGame();
+
     }
     
     /**
@@ -63,10 +65,34 @@ public class Game
      */
     public void createRoom()
     {
+
+        Key theCreatedKey1 = new Key("key1");
+        Key theCreatedKey5 = new Key("key5");
+        Key theCreatedKey6 = new Key("key6");
+        Key theCreatedKey14 = new Key("key14");
+        Key theCreatedKey25 = new Key("key25");
+        Key theCreatedKeyRuby = new Key("keyRuby");
+        
+        Lock theCreatedLockRuby = new Lock(theCreatedKeyRuby); 
+        
+        Special theCreatedSpecialBonus = new Special("bonus");
+        Special theCreatedSpecialMalus = new Special("malus");
+        
+        TreasureBox box2 = new TreasureBox("Box2", theCreatedKey1, null);
+        TreasureBox box6 = new TreasureBox("Box6", theCreatedKey5, null);
+        TreasureBox box10 = new TreasureBox("Box10", null, theCreatedSpecialMalus);
+        TreasureBox box20 = new TreasureBox("Box20", theCreatedKey6, theCreatedSpecialMalus);
+        TreasureBox boxRuby = new TreasureBox("BoxRuby", null, theCreatedSpecialMalus, theCreatedLockRuby);
+        TreasureBox boxC = new TreasureBox("BoxC", theCreatedKey14, theCreatedSpecialBonus);
+        TreasureBox boxF = new TreasureBox("BoxF", theCreatedKey25, theCreatedSpecialMalus); 
+        TreasureBox boxG = new TreasureBox("BoxG", theCreatedKeyRuby, null);
+      
+        
+
         // Here we create the rooms
         Room roomPlayer = new Room("PlayerRoom");
         room.add(roomPlayer);
-        Room roomOpponent = new Room("OpponentRoom");
+        Room roomOpponent  = new Room("OpponentRoom");
         room.add(roomOpponent);
         Room room1 = new Room("1");
         room.add(room1);
@@ -141,7 +167,63 @@ public class Game
         Room roomG = new Room("G");
         room.add(roomG);
 
-        //Here we create the doors between two rooms - initialization of the Hashmap       
+
+        //Here we create the doors between two rooms - initialization of the Hashmap
+
+
+        
+        
+        Delivery d1 = new Delivery("d1", roomA);
+        Delivery d2 = new Delivery("d2", roomB);
+        Delivery d3 = new Delivery("d3", roomC);
+        Delivery d4 = new Delivery("d4", roomD);
+        Delivery d5 = new Delivery("d5", roomE);
+        Delivery d6 = new Delivery("d6", roomF);
+        Delivery d7 = new Delivery("d7", roomG);
+        Delivery d8 = new Delivery("d8", roomA);
+        Delivery d9 = new Delivery("d9", roomB);
+        Delivery d10 = new Delivery("d10", roomC);
+        Delivery d11 = new Delivery("d11", roomD);
+        Delivery d12 = new Delivery("d12", roomE);
+        Delivery d13 = new Delivery("d13", roomF);
+        Delivery d14 = new Delivery("d14", roomG);
+        
+        
+        //if ( playerChoose instanceof DeliverooAnt){
+            roomPlayer.addItem((Item)d1);
+            roomPlayer.addItem((Item)d2);
+            roomPlayer.addItem((Item)d3);
+            roomPlayer.addItem((Item)d4);
+            roomPlayer.addItem((Item)d5);
+            roomPlayer.addItem((Item)d6);
+            roomPlayer.addItem((Item)d7);
+            roomPlayer.addItem((Item)d8);
+            roomPlayer.addItem((Item)d9);
+            roomPlayer.addItem((Item)d10);
+            roomPlayer.addItem((Item)d11);
+            roomPlayer.addItem((Item)d12);
+            roomPlayer.addItem((Item)d13);
+            roomPlayer.addItem((Item)d14);
+
+        //}else{
+            roomOpponent.addItem((Item)d1);
+            roomOpponent.addItem((Item)d2);
+            roomOpponent.addItem((Item)d3);
+            roomOpponent.addItem((Item)d4);
+            roomOpponent.addItem((Item)d5);
+            roomOpponent.addItem((Item)d6);
+            roomOpponent.addItem((Item)d7);
+            roomOpponent.addItem((Item)d8);
+            roomOpponent.addItem((Item)d9);
+            roomOpponent.addItem((Item)d10);
+            roomOpponent.addItem((Item)d11);
+            roomOpponent.addItem((Item)d12);
+            roomOpponent.addItem((Item)d13);
+            roomOpponent.addItem((Item)d14);
+        //}
+        
+
+
         Door.createDoor(roomPlayer, "East", room1, "West");
         Door.createDoor(room1, "North", room2, "South");
         //Door.createDoor(room1, "East", room3, "West", theLock);
@@ -198,52 +280,28 @@ public class Game
     }
     
     public void createPlayer(boolean b){
-        Room depart  = null;
+        Room departPlayer  = null;
+        Room departOpponent = null;
         
         for ( Room r : room) {
             if (r.getDescription() == "PlayerRoom"){
-                depart = r;
+                departPlayer = r;
             }
-            
+            if (r.getDescription() == "OpponentRoom"){
+                departOpponent = r;
+            }        
         };
         
+        
         if (b == true){
-          playerChoose = new  StolenAnt("play", depart);
-          playerUnplay = new DeliverooAnt("unplay", depart);
+            playerChoose = new  StolenAnt("play", departPlayer);
+            playerUnplay = new DeliverooAnt("unplay", departOpponent);
         }else{
-          playerUnplay  = new  StolenAnt("unplay", depart);
-          playerChoose = new DeliverooAnt("play", depart);
+            playerUnplay  = new  StolenAnt("unplay", departOpponent);
+            playerChoose = new DeliverooAnt("play", departPlayer);
         }
+        
+        
     }
     
-    /**
-     * Un exemple de méthode - remplacez ce commentaire par le vôtre
-     *
-     * @param  y   un paramètre pour cette méthode
-     * @param  x   un autre paramètre
-     * @return     la somme des deux paramètres
-     */
-    public void createBox()
-    {
-        Key theCreatedKey1 = new Key("key1");
-        Key theCreatedKey5 = new Key("key5");
-        Key theCreatedKey6 = new Key("key6");
-        Key theCreatedKey14 = new Key("key14");
-        Key theCreatedKey25 = new Key("key25");
-        Key theCreatedKeyRuby = new Key("keyRuby");
-        
-        Lock theCreatedLockRuby = new Lock(theCreatedKeyRuby); 
-        
-        Special theCreatedSpecialBonus = new Special("bonus");
-        Special theCreatedSpecialMalus = new Special("malus");
-        
-        TreasureBox box2 = new TreasureBox("Box2", theCreatedKey1, null);
-        TreasureBox box6 = new TreasureBox("Box6", theCreatedKey5, null);
-        TreasureBox box10 = new TreasureBox("Box10", null, theCreatedSpecialMalus);
-        TreasureBox box20 = new TreasureBox("Box20", theCreatedKey6, theCreatedSpecialMalus);
-        TreasureBox boxRuby = new TreasureBox("BoxRuby", null, theCreatedSpecialMalus, theCreatedLockRuby);
-        TreasureBox boxC = new TreasureBox("BoxC", theCreatedKey14, theCreatedSpecialBonus);
-        TreasureBox boxF = new TreasureBox("BoxF", theCreatedKey25, theCreatedSpecialMalus); 
-        TreasureBox boxH = new TreasureBox("BoxH", theCreatedKeyRuby, null);
-    }
 }

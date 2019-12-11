@@ -14,9 +14,12 @@ public class InterfaceGame extends JFrame
     private Game game;
     private ControlDirection control;
     private Doable doable;
-    private InterfaceVisual map;
+    private InterfaceVisual map;  
     private InterfaceInfo message;
-    
+
+    private InfoBar info;
+    protected JPanel panInterfaceGame, panInterfaceGameBas, panInterfaceGameCentre, transparent;
+
     protected JPanel panInterfaceGame, panInterfaceGameBas, panInterfaceGameCentre, transparent;
     
     /**
@@ -26,6 +29,11 @@ public class InterfaceGame extends JFrame
     {
         super();
         game =g;
+
+        
+        
+        info = new InfoBar(this);
+
       
         InfoBar info = new InfoBar(this);
         ControlDirection control = new ControlDirection(this);
@@ -70,58 +78,48 @@ public class InterfaceGame extends JFrame
         
         this.setVisible(true);
         
-        /*
+        
         InfoBar info = new InfoBar(this);    
+
         control = new ControlDirection(this);
-        
         doable = new Doable(this);
-        
         map = new InterfaceVisual(getGame().getPlayer().getCurrentRoom(),getGame().getPlayer(), this);
-        
         message = new InterfaceInfo(this);
         
-        GridBagConstraints c = new GridBagConstraints();
-        this.setLayout(new GridBagLayout());
+        panInterfaceGameCentre = new JPanel(); 
+        panInterfaceGameCentre.setLayout(new GridLayout(2,0)); 
+        panInterfaceGameCentre.add(message); 
+        panInterfaceGameCentre.add(doable); 
+        
+        panInterfaceGameBas = new JPanel(); 
+        panInterfaceGameBas.setLayout(new GridLayout(0,2));
+        JButton blanc = new JButton();
+        blanc.setBorderPainted(false); 
+        blanc.setContentAreaFilled(false);
+        blanc.setFocusPainted(false); 
+        panInterfaceGameBas.add(blanc);
+        panInterfaceGameBas.add(control); 
         
         
-        c.fill = GridBagConstraints.PAGE_START;
-        c.gridx = 0;
-        c.gridy = 0;
-        this.add( info , c);
+        panInterfaceGame = new JPanel(); 
+        panInterfaceGame.add(info); 
+        panInterfaceGame.add(map); 
         
+        this.setLayout(new BorderLayout()); 
+        this.add(info, BorderLayout.NORTH); 
+        this.add(panInterfaceGameCentre, BorderLayout.WEST); 
+        this.add(map, BorderLayout.CENTER); 
+        this.add(panInterfaceGameBas, BorderLayout.SOUTH); 
+
+        this.setSize(1000,800);
+        this.setLocationRelativeTo(null); // object position at the center
         
-        c.fill = GridBagConstraints.FIRST_LINE_START;
-        c.gridx = 0;
-        c.gridy = 1;
-        this.add( message , c );//GridBagLayout.FIRST_LINE_START);
-        
-        c.fill = GridBagConstraints.LINE_START;
-        c.gridx = 0;
-        c.gridy = 2;
-        this.add( doable , c ); //GridBagLayout.WEST);
-        //this.add( doable , BorderLayout.AFTER_LAST_LINE);
-        
-        c.fill = GridBagConstraints.CENTER;
-        c.gridx = 1;
-        c.gridy = 1;
-        this.add( map , c ); // GridBagLayout.CENTER);
-        
-        c.fill = GridBagConstraints.LINE_END;
-        c.gridx = 2;
-        c.gridy = 2;
-        this.add( control , c ); //GridBagLayout.EAST);
-        
-        
-        
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.pack();
         this.setVisible(true);
-        */
-       
         
     
     }
     
+        
     public Game getGame(){
         return game;
     }
@@ -134,9 +132,7 @@ public class InterfaceGame extends JFrame
         return message;
     }
     
-    public void main()
-    {
-        
+    public InfoBar getBar(){
+        return info;
     }
-
 }

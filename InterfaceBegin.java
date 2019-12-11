@@ -95,12 +95,11 @@ public class InterfaceBegin extends JFrame implements ActionListener
         this.setUndecorated(false);
         this.setVisible(true);
 
-        
     }
     
-     public void actionPerformed(ActionEvent e) {     
+    public void actionPerformed(ActionEvent e) {     
 
-         if(e.getSource() == sto){
+        if(e.getSource() == sto){
             game.createPlayer(true);  
         }
         else if(e.getSource() == del){ 
@@ -110,7 +109,7 @@ public class InterfaceBegin extends JFrame implements ActionListener
 
         this.setVisible(false);
         this.dispose();
-        
+       
         InterfaceGame ig = new InterfaceGame(game);
                 
     }
