@@ -266,7 +266,6 @@ public class Game
         Door.createDoor(room21, "Up", roomF, "Down");
 
         //roomG.addItem((Item)boxG);
-
     }
     
     public Player getPlayer(){

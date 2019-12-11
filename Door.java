@@ -50,6 +50,7 @@ public class Door
     */
     public static void createDoor(Room r1, String direction1, Room r2, String direction2, Key keyDoor, Lock lockDoor)
     {
+        lock = theLock;
         Door createdDoor = new Door(r1, direction1, r2, direction2, keyDoor, lockDoor);
         r1.addExit(r1,direction1, createdDoor);
         r2.addExit(r2,direction2, createdDoor);

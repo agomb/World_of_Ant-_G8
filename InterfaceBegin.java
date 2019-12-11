@@ -92,9 +92,9 @@ public class InterfaceBegin extends JFrame implements ActionListener
         
         // adding all in the frame
         this.add(panG);
-        this.setSize(800,600);
+        this.setSize(1000,600);
         this.setLocationRelativeTo(null); // object position at the center
-        this.setUndecorated(false);
+        this.setUndecorated(true);
         this.setVisible(true);
 
         

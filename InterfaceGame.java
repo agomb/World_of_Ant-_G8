@@ -32,7 +32,10 @@ public class InterfaceGame extends JFrame
         info = new InfoBar(this);
 
         InfoBar info = new InfoBar(this);
-        ControlDirection control = new ControlDirection(this);
+        control = new ControlDirection(this);
+        //control.disableAllButtons();
+        //control.enableButton();
+        
         Doable doable = new Doable(this);
         InterfaceVisual map = new InterfaceVisual(getGame().getPlayer().getCurrentRoom(),getGame().getPlayer(), this);
         InterfaceInfo message = new InterfaceInfo(this);

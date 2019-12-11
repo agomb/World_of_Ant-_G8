@@ -13,7 +13,7 @@ import javax.swing.*;
 public class BcGdMenu extends JPanel {
   public void paintComponent(Graphics g){
     try {
-      Image img = ImageIO.read(new File("Ant.jpg"));
+      Image img = ImageIO.read(new File("bg_image.jpg"));
       //g.drawImage(img, 0, 0, this);
       //For font image
       g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);

@@ -57,6 +57,4 @@ public class InterfaceVisual extends JPanel
         this.add(mypicture);
         this.setSize(1200,1200);
     }
-
-   
 }

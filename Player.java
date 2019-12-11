@@ -121,15 +121,13 @@ public class Player extends Character
             }     
         } 
         
-         if (box.getLock().getIsLocked() == false) {
+        if (box.getLock().getIsLocked() == false) 
+        {
             setHp(box.getSpecial().getImpact());
 
          //   if (box.getKey() != null && bag.size() < getSizeBag()){
           //      bag.add(box.getKey()); 
-            }
         }
-        
-    
     
     /**
      * Drop an item in the room
