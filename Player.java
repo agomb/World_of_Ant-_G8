@@ -26,6 +26,7 @@ public class Player extends Character
         sizeBag = 20; 
         currentRoom = playerRoom;
         depot = playerRoom;
+        
     }
     
     /**

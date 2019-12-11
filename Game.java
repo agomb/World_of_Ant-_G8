@@ -185,7 +185,7 @@ public class Game
         Door.createDoor(room26, "South", room27, "North");
         Door.createDoor(room27, "South", roomOpponent, "North");  
 
-        roomG.addItem((Item)boxG);
+        //roomG.addItem((Item)boxG);
     }
     
  

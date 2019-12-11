@@ -52,17 +52,17 @@ public class Room
      * displays the possible exits in the room.
      * @ return List<String> the list of exit that exists (directions)
      */
-    public void checkExits()
+    public List<String> checkExits()
     {
-        // Disable all exits
-        // GameInterface.control.disableAllButtons();
-        
         // Make the exits available clickable
+        List<String> exitsAvailable = new ArrayList<String>();
         System.out.println("Exits available :\n");
-        for(Map.Entry e : this.exits.entrySet())
+        for(Map.Entry<String, Door> e : this.exits.entrySet())
         {
-            System.out.println(e.getKey()+"\n");
+            //System.out.println(e.getKey()+"\n");
+            exitsAvailable.add(e.getKey());
         }
+        return exitsAvailable;
     }
     
     /**
