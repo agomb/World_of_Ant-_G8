@@ -65,7 +65,8 @@ public class Game
     }
     
     /**
-     * Un exemple de méthode - remplacez ce commentaire par le vôtre
+     * This method initialize the doors and rooms
+     * Each room of the underground has a number and the doors have directions
      *
      * @param  y   un paramètre pour cette méthode
      * @param  x   un autre paramètre
