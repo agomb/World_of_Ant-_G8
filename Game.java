@@ -56,7 +56,7 @@ public class Game
     
     /**
      * This method initialize the doors and rooms
-     *Each room of the underground has a number and the doors have directions 
+     * Each room of the underground has a number and the doors have directions 
      *
      */
     public void createRoom()
