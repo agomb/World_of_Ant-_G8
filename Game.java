@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class Game
 {
-    // variables d'instance - 
+    // variables d'instance - remplacez l'exemple qui suit par le vôtre
     private List<Room> room; //countain rooms of the map
     private Player playerChoose; //character plays by the player
     private Player playerUnplay; //character plays by the computer
@@ -17,8 +17,7 @@ public class Game
     private Special theCreatedSpecial;
     private int timer;
     private int count;
-    private InterfaceBegin interfaceBegin;
-    private Lock theLock;
+    private InterfaceGame interfaceGame;
     /**
      * Constructor of the Game
      */
@@ -26,7 +25,18 @@ public class Game
     {
         room = new ArrayList<Room>();
         createRoom();
-        //interfaceBegin = new InterfaceBegin();
+        //interfaceGame = new InterfaceGame();
+    }
+    
+    /**
+     * Method to choose the player : deliveroo or stolen ant
+     * 
+     * @return type : "deliver" for deliveroo ant 
+     *                "stolen" for stolen ant    
+     */
+    public String choosePlayer()
+    {
+      return "";
     }
     
     /**
@@ -55,9 +65,11 @@ public class Game
     }
     
     /**
-     * This method initialize the doors and rooms
-     *Each room of the underground has a number and the doors have directions 
+     * Un exemple de méthode - remplacez ce commentaire par le vôtre
      *
+     * @param  y   un paramètre pour cette méthode
+     * @param  x   un autre paramètre
+     * @return     la somme des deux paramètres
      */
     public void createRoom()
     {
@@ -169,8 +181,14 @@ public class Game
         new Door(room26, "West", room28, "East");
         new Door(room28, "West", room29, "East");
         new Door(room26, "South", room27, "North");
-        new Door(room27, "South", roomOpponent, "North");  
+        new Door(room27, "South", roomOpponent, "North");
+        
+        
+        
+        
     }
+    
+ 
     
     public Player getPlayer(){
         return playerChoose;
