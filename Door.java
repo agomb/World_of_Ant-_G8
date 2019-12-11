@@ -32,7 +32,6 @@ public class Door
         room2 = r2;
         theKey = keyDoor;
         theLock = lockDoor;
-        
     }
     
     /**
