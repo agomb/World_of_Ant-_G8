@@ -170,8 +170,7 @@ public class Game
 
         //Here we create the doors between two rooms - initialization of the Hashmap
 
-
-        
+               
         
         Delivery d1 = new Delivery("d1", roomA);
         Delivery d2 = new Delivery("d2", roomB);
