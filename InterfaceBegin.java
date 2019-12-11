@@ -25,7 +25,7 @@ public class InterfaceBegin extends JFrame implements ActionListener
      */
     public InterfaceBegin()
     {
-        super("MY MENU");
+        //super("MY MENU");
         game = new Game();
         this.setContentPane(new BcGdMenu());
         
@@ -82,7 +82,7 @@ public class InterfaceBegin extends JFrame implements ActionListener
         
         // General Panel for display others panels
         panG = new JPanel();
-        panG.setLayout( new BorderLayout(1,250));
+        panG.setLayout( new BorderLayout(1,80));
         panG.setOpaque(false);
         panG.add(panWelcome, BorderLayout.PAGE_START);
         panG.add(b2, BorderLayout.CENTER);
@@ -90,17 +90,16 @@ public class InterfaceBegin extends JFrame implements ActionListener
         
         // adding all in the frame
         this.add(panG);
-        this.setSize(1600,900);
+        this.setSize(800,600);
         this.setLocationRelativeTo(null); // object position at the center
-        this.setUndecorated(true);
+        this.setUndecorated(false);
         this.setVisible(true);
 
-        
     }
     
-     public void actionPerformed(ActionEvent e) {     
+    public void actionPerformed(ActionEvent e) {     
 
-         if(e.getSource() == sto){
+        if(e.getSource() == sto){
             game.createPlayer(true);  
         }
         else if(e.getSource() == del){ 
@@ -110,7 +109,7 @@ public class InterfaceBegin extends JFrame implements ActionListener
 
         this.setVisible(false);
         this.dispose();
-        
+       
         InterfaceGame ig = new InterfaceGame(game);
         
         

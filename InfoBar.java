@@ -13,10 +13,9 @@ import javax.swing.JOptionPane;
  * @author Dylan Thibault G8
  * @version 27/11/2019
  */
-public class InfoBar extends JPanel implements ActionListener
+public class InfoBar extends JPanel 
 {
     private InterfaceGame myGameInterface;
-    private Player player;
     
     private JProgressBar bagCunter;
     private JProgressBar life;
@@ -88,7 +87,7 @@ public class InfoBar extends JPanel implements ActionListener
                 }
                 else
                 {
-                    actualisation(player);
+                    actualisation(myGameInterface.getGame().getPlayer());
                     time.setText("The End Game");
                     timer.cancel();
                     timer.purge();
@@ -125,21 +124,16 @@ public class InfoBar extends JPanel implements ActionListener
     /**
      * Modify the frame when a specific action is used
      */
-    private void actualisation(Player player)
+    public void actualisation(Player player)
     {
         currentcapacity = myGameInterface.getGame().getPlayer().getBag().size();
-        bagCunter.setString("Bag capacity :"+currentcapacity + "/"+20);
+        bagCunter.setString("Bag capacity : "+ currentcapacity + "/"+20);
         
         currentlife = myGameInterface.getGame().getPlayer().getHp();
-        life.setString("Current life :"+currentlife + "/"+100);
+        life.setString("Current life : "+currentlife + "/"+100);
         
     }
     
     
-    
-    public void actionPerformed(ActionEvent e)
-    {
-        
-    }
     
 }

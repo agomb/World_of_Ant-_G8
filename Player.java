@@ -26,6 +26,7 @@ public class Player extends Character
         sizeBag = 20; 
         currentRoom = playerRoom;
         depot = playerRoom;
+        hp = 100;
     }
     
     /**
@@ -98,11 +99,12 @@ public class Player extends Character
      */
     public void pickUpDelivery(Delivery loot)
     {
-        bag.add(loot);
-        //Interface_Info.setMessage("You picked a delivery");
+        if (bag.size() < getSizeBag() && loot !=null){
+            bag.add(loot); 
+        }
     }
     
-     /**
+    /**
      * Open a treasure box and pick up items
      * @parameter loot who is an item in the room who is a item class
      * 
@@ -121,20 +123,13 @@ public class Player extends Character
         } 
         
         if (box.getLock().getIsLocked() == false) {
+            setHp(box.getSpecial().getImpact());
 
-             for ( Special s : box.getListSpecial()) {
-                 setHp(s.getImpact());
-                 box.getListSpecial().remove(s);
-             }
-             
-             for ( Key k : box.getListKeys()) {
-                if (bag.size() < getSizeBag()){
-                     bag.add(k); 
-                     box.getListKeys().remove(k);
-                }
-             }
+            if (box.getKey() != null && bag.size() < getSizeBag()){
+                bag.add(box.getKey()); 
+            }
         }
-        
+      
     }
     
     /**
