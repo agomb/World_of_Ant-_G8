@@ -33,9 +33,6 @@ public class Door
     public void addLockDoor(Lock theLock)
     {
         lock = theLock;
-        room1 = r1;
-        room2 = r2;
-        lock = thelock;
     }
     
     /**
