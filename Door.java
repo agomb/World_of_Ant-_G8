@@ -20,25 +20,21 @@ public class Door
         room2 = r2;
     }
     
-    public void createDoor(Room r1, String direction1, Room r2, String direction2){
-        room1.addExit(direction1, this);
-        room2.addExit(direction2, this);
-    }
-    
-    public Door(Room r1, String direction1, Room r2, String direction2, Lock thelock)
+    /**
+     * Constructeurs d'objets de classe Door
+    */
+    public static void createDoor(Room r1, String direction1, Room r2, String direction2)
     {
-        room1 = r1;
-        room2 = r2;
-        lock = thelock;
+        Door createdDoor = new Door(r1, direction1, r2, direction2);
+        r1.addExit(r1,direction1, createdDoor);
+        r2.addExit(r2,direction2, createdDoor);
     }
     
-    public void createLockedDoor(Room r1, String direction1, Room r2, String direction2, Lock thelock){
-        room1.addExit(direction1, this);
-        room2.addExit(direction2, this);
+    public void addLockDoor(Lock theLock)
+    {
+        lock = theLock;
     }
     
- 
-
     /**
      * This method return the next room to move to but if the door is locked and you don't have the right key it will return a error type
      * This error need to be catch by the calling method

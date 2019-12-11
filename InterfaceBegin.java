@@ -47,24 +47,24 @@ public class InterfaceBegin extends JFrame implements ActionListener
         b2 = new JPanel();
         b2.setOpaque(false);
         
-        sto = new JButton("Stolen Ant");
+        sto = new JButton("STOLEN ANT");
         sto.setBackground(Color.yellow);
-        sto.setPreferredSize(new Dimension(100, 100));
+        sto.setPreferredSize(new Dimension(150, 150));
         sto.addActionListener(this);
         
-        del = new JButton("Deliveroo Ant");
+        del = new JButton("DELIVEROO ANT");
         del.setBackground(Color.magenta);
-        del.setPreferredSize(new Dimension(100, 100));
+        del.setPreferredSize(new Dimension(150, 150));
         del.addActionListener(this);
         
-        b2.add(sto);
-        b2.add(del);
+        b2.add(sto, BorderLayout.WEST);
+        b2.add(del, BorderLayout.CENTER);
         
         // Game rules panel
         pan5 = new JPanel();
         pan4 = new JPanel();
         pan3 = new JPanel();
-        pan3.setPreferredSize(new Dimension(500, 150));
+        pan3.setPreferredSize(new Dimension(400, 150));
         pan3.setLayout(new GridLayout(6,1));
         label = new JLabel("Game rules :", JLabel.CENTER);
         label.setFont(new Font("Serif", Font.PLAIN, 25));
@@ -111,8 +111,7 @@ public class InterfaceBegin extends JFrame implements ActionListener
         this.dispose();
        
         InterfaceGame ig = new InterfaceGame(game);
-        
-        
+                
     }
    
     

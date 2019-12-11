@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class Game
 {
-    // variables d'instance - 
+    // variables d'instance - remplacez l'exemple qui suit par le vôtre
     private List<Room> room; //countain rooms of the map
     private Player playerChoose; //character plays by the player
     private Player playerUnplay; //character plays by the computer
@@ -17,8 +17,7 @@ public class Game
     private Special theCreatedSpecial;
     private int timer;
     private int count;
-    private InterfaceBegin interfaceBegin;
-    private Lock theLock;
+    private InterfaceGame interfaceGame;
     /**
      * Constructor of the Game
      */
@@ -26,8 +25,21 @@ public class Game
     {
         room = new ArrayList<Room>();
         
+
+        createRoom();
+
     }
     
+    /**
+     * Method to choose the player : deliveroo or stolen ant
+     * 
+     * @return type : "deliver" for deliveroo ant 
+     *                "stolen" for stolen ant    
+     */
+    public String choosePlayer()
+    {
+      return "";
+    }
     
     /**
      * Method to choose the player : deliveroo or stolen ant
@@ -56,11 +68,15 @@ public class Game
     
     /**
      * This method initialize the doors and rooms
-     *Each room of the underground has a number and the doors have directions 
+     * Each room of the underground has a number and the doors have directions
      *
+     * @param  y   un paramètre pour cette méthode
+     * @param  x   un autre paramètre
+     * @return     la somme des deux paramètres
      */
     public void createRoom()
     {
+
         Key theCreatedKey1 = new Key("key1");
         Key theCreatedKey5 = new Key("key5");
         Key theCreatedKey6 = new Key("key6");
@@ -83,6 +99,7 @@ public class Game
         TreasureBox boxG = new TreasureBox("BoxG", theCreatedKeyRuby, null);
       
         
+
         // Here we create the rooms
         Room roomPlayer = new Room("PlayerRoom");
         room.add(roomPlayer);
@@ -92,7 +109,6 @@ public class Game
         room.add(room1);
         Room room2 = new Room("2");
         room.add(room2);
-        room2.addItem((Item)box2);
         Room room3 = new Room("3");
         room.add(room3);
         Room room4 = new Room("4");
@@ -101,7 +117,6 @@ public class Game
         room.add(roomPlayer);
         Room room6 = new Room("6");
         room.add(room6);
-        room6.addItem((Item)box6);
         Room room7 = new Room("7");
         room.add(room7);
         Room room8 = new Room("8");
@@ -110,7 +125,6 @@ public class Game
         room.add(room9);
         Room room10 = new Room("10");
         room.add(room10);
-        room10.addItem((Item)box10);
         Room room11 = new Room("11");
         room.add(room11);
         Room room12 = new Room("12");
@@ -131,7 +145,6 @@ public class Game
         room.add(room19);
         Room room20 = new Room("20");
         room.add(room20);
-        room20.addItem((Item)box20);
         Room room21 = new Room("21");
         room.add(room21);
         Room room22 = new Room("22");
@@ -146,7 +159,6 @@ public class Game
         room.add(room26);
         Room room27 = new Room("27");
         room.add(room27);
-        room27.addItem((Item)boxRuby);
         Room room28 = new Room("28");
         room.add(room28);
         Room room29 = new Room("29");
@@ -157,18 +169,18 @@ public class Game
         room.add(roomB);
         Room roomC = new Room("C");
         room.add(roomC);
-        roomC.addItem((Item)boxC);
         Room roomD = new Room("D");
         room.add(roomD);
         Room roomE = new Room("E");
         room.add(roomE);
         Room roomF = new Room("F");
         room.add(roomF);
-        roomF.addItem((Item)boxF);
         Room roomG = new Room("G");
         room.add(roomG);
-        roomG.addItem((Item)boxG);
-        
+
+        //Here we create the doors between two rooms - initialization of the Hashmap
+
+
         
         
         Delivery d1 = new Delivery("d1", roomA);
@@ -220,7 +232,51 @@ public class Game
             roomOpponent.addItem((Item)d14);
         //}
         
+
+        Door.createDoor(roomPlayer, "East", room1, "West");
+        Door.createDoor(room1, "North", room2, "South");
+        //Door.createDoor(room1, "East", room3, "West", theLock);
+        Door.createDoor(room3, "East", room4, "West");
+        Door.createDoor(room4, "East", room5, "West");
+        Door.createDoor(room5, "South", room6, "North");
+        //Door.createDoor(room6, "South", room7, "North", theLock);
+        Door.createDoor(room7, "East", room8, "West");
+        Door.createDoor(room8, "South", room9, "North");
+        Door.createDoor(room9, "South", room10, "North");
+        Door.createDoor(room10, "West", room11, "East");
+        Door.createDoor(room11, "West", room12, "East");
+        Door.createDoor(room12, "West", room13, "East");
+        Door.createDoor(room13, "North", room14, "South");
+        //Door.createDoor(room14, "East", room15, "West", theLock);
+        Door.createDoor(room14, "North", room16, "South");
+        Door.createDoor(room16, "East", room17, "West");
+        Door.createDoor(room17, "East", room7, "West");
+        //Door.createDoor(room5, "West", room18, "East", theLock);
+        Door.createDoor(room18, "East", room19, "West");
+        Door.createDoor(room19, "North", room20, "South");
+        Door.createDoor(room20, "East", room21, "West");
+        Door.createDoor(room21, "East", room22, "West");
+        Door.createDoor(room22, "East", room23, "West");
+        Door.createDoor(room23, "South", room24, "North");
+        Door.createDoor(room24, "South", room25, "North");
+        //Door.createDoor(room25, "South", room26, "North", theLock);
+        Door.createDoor(room26, "West", room28, "East");
+        Door.createDoor(room28, "West", room29, "East");
+        Door.createDoor(room26, "South", room27, "North");
+        Door.createDoor(room27, "South", roomOpponent, "North");  
+        Door.createDoor(room3, "Up", roomB, "Down");
+        Door.createDoor(room18, "Up", roomD, "Down");
+        Door.createDoor(room7, "Up", roomC, "Down");
+        Door.createDoor(room15, "Up", roomA, "Down");
+        Door.createDoor(room10, "Up", roomE, "Down");
+        Door.createDoor(room29, "Up", roomG, "Down");
+        Door.createDoor(room21, "Up", roomF, "Down");
+
+        //roomG.addItem((Item)boxG);
+
     }
+    
+ 
     
     public Player getPlayer(){
         return playerChoose;

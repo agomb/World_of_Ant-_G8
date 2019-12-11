@@ -51,7 +51,7 @@ public class TreasureBox extends Item
         return keyBox;
     }
     
-     /**
+    /**
      * Give the special item on the box
      * @return keys, the list of items on the box
      */
@@ -60,6 +60,24 @@ public class TreasureBox extends Item
         return specialBox;
     }
     
+
+    /**
+     * Give the keys on the box
+     * @return keys, the list of keys on the box
+     */
+    public List<Key> getListKeys()
+    {
+        return keys;
+    }
+    
+    /**
+     * Give the special item on the box
+     * @return keys, the list of items on the box
+     */
+     public List<Special> getListSpecial()
+    {
+        return specials;
+    }
     
     public Lock getLock()
     {

@@ -20,14 +20,21 @@ public class Doable extends JPanel implements ActionListener //creation class (p
         myGameInterface = anInterface;
         
         //create button drop
+
         myButtonDrop = new JButton("Drop");
         myButtonDrop.addActionListener(this);
+
+        myButtonDrop = new JButton("DROP");
+        myButtonDrop.setBackground(Color.WHITE);
+
         
         myButtonDelivery = new JButton("Boxe"); //create button Boxe
         ImageIcon icon1 = new ImageIcon("close1.png");
         myButtonDelivery = new JButton(icon1); //create the button with images
+
         myButtonDelivery.addActionListener(this);
         
+        myButtonDelivery.setBackground(Color.BLACK);
         
         myButtonTreasure = new JButton("Treasure"); //create button Treasure
         Icon icon2 = new ImageIcon("coffre1.png");
@@ -37,6 +44,11 @@ public class Doable extends JPanel implements ActionListener //creation class (p
         myButtonHit = new JButton("Hit");
         myButtonHit.addActionListener(this);
         
+        myButtonTreasure.setBackground(Color.YELLOW);
+        
+        myButtonHit = new JButton("Hit");
+        myButtonHit.setBackground(Color.WHITE);
+
           
         //JPanel myPanel_Doable = new JPanel(); // create the panel
         this.setLayout(new GridLayout(3,1)); //create the localisation of the button
