@@ -1,13 +1,13 @@
 #BlueJ class context
 comment0.target=InterfaceVisual
-comment0.text=\r\n\ D\u00E9crivez\ votre\ classe\ Interface_Visual\ ici.\r\n\r\n\ @author\ (votre\ nom)\r\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\r\n
+comment0.text=\r\n\ The\ Interface_Visual\ class\ represent\ the\ map\ inside\ the\ game\ panel\r\n\r\n\ @author\ G8\r\n\ @version\ 11/12/2019\r\n
 comment1.params=myRoom\ myPlayer\ theInterface
 comment1.target=InterfaceVisual(Room,\ Player,\ InterfaceGame)
 comment1.text=\r\n\ Constructeur\ d'objets\ de\ classe\ Interface_Visual\r\n
 comment2.params=myPlayer
 comment2.target=java.lang.String\ getPictureRoom(Player)
-comment2.text=\r\n\ Un\ exemple\ de\ m\u00E9thode\ -\ remplacez\ ce\ commentaire\ par\ le\ v\u00F4tre\r\n\r\n\ @param\ \ y\ \ \ le\ param\u00E8tre\ de\ la\ m\u00E9thode\r\n\ @return\ \ \ \ \ la\ somme\ de\ x\ et\ de\ y\r\n
+comment2.text=\r\n\ Visualize\ the\ room\ where\ the\ player\ is.\r\n\ @Parameter\ Player\ myPlayer\r\n
 comment3.params=myPlayer
 comment3.target=void\ visualizeRoom(Player)
-comment3.text=\r\n\ Un\ exemple\ de\ m\u00E9thode\ -\ remplacez\ ce\ commentaire\ par\ le\ v\u00F4tre\r\n\r\n\ @param\ \ y\ \ \ le\ param\u00E8tre\ de\ la\ m\u00E9thode\r\n\ @return\ \ \ \ \ la\ somme\ de\ x\ et\ de\ y\r\n
+comment3.text=\r\n\ Created\ the\ panel\ containt\ the\ map\r\n
 numComments=4

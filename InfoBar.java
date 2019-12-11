@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
- * Write a description of class InfoBar here.
+ * This class print the life, bag current capacity of the player and the time left.
  *
  * @author Dylan Thibault G8
  * @version 27/11/2019
@@ -44,38 +44,40 @@ public class InfoBar extends JPanel implements ActionListener
         super();
         myGameInterface = anInterface;
         
+        
         //getting the bag capacity and life/honor point attribute of the player
-        
-        
         currentcapacity = myGameInterface.getGame().getPlayer().getBag().size();
         currentlife = myGameInterface.getGame().getPlayer().getHp();
         
         
         
         bagCunter = new JProgressBar();
+        bagCunter.setBackground(Color.WHITE);
         bagCunter.setString("Bag capacity :"+currentcapacity + "/"+20);
         bagCunter.setStringPainted(true);
         bagCunter.setValue(currentcapacity);
         bagCunter.setMaximum(20);
         bagCunter.setSize(200, 100);
-        //bagCunter.setBackground(Color.orange); //modify orange to an other color if you want
+        
         bagCunter.setVisible(true);
         
         
         
         
         life = new JProgressBar();
+        life.setBackground(Color.WHITE);
         life.setString("Current life :"+currentlife + "/"+100);
         life.setStringPainted(true);
         life.setValue(currentlife);
         life.setMaximum(100);
-        //life.setBackground(Color.red); //modify red to an other color if you want
+        
         life.setVisible(true);
         
         
         
         //the timer section who start at 300s (5minutes)      
         time = new JLabel();
+        time.setBackground(Color.WHITE);
         
         task = new TimerTask() {
             public void run() {
@@ -94,7 +96,7 @@ public class InfoBar extends JPanel implements ActionListener
                     timer.purge();
                     jop1 = new JOptionPane();
                     jop1.showMessageDialog(null, "Game Over", "The Game has ended", JOptionPane.INFORMATION_MESSAGE);
-
+                    //this section is used when the time is up and finish the game
                     
                     
                 }
@@ -116,14 +118,17 @@ public class InfoBar extends JPanel implements ActionListener
     
     
     }
-
+    
+    /**
+     * Start the timer
+     */
     public void start()
     {
         timer.scheduleAtFixedRate(task,1000,1000);
     }
     
     /**
-     * Modify the frame when a specific action is used
+     * Modify the frame when a specific action is used and the time pass
      */
     private void actualisation(Player player)
     {

@@ -12,6 +12,8 @@ import org.junit.Test;
 public class StolenAntTest
 {   
     StolenAnt thief;
+    Delivery loot;
+    Room r1test;
     /**
      * Default constructor for test class StolenAntTest
      */
@@ -26,69 +28,49 @@ public class StolenAntTest
     @Before
     public void setUp()
     {
-        thief = new StolenAnt("");
+        r1test = new Room("c'est la cuisine pour tester");
+        thief = new StolenAnt("thief",r1test);
+        loot = new Delivery("loot",r1test);
     }
     
     @Test
     /**
-     * Test if the setVp method actualise correctly the vp by the given value
-     * this test is true when the vp returned is at 50
+     * Test if the item is picked up and added to the bag
      */
-    public void testSetVpMinusValid()
+    public void testpPickUpDelivery()
     {
-        thief.setVp(-50);
-        assertEquals(thief.getVp(),50);
+        thief.pickUpDelivery(loot);
+        
+        if(loot != null )//the object containing the delivery cannot be null
+        {
+            assertEquals("loot" , thief.getBag().get(0).getName() );
+        }
+    
+    
     }
     @Test
     /**
-     * Test if the setVp method actualise correctly the vp by the given value
-     * this test is false if the vp returned stay 100
+     * Test if the item is picked up and added to the bag then that the delivery ant loses hp
      */
-    public void testSetVpMinusInValid()
-    {
-        thief.setVp(-50);
-        assertEquals(thief.getVp(),100);
-    }
-    @Test
-    /**
-     * Test if the setVp method actualise correctly the vp by the given value
-     * this test is true if the vp become 75.
-     */
-    public void testSetVpPlusValid()
-    {   
-        thief.setVp(-75);
-        thief.setVp(50);
-        assertEquals(thief.getVp(),75);
-    }
-    @Test
-    /**
-     * Test if the setVp method actualise correctly the vp by the given value
-     * this test is false if the vp returned stay 100
-     */
-    public void testSetVpPlusInvalid()
-    {   
-        thief.setVp(-75);
-        thief.setVp(50);
-        assertEquals(thief.getVp(),100);
-    }
-    @Test
-    /**
-     * Test if the getVp return the correct value
-     * This test is true if the return value is 100
-     */
-    public void testGetVpValid()
+    public void testpPickUpDeliveryDamage()
     {
         
-        assertEquals(thief.getVp(),100);
-    }
-    @Test
-    /**
-     * Test if the getVp return the correct value
-     * This test is true if the return value is different than 100
-     */
-    public void testGetVpInvalid()
-    {
+        DeliverooAnt delive = new DeliverooAnt("delive",r1test);
+        thief.pickUpDelivery(loot,delive);
         
-        assertNotEquals(thief.getVp(),100);
+        assertEquals( 95 , delive.getHp() );
+            
+    
+    }
+    
+    
+    /**
+     * Tears down the test fixture.
+     *
+     * Called after every test case method.
+     */
+    @After
+    public void tearDown()
+    {
     }
 }

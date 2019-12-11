@@ -1,9 +1,10 @@
 #BlueJ class context
 comment0.target=InterfaceBegin
-comment0.text=\r\n\ D\u00E9crivez\ votre\ classe\ Begin_Interface\ ici.\r\n\r\n\ @author\ (votre\ nom)\r\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\r\n
+comment0.text=\r\n\ This\ is\ the\ Begin_Interface\ class.\r\n\ This\ class\ is\ the\ interface\ used\ at\ the\ start\ of\ the\ game\ to\ present\ \r\n\ the\ rule\ of\ the\ game\ and\ which\ type\ of\ ant\ the\ layer\ will\ be.\r\n\r\n\ @author\ G8\r\n\ @version\ 11/12/2019\r\n
 comment1.params=
 comment1.target=InterfaceBegin()
-comment1.text=\r\n\ Constructeur\ d'objets\ de\ classe\ Begin_Interface\r\n
+comment1.text=\r\n\ Constructor\ of\ the\ class\ Begin_Interface\r\n
 comment2.params=e
 comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment2.text=\r\n\ The\ different\ actions\ performed\ when\ a\ button\ is\ clicked\r\n
 numComments=3

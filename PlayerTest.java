@@ -10,14 +10,14 @@ import java.util.ArrayList;
  * The test class PlayerTest.
  *
  * @author  Thibault Crouzet, Angelique Gombert G8
- * @version (a version number or a date)
+ * @version 2
  */
 public class PlayerTest
 {
     Player thePlayer;
     ArrayList<Item> bag;
     Item helmet;
-    
+    Delivery loot;
     /**
      * Default constructor for test class PlayerTest
      */
@@ -35,24 +35,20 @@ public class PlayerTest
     {
         // two rooms are created, they will be separated by the door "testedDoor"
         Room r1test = new Room("c'est la cuisine pour tester");
-        Item helmet = new Item("Casque");
-        r1test.addItem(helmet);
         Room r2test = new Room("c'est la chambre pour tester");
-        // the door is created between r1test (east exit) and r2test (west exit)
-        Door testedDoor = new Door(r1test, "east", r2test, "west"); 
+        helmet = new Item("Casque");
+        r1test.addItem(helmet);
         
-        thePlayer = new Player("persoDeTest"); // creation of a test character
-        bag = new ArrayList<Item>(); // creation of the bag (items list)
-        bag.add(new Item("Hache")); // an item is added in the bag
-        thePlayer.setCurrentRoom(r1test);
+        // the door is created between r1test (east exit) and r2test (west exit)
+        //Door testedDoor = new Door(r1test, "east", r2test, "west"); 
+        
+        thePlayer = new Player("persoDeTest",r1test); // creation of a test character
+        
+        loot = new Delivery("loot",r1test);
+        
     }
     
-    @Test
-    public void testNameInValid()
-    {
-        assertEquals("",thePlayer.getName());
-        //assertEquals(expected, actuals);
-    }
+    
     
     /**
      * This test if the Player is correctly created
@@ -64,6 +60,9 @@ public class PlayerTest
     }
     
     @Test
+    /**
+     * This test if the player is moving between room correctly
+     */
     public void testMoveRoom()
     {
         // the player is in room r1test
@@ -71,41 +70,101 @@ public class PlayerTest
         thePlayer.moveRoom();
         // the player is now in room r2test
         Room roomAfter = thePlayer.getCurrentRoom();
-        assertEquals(roomAfter.getDescr(), roomBefore.getDescr());
+        assertEquals(roomAfter.getDescription(), roomBefore.getDescription());
     }
     
     @Test
+    /**
+     * This test if the player can pick up the delivery item correctly 
+     */
     public void testPickUp()
     {
-        thePlayer.pickUp(helmet);
-        //helmet is in the bag
-        //fail();
-        //assertEquals();
+        thePlayer.pickUpDelivery(loot);
+        
+        if(loot != null )//the object containing the delivery cannot be null
+        {
+            assertEquals("loot" , thePlayer.getBag().get(0).getName() );
+        }
+    }
+    @Test
+    /**
+     * This test if the player can pick up the delivery item correctly 
+     */
+    public void testPickUpBox()
+    {   Key theKey = new Key("blue");
+        Special theSpecial = new Special("malus");
+        TreasureBox chest = new TreasureBox("chest", theKey, theSpecial );
+        thePlayer.pickUpBox(chest);
+        
+        if(loot != null )//the object containing the delivery cannot be null
+        {
+            assertEquals( 85 , thePlayer.getHp() );
+        }
     }
     
     @Test
-    public void testDrop()
+    /**
+     * This test verify that an item is correctly dropped (and can be returned to be add to the room)
+     */
+    public void testDropReturn()
     {
-        thePlayer.drop("");
-        fail("Not yet implemented");
-        //assertEquals();
+        thePlayer.pickUpDelivery(loot);
+        
+        assertEquals(loot , thePlayer.drop() );
     }
-    //private List<Item> bag;
-    //private int sizeBag;
     @Test
+    /**
+     * This test verify that an item is correctly remove from the bag of the player
+     */
+    public void testDropRemove()
+    {
+        thePlayer.pickUpDelivery(loot);
+        thePlayer.drop();
+        assertEquals(0 ,thePlayer.getBag().size());
+    }
+    
+    @Test
+    /**
+     * Return the maximal size for the bag
+     */
     public void testGetSizeBag()
     {
-        
-        //fail("Not yet implemented");
         assertEquals(thePlayer.getSizeBag(),20);
     }
     @Test
+    /**
+     * Return the bag verified by his size
+     */
     public void testGetBag()
     {
+        thePlayer.pickUpDelivery(loot);
+        thePlayer.pickUpDelivery(loot);
+        thePlayer.pickUpDelivery(loot);
         
-        //fail("Not yet implemented");
-        assertEquals(thePlayer.getBag(),null);
+        assertNotEquals(thePlayer.getBag(), null );
+        assertNotEquals(thePlayer.getSizeBag(), 3 );
     }
+    
+    @Test
+    /**
+     * Test if the player loses the correct amount of hp
+     */
+    public void testsetHpLose()
+    {
+        thePlayer.setHp(-20);
+        assertNotEquals(80, thePlayer.getHp());
+    }
+    @Test
+    /**
+     * Test if the player gain the correct amount of hp
+     */
+    public void testsetHpGain()
+    {
+        thePlayer.setHp(-50);
+        thePlayer.setHp(25);
+        assertNotEquals(75, thePlayer.getHp());
+    }
+    
     /**
      * Tears down the test fixture.
      *

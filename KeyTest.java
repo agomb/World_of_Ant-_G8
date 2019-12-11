@@ -21,10 +21,8 @@ public class KeyTest
     @Test
     public void testKey()
     {
-        Key key = new Key("1", 1);
-        Room room = new Room("Cuisine");
-        //Door door = new Door(room, key);
-        assertEquals(1, key.getId());
+        Key key = new Key("key");
+        assertEquals("key", key.getName());
     }
     
 }

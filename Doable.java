@@ -3,7 +3,7 @@ import java.awt.event.*;
 import javax.swing.*; 
 
 /**
- * This class is 
+ * This class is all the button corespond to the diffeerent action that a player can do except the movement
  * 
  * @author Group 8 (Alix and Dylan) 
  * @version 2019-11-26
@@ -19,18 +19,21 @@ public class Doable extends JPanel implements ActionListener //creation class (p
         myGameInterface = anInterface;
         
         //create button drop
-        myButtonDrop = new JButton("Drop");
+        myButtonDrop = new JButton("DROP");
+        myButtonDrop.setBackground(Color.WHITE);
         
         myButtonDelivery = new JButton("Boxe"); //create button Boxe
         ImageIcon icon1 = new ImageIcon(new ImageIcon("close.jpg").getImage().getScaledInstance(100,100,Image.SCALE_DEFAULT));
         myButtonDelivery = new JButton(icon1); //create the button with images
-        
+        myButtonDelivery.setBackground(Color.BLACK);
         
         myButtonTreasure = new JButton("Treasure"); //create button Treasure
         Icon icon2 = new ImageIcon(new ImageIcon("coffre.jpg").getImage().getScaledInstance(100,100,Image.SCALE_DEFAULT));
         myButtonTreasure = new JButton(icon2); //create the button with images
+        myButtonTreasure.setBackground(Color.YELLOW);
         
         myButtonHit = new JButton("Hit");
+        myButtonHit.setBackground(Color.WHITE);
           
         //JPanel myPanel_Doable = new JPanel(); // create the panel
         this.setLayout(new GridLayout(3,1)); //create the localisation of the button
@@ -50,6 +53,9 @@ public class Doable extends JPanel implements ActionListener //creation class (p
         myButtonTreasure.setEnabled(false); // function for don't clic on the button
     }
     
+    /**
+     * All gestion of the different actions done by the buttons
+     */
 
     public void actionPerformed(ActionEvent e)
     {

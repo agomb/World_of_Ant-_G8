@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=Doable
-comment0.text=\r\n\ This\ class\ is\ \r\n\ \r\n\ @author\ Group\ 8\ (Alix\ and\ Dylan)\ \r\n\ @version\ 2019-11-26\r\n
+comment0.text=\r\n\ This\ class\ is\ all\ the\ button\ corespond\ to\ the\ diffeerent\ action\ that\ a\ player\ can\ do\ except\ the\ movement\r\n\ \r\n\ @author\ Group\ 8\ (Alix\ and\ Dylan)\ \r\n\ @version\ 2019-11-26\r\n
 comment1.params=anInterface
 comment1.target=Doable(InterfaceGame)
 comment2.params=e
 comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment2.text=\r\n\ All\ gestion\ of\ the\ different\ actions\ done\ by\ the\ buttons\r\n
 numComments=3
