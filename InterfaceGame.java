@@ -16,6 +16,8 @@ public class InterfaceGame extends JFrame
     private InterfaceVisual map;
     private InterfaceInfo message;
     
+    protected JPanel panInterfaceGame, panInterfaceGameBas, panInterfaceGameCentre, transparent;
+    
     /**
      * Constructor for objects of class GameInterface
      */
@@ -25,7 +27,44 @@ public class InterfaceGame extends JFrame
         game =g;
         
         InfoBar info = new InfoBar(this);
+        ControlDirection control = new ControlDirection(this);
+        Doable doable = new Doable(this);
+        InterfaceVisual map = new InterfaceVisual(getGame().getPlayer().getCurrentRoom(),getGame().getPlayer(), this);
+        InterfaceInfo message = new InterfaceInfo(this);
         
+        panInterfaceGameCentre = new JPanel(); 
+        panInterfaceGameCentre.setLayout(new GridLayout(2,0)); 
+        panInterfaceGameCentre.add(message); 
+        panInterfaceGameCentre.add(doable); 
+        
+        panInterfaceGameBas = new JPanel(); 
+        panInterfaceGameBas.setLayout(new GridLayout(0,2));
+        JButton blanc = new JButton();
+        blanc.setBorderPainted(false); 
+        blanc.setContentAreaFilled(false);
+        blanc.setFocusPainted(false); 
+        panInterfaceGameBas.add(blanc);
+        panInterfaceGameBas.add(control); 
+        
+        
+        panInterfaceGame = new JPanel(); 
+        panInterfaceGame.add(info); 
+        panInterfaceGame.add(map); 
+        
+        this.setLayout(new BorderLayout()); 
+        this.add(info, BorderLayout.NORTH); 
+        this.add(panInterfaceGameCentre, BorderLayout.WEST); 
+        this.add(map, BorderLayout.CENTER); 
+        this.add(panInterfaceGameBas, BorderLayout.SOUTH); 
+
+        
+        this.setSize(1000,800);
+        this.setLocationRelativeTo(null); // object position at the center
+        
+        this.setVisible(true);
+        
+        /*
+        InfoBar info = new InfoBar(this);    
         control = new ControlDirection(this);
         
         doable = new Doable(this);
@@ -70,7 +109,9 @@ public class InterfaceGame extends JFrame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
         this.setVisible(true);
-    
+        */
+       
+        
     
     }
     

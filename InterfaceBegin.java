@@ -25,7 +25,7 @@ public class InterfaceBegin extends JFrame implements ActionListener
      */
     public InterfaceBegin()
     {
-        super("MY MENU");
+        //super("MY MENU");
         game = new Game();
         this.setContentPane(new BcGdMenu());
         
@@ -49,22 +49,22 @@ public class InterfaceBegin extends JFrame implements ActionListener
         
         sto = new JButton("Stolen Ant");
         sto.setBackground(Color.yellow);
-        sto.setPreferredSize(new Dimension(100, 100));
+        sto.setPreferredSize(new Dimension(150, 150));
         sto.addActionListener(this);
         
         del = new JButton("Deliveroo Ant");
         del.setBackground(Color.magenta);
-        del.setPreferredSize(new Dimension(100, 100));
+        del.setPreferredSize(new Dimension(150, 150));
         del.addActionListener(this);
         
-        b2.add(sto);
-        b2.add(del);
+        b2.add(sto, BorderLayout.WEST);
+        b2.add(del, BorderLayout.CENTER);
         
         // Game rules panel
         pan5 = new JPanel();
         pan4 = new JPanel();
         pan3 = new JPanel();
-        pan3.setPreferredSize(new Dimension(500, 150));
+        pan3.setPreferredSize(new Dimension(400, 150));
         pan3.setLayout(new GridLayout(6,1));
         label = new JLabel("Game rules :", JLabel.CENTER);
         label.setFont(new Font("Serif", Font.PLAIN, 25));
@@ -82,7 +82,7 @@ public class InterfaceBegin extends JFrame implements ActionListener
         
         // General Panel for display others panels
         panG = new JPanel();
-        panG.setLayout( new BorderLayout(1,250));
+        panG.setLayout( new BorderLayout(1,80));
         panG.setOpaque(false);
         panG.add(panWelcome, BorderLayout.PAGE_START);
         panG.add(b2, BorderLayout.CENTER);
@@ -90,9 +90,9 @@ public class InterfaceBegin extends JFrame implements ActionListener
         
         // adding all in the frame
         this.add(panG);
-        this.setSize(1600,900);
+        this.setSize(800,600);
         this.setLocationRelativeTo(null); // object position at the center
-        this.setUndecorated(true);
+        this.setUndecorated(false);
         this.setVisible(true);
 
         
@@ -112,8 +112,7 @@ public class InterfaceBegin extends JFrame implements ActionListener
         this.dispose();
         
         InterfaceGame ig = new InterfaceGame(game);
-        
-        
+                
     }
    
     
