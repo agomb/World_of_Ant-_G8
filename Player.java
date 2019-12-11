@@ -128,6 +128,7 @@ public class Player extends Character
          //   if (box.getKey() != null && bag.size() < getSizeBag()){
           //      bag.add(box.getKey()); 
         }
+    }
     
     /**
      * Drop an item in the room
@@ -145,6 +146,7 @@ public class Player extends Character
         }
         return null;
     }
+
 
     /**
      * modify the hp
