@@ -1,3 +1,8 @@
+
+
+
+import java.util.ArrayList;
+import java.util.List;
 /**
  * Key is create with a name ans an id to be associate to a lock to open it if is closed, and if the key belongs at the lock.
  *
@@ -7,7 +12,8 @@
 
 public class Key extends Item
 {
-    
+    private List<Key> keys;
+    private Key keyDoor;
     /**
      * Create a key 
      * @param kName allows to give a name to the object
@@ -16,6 +22,24 @@ public class Key extends Item
     public Key(String kName)
     {
         super(kName);
+    }
+    
+    /**
+     * Give the keys on the box
+     * @return keys, the list of keys on the box
+     */
+    public List<Key> getListKeys()
+    {
+        return keys;
+    }
+      
+    /**
+     * Give the keys on the box
+     * @return keys, the list of keys on the box
+     */
+    public Key getKey()
+    {
+        return keyDoor;
     }
 
 }

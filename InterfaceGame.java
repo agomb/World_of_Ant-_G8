@@ -16,8 +16,9 @@ public class InterfaceGame extends JFrame
     private Doable doable;
     private InterfaceVisual map;
     private InterfaceInfo message;
-    
-    protected JPanel panInterfaceGame, panInterfaceGameBas, panInterfaceGameCentre, transparent;
+    private InfoBar info;
+    private JPanel panInterfaceGame, panInterfaceGameBas, panInterfaceGameCentre, transparent;    
+
     
     /**
      * Constructor for objects of class GameInterface
@@ -27,7 +28,9 @@ public class InterfaceGame extends JFrame
     {
         super();
         game =g;
-      
+
+        info = new InfoBar(this);
+
         InfoBar info = new InfoBar(this);
         ControlDirection control = new ControlDirection(this);
         Doable doable = new Doable(this);
@@ -41,9 +44,9 @@ public class InterfaceGame extends JFrame
         panInterfaceGameCentre.setLayout(new GridLayout(2,0)); 
         panInterfaceGameCentre.add(message); 
         panInterfaceGameCentre.add(doable); 
-        
-<
-        
+
+        panInterfaceGameBas = new JPanel();
+        panInterfaceGameBas.setBackground(Color.WHITE);
 
         //second JPanel located at bottom of the panel,
         //this panel controls the direction 
@@ -56,15 +59,15 @@ public class InterfaceGame extends JFrame
         blanc.setFocusPainted(false); 
         panInterfaceGameBas.add(blanc);
         panInterfaceGameBas.add(control); 
-        
+
         //third JPanel located at the center and represents the map 
         panInterfaceGame = new JPanel(); 
         panInterfaceGame.setBackground(Color.WHITE);
         panInterfaceGame.add(info); 
         panInterfaceGame.add(map); 
-        
 
         //fourth Jpanel that containt all of the others.
+
         this.setLayout(new BorderLayout()); 
         this.add(info, BorderLayout.NORTH); 
         this.add(panInterfaceGameCentre, BorderLayout.WEST); 
@@ -72,11 +75,10 @@ public class InterfaceGame extends JFrame
         this.add(panInterfaceGameBas, BorderLayout.SOUTH); 
         
 
-        
-        this.setSize(1000,800); //set the size of the windows
+        this.setSize(1000,800);
         this.setLocationRelativeTo(null); // object position at the center
         this.setVisible(true);
-    
+
     }
     
     public Game getGame(){
