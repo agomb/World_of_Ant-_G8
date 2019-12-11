@@ -61,4 +61,13 @@ public class CharacterTest
         charac=new Character(); //creation of a charater with an empty name
         assertEquals("Standard", charac.getName()); //verification if the name getted is identical to the default name
     }
+    /**
+     * Tears down the test fixture.
+     *
+     * Called after every test case method.
+     */
+    @After
+    public void tearDown()
+    {
+    }
 }

@@ -3,7 +3,7 @@ import java.util.List;
 /**
  * This is a box which can contain keys and special item. It can also be locked.
  *
- * @author Group 8 - Marion Guernoté, Dylan Mielot, Fanny Barbe, Alix Nagot, Ambre Dumontet, Angélique Gombert, Thibault Crouzet
+ * @author Group 8 - Marion Guernoté, Dylan Mielot, Fanny Barbé, Alix Nagot, Ambre Dumontet, Angélique Gombert, Thibault Crouzet
  * @version 19/11/2019
  */
 public class TreasureBox extends Item
@@ -24,7 +24,7 @@ public class TreasureBox extends Item
         super(tName);
         keyBox = theKey;
         specialBox = theSpecial;
-        keyBox = null;
+        
     }
     
     /**
@@ -51,6 +51,7 @@ public class TreasureBox extends Item
         return specialBox;
     }
     
+
     /**
      * Give the special item on the box
      * @return keys, the list of items on the box
@@ -59,6 +60,7 @@ public class TreasureBox extends Item
     {
         return specials;
     }
+
     
     public Lock getLock()
     {
@@ -85,10 +87,10 @@ public class TreasureBox extends Item
     } 
     
     /**
-     * 
+     * Remove all the item and key contain inside the treasure box
      * 
      */
-     public void removeItem()
+    public void removeItem()
     {
        keyBox = null;
        specialBox = null;

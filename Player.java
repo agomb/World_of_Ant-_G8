@@ -99,9 +99,8 @@ public class Player extends Character
      */
     public void pickUpDelivery(Delivery loot)
     {
-        if (bag.size() < getSizeBag() && loot !=null){
-            bag.add(loot); 
-        }
+        bag.add(loot);
+        //Interface_Info.setMessage("You picked a delivery");
     }
     
     /**
@@ -122,14 +121,14 @@ public class Player extends Character
             }     
         } 
         
-        if (box.getLock().getIsLocked() == false) {
+         if (box.getLock().getIsLocked() == false) {
             setHp(box.getSpecial().getImpact());
 
             if (box.getKey() != null && bag.size() < getSizeBag()){
                 bag.add(box.getKey()); 
             }
         }
-      
+        
     }
     
     /**
@@ -137,14 +136,16 @@ public class Player extends Character
      * @parameter  thedropName reprensent the name of the item that will be droped is the room
      * @return thedrop is the item that is droped in the room
      */
-    public void drop()
+    public Item drop()
     {
         for ( Item i : bag) {
             if(i instanceof Delivery){  
                  bag.remove(i);
+                 return i;
             } 
             
         }
+        return null;
     }
 
     /**

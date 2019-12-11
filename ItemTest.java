@@ -14,17 +14,51 @@ public class ItemTest
 {
     private Item item;
     
-    
+    /**
+     * Default constructor for test class StolenAntTest
+     */
+    public ItemTest()
+    {
+    }
+
+    /**
+     * Sets up the different parameters needed for the test.
+     * thief who is a stolen ant object
+     */
+    @Before
+    public void setUp()
+    {
+        item = new Item("Toto");
+    }
      /**
      * Test that an item is correctly initialised (name).
      */
     @Test
     public void testName()
     {
-        item = new Item("Toto");
+        
         assertEquals("Toto", item.getName());
     }
-
+     /**
+     * Test that an item is correctly initialised (name).
+     * The name can not have a size of 0 
+     */
+    @Test
+    public void testNameStringSizeNull()
+    {
+        item = new Item("");
+        assertEquals("item", item.getName());
+    }
+    
+    /**
+     * Tears down the test fixture.
+     *
+     * Called after every test case method.
+     */
+    @After
+    public void tearDown()
+    {
+    }
 } 
    
    
