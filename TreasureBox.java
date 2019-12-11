@@ -8,10 +8,10 @@ import java.util.List;
  */
 public class TreasureBox extends Item
 {
-    private Key keyBox; // list of keys countains in the box
+    public List<Special> specials;
     private Special specialBox; // list of special item countains in the box
     private Lock lockBox; // lock which will allows to open the box
-
+    private Key keyBox;
 
     /**
      * Create a treasure box without lock 
@@ -43,31 +43,12 @@ public class TreasureBox extends Item
     }
     
     /**
-     * Give the keys on the box
-     * @return keys, the list of keys on the box
-     */
-    public Key getKey()
-    {
-        return keyBox;
-    }
-    
-    /**
      * Give the special item on the box
      * @return keys, the list of items on the box
      */
      public Special getSpecial()
     {
         return specialBox;
-    }
-    
-
-    /**
-     * Give the keys on the box
-     * @return keys, the list of keys on the box
-     */
-    public List<Key> getListKeys()
-    {
-        return keys;
     }
     
     /**
