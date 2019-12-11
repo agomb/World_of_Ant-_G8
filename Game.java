@@ -34,17 +34,6 @@ public class Game
      * @return type : "deliver" for deliveroo ant 
      *                "stolen" for stolen ant    
      */
-    public String choosePlayer()
-    {
-      return "";
-    }
-    
-    /**
-     * Method to choose the player : deliveroo or stolen ant
-     * 
-     * @return type : "deliver" for deliveroo ant 
-     *                "stolen" for stolen ant    
-     */
     public Player getChoosenPlayer()
     {
       return playerChoose;
@@ -152,11 +141,7 @@ public class Game
         Room roomG = new Room("G");
         room.add(roomG);
 
-        //Here we create the doors between two rooms - initialization of the Hashmap
-
-
-        
-
+        //Here we create the doors between two rooms - initialization of the Hashmap       
         Door.createDoor(roomPlayer, "East", room1, "West");
         Door.createDoor(room1, "North", room2, "South");
         //Door.createDoor(room1, "East", room3, "West", theLock);
@@ -183,7 +168,7 @@ public class Game
         Door.createDoor(room22, "East", room23, "West");
         Door.createDoor(room23, "South", room24, "North");
         Door.createDoor(room24, "South", room25, "North");
-        //Door.createDoor(room25, "South", room26, "North", theLock);
+        //Door.createDoor(room25, "South", room26, "North", theCreteadKey1,theLock);
         Door.createDoor(room26, "West", room28, "East");
         Door.createDoor(room28, "West", room29, "East");
         Door.createDoor(room26, "South", room27, "North");
@@ -195,6 +180,8 @@ public class Game
         Door.createDoor(room10, "Up", roomE, "Down");
         Door.createDoor(room29, "Up", roomG, "Down");
         Door.createDoor(room21, "Up", roomF, "Down");
+        
+        
 
         //roomG.addItem((Item)boxG);
 
