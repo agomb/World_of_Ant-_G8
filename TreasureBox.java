@@ -61,7 +61,6 @@ public class TreasureBox extends Item
         return specials;
     }
 
-    
     public Lock getLock()
     {
         return lockBox;
