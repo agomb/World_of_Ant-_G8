@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.Color;
 /**
  * Write a description of class GameInterface here.
  *
@@ -25,7 +26,7 @@ public class InterfaceGame extends JFrame
     {
         super();
         game =g;
-        
+      
         InfoBar info = new InfoBar(this);
         ControlDirection control = new ControlDirection(this);
         Doable doable = new Doable(this);
@@ -33,11 +34,14 @@ public class InterfaceGame extends JFrame
         InterfaceInfo message = new InterfaceInfo(this);
         
         panInterfaceGameCentre = new JPanel(); 
+        panInterfaceGameCentre.setBackground(Color.WHITE);
         panInterfaceGameCentre.setLayout(new GridLayout(2,0)); 
         panInterfaceGameCentre.add(message); 
         panInterfaceGameCentre.add(doable); 
         
-        panInterfaceGameBas = new JPanel(); 
+        
+        panInterfaceGameBas = new JPanel();
+        panInterfaceGameBas.setBackground(Color.WHITE);
         panInterfaceGameBas.setLayout(new GridLayout(0,2));
         JButton blanc = new JButton();
         blanc.setBorderPainted(false); 
@@ -48,14 +52,17 @@ public class InterfaceGame extends JFrame
         
         
         panInterfaceGame = new JPanel(); 
+        panInterfaceGame.setBackground(Color.WHITE);
         panInterfaceGame.add(info); 
         panInterfaceGame.add(map); 
+        
         
         this.setLayout(new BorderLayout()); 
         this.add(info, BorderLayout.NORTH); 
         this.add(panInterfaceGameCentre, BorderLayout.WEST); 
         this.add(map, BorderLayout.CENTER); 
         this.add(panInterfaceGameBas, BorderLayout.SOUTH); 
+        
 
         
         this.setSize(1000,800);

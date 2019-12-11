@@ -30,7 +30,7 @@ public class Room
     {
        //exits = new HashMap<>();
        description = rDescription;
-       HashMap<String, Door> exits = new HashMap<String, Door>();
+       exits = new HashMap<String, Door>();
        //the Hashmap is empty, when a door is created, it is added as an exit in the Hashmap
        
        human = new ArrayList<Human>();
@@ -85,10 +85,9 @@ public class Room
      * Add a door as exit in the room
      * @param exitDoor is the exit door, direction is the direction where the exit is in the room 
      */
-    public void addExit(String direction, Door exitDoor)
+    public void addExit(Room r, String direction, Door exitDoor)
     {
-        // checker si la direction est libre avec getExit
-        exits.put(direction, exitDoor);
+        r.exits.put(direction, exitDoor);
     }
     
     /**

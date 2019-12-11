@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.awt.Color;
 /**
  * This class create the interface.
  * @author Group8 (Alix and Dylan) 
@@ -19,11 +20,17 @@ public class ControlDirection extends JPanel implements ActionListener
         
         //Creation of Buttons
         northButton = new JButton("↑");
+        northButton.setBackground(Color.WHITE);
         southButton = new JButton("↓");
+        southButton.setBackground(Color.WHITE);
         eastButton = new JButton("→");
+        eastButton.setBackground(Color.WHITE);
         westButton = new JButton("←");
-        upButton = new JButton("Up");
-        downButton = new JButton("Down");
+        westButton.setBackground(Color.WHITE);
+        upButton = new JButton("UP");
+        upButton.setBackground(Color.GREEN);       
+        downButton = new JButton("DOWN");
+        downButton.setBackground(Color.RED);
         
         //panelArround
         //JPanel myPanel_control = new JPanel();
