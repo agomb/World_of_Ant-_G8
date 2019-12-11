@@ -33,7 +33,11 @@ public class Door
     public void addLockDoor(Lock theLock)
     {
         lock = theLock;
+        room1 = r1;
+        room2 = r2;
+        lock = thelock;
     }
+ 
 
     /**
      * This method return the next room to move to but if the door is locked and you don't have the right key it will return a error type

@@ -57,7 +57,7 @@ public class InterfaceVisual extends JPanel
      */
     public void visualizeRoom(Player myPlayer)
     {
-        Icon iconRoom = new ImageIcon(new ImageIcon(getPictureRoom(myPlayer)+".jpg").getImage().getScaledInstance(100,100,Image.SCALE_DEFAULT));
+        Icon iconRoom = new ImageIcon(new ImageIcon(getPictureRoom(myPlayer)+".jpg").getImage().getScaledInstance(600,600,Image.SCALE_DEFAULT));
         JLabel mypicture = new JLabel(iconRoom, JLabel.CENTER);
         this.add(mypicture);
         this.setSize(1200,1200);

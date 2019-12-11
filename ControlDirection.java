@@ -88,6 +88,29 @@ public class ControlDirection extends JPanel implements ActionListener
      */
     public void actionPerformed(ActionEvent e)
     {
-        
+        if(e.getSource() == northButton)
+        {
+            
+        }
+        else if(e.getSource() == southButton )
+        {
+            
+        }
+        else if(e.getSource() == eastButton )
+        {
+
+        }
+        else if(e.getSource() == westButton )
+        {
+
+        }
+        else if(e.getSource() == upButton )
+        {
+
+        }
+        else if(e.getSource() == downButton )
+        {
+
+        }
     }
 }

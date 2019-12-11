@@ -47,8 +47,8 @@ public class InfoBar extends JPanel implements ActionListener
         //getting the bag capacity and life/honor point attribute of the player
         
         
-        currentcapacity = player.getBag().size();
-        currentlife = player.getHp();
+        currentcapacity = myGameInterface.getGame().getPlayer().getBag().size();
+        currentlife = myGameInterface.getGame().getPlayer().getHp();
         
         
         
@@ -84,7 +84,7 @@ public class InfoBar extends JPanel implements ActionListener
                     timeLimit--;
                 
                     time.setText("time left : " + timeLimit);
-                    actualisation(player);
+                    actualisation(myGameInterface.getGame().getPlayer());
                 }
                 else
                 {
@@ -127,10 +127,10 @@ public class InfoBar extends JPanel implements ActionListener
      */
     private void actualisation(Player player)
     {
-        currentcapacity = player.getBag().size();
+        currentcapacity = myGameInterface.getGame().getPlayer().getBag().size();
         bagCunter.setString("Bag capacity :"+currentcapacity + "/"+20);
         
-        currentlife = player.getHp();
+        currentlife = myGameInterface.getGame().getPlayer().getHp();
         life.setString("Current life :"+currentlife + "/"+100);
         
     }
