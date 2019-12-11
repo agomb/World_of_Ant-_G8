@@ -6,27 +6,29 @@ import javax.swing.*;
 import java.awt.Color;
 
 /**
- * Décrivez votre classe Begin_Interface ici.
+ * This is the Begin_Interface class.
+ * This class is the interface used at the start of the game to present 
+ * the rule of the game and which type of ant the layer will be.
  *
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * @author G8
+ * @version 11/12/2019
  */
 public class InterfaceBegin extends JFrame implements ActionListener 
 {
     // variables d'instance - remplacez l'exemple qui suit par le vôtre
-    protected JPanel pan1, pan2n, pan3, pan4, pan5, panWelcome, panG, b2;
-    protected JLabel monLabel, myLab1, photo1, photo2, label; 
-    protected JButton sto, del;
-    protected Icon monIcone, monIcone2, monIcone3;
-    private Game game;
+    protected JPanel pan1, pan2n, pan3, pan4, pan5, panWelcome, panG, b2; //This is all the different JPanel
+    protected JLabel monLabel, myLab1, photo1, photo2, label; //This is all the different JLabel
+    protected JButton sto, del; //This is the button to choose the type of ant
+    protected Icon monIcone, monIcone2, monIcone3; //This is for the image of interface
+    private Game game; //This is the game containing all its variable
     
     /**
-     * Constructeur d'objets de classe Begin_Interface
+     * Constructor of the class Begin_Interface
      */
     public InterfaceBegin()
     {
         //super("MY MENU");
-        game = new Game();
+        game = new Game(); //start the game
         this.setContentPane(new BcGdMenu());
         
         //Welcome panel
@@ -47,12 +49,12 @@ public class InterfaceBegin extends JFrame implements ActionListener
         b2 = new JPanel();
         b2.setOpaque(false);
         
-        sto = new JButton("STOLEN ANT");
+        sto = new JButton("Stolen Ant");
         sto.setBackground(Color.yellow);
         sto.setPreferredSize(new Dimension(150, 150));
         sto.addActionListener(this);
         
-        del = new JButton("DELIVEROO ANT");
+        del = new JButton("Deliveroo Ant");
         del.setBackground(Color.magenta);
         del.setPreferredSize(new Dimension(150, 150));
         del.addActionListener(this);
@@ -95,11 +97,14 @@ public class InterfaceBegin extends JFrame implements ActionListener
         this.setUndecorated(false);
         this.setVisible(true);
 
+        
     }
-    
-    public void actionPerformed(ActionEvent e) {     
+    /**
+     * The different actions performed when a button is clicked
+     */
+     public void actionPerformed(ActionEvent e) {     
 
-        if(e.getSource() == sto){
+         if(e.getSource() == sto){
             game.createPlayer(true);  
         }
         else if(e.getSource() == del){ 
@@ -109,7 +114,7 @@ public class InterfaceBegin extends JFrame implements ActionListener
 
         this.setVisible(false);
         this.dispose();
-       
+        
         InterfaceGame ig = new InterfaceGame(game);
                 
     }

@@ -1,16 +1,15 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import java.awt.Color;
 /**
- * This class create the interface.
+ * This class create the interface to control the direction of the ant (player).
  * @author Group8 (Alix and Dylan) 
  * @version 2019-11-26
  */
 
 public class ControlDirection extends JPanel implements ActionListener 
 {   
-    private JButton northButton, southButton, eastButton, westButton, upButton, downButton ;
+    private JButton northButton, southButton, eastButton, westButton, upButton, downButton ; // the different button for each direction including up and down
     private InterfaceGame myGameInterface;
     
     public ControlDirection (InterfaceGame anInterface){
@@ -20,17 +19,11 @@ public class ControlDirection extends JPanel implements ActionListener
         
         //Creation of Buttons
         northButton = new JButton("↑");
-        northButton.setBackground(Color.WHITE);
         southButton = new JButton("↓");
-        southButton.setBackground(Color.WHITE);
         eastButton = new JButton("→");
-        eastButton.setBackground(Color.WHITE);
         westButton = new JButton("←");
-        westButton.setBackground(Color.WHITE);
-        upButton = new JButton("UP");
-        upButton.setBackground(Color.GREEN);       
-        downButton = new JButton("DOWN");
-        downButton.setBackground(Color.RED);
+        upButton = new JButton("Up");
+        downButton = new JButton("Down");
         
         //panelArround
         //JPanel myPanel_control = new JPanel();
@@ -46,8 +39,8 @@ public class ControlDirection extends JPanel implements ActionListener
         myPanel_control1.add(upButton);
         myPanel_control1.add(downButton);
         
-        //Frame
         
+        //placement inside the panel
         this.setLayout(new BorderLayout());
         this.add(northButton, BorderLayout.NORTH);
         this.add(eastButton, BorderLayout.EAST);
@@ -91,7 +84,7 @@ public class ControlDirection extends JPanel implements ActionListener
     }
     
     /**
-     * 
+     * Implement the movement of the player when a button is pressed 
      */
     public void actionPerformed(ActionEvent e)
     {

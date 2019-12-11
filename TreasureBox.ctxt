@@ -20,5 +20,5 @@ comment6.target=java.lang.String\ getDescription()
 comment6.text=\r\n\ Give\ the\ special\ item\ on\ the\ box\r\n\ @return\ keys,\ the\ list\ of\ items\ on\ the\ box\r\n
 comment7.params=
 comment7.target=void\ removeItem()
-comment7.text=\r\n\ \r\n\ \r\n
+comment7.text=\r\n\ Remove\ all\ the\ item\ and\ key\ contain\ inside\ the\ treasure\ box\r\n\ \r\n
 numComments=8

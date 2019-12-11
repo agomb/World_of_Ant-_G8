@@ -29,7 +29,8 @@ public class HumanTest
     public void setUp()
     {
         theHuman=new Human("Bob"); //the human who will be used inside the tests
-        thief = new StolenAnt("Bob"); //the stolen ant needed to used the crush method
+        Room testRoom = new Room("testRoom");
+        thief = new StolenAnt("Bob",testRoom); //the stolen ant needed to used the crush method
     }
     @Test
     /**
@@ -69,8 +70,9 @@ public class HumanTest
      */
     public void TestCrush()
     {   
+        System.out.println(thief.getHp());
         theHuman.crush(thief);
-        assertEquals(thief.getVp(),75);
+        assertEquals(75,thief.getHp());
                
     }
     @Test
@@ -84,7 +86,7 @@ public class HumanTest
         theHuman.crush(thief);  
         theHuman.crush(thief);
         theHuman.crush(thief);
-        assertEquals(thief.getVp(),0);
+        assertEquals(thief.getHp(),0);
         
         
     }
@@ -101,7 +103,7 @@ public class HumanTest
         theHuman.crush(thief);
         theHuman.crush(thief);
         
-        assertEquals(thief.getVp(),0);
+        assertEquals(thief.getHp(),0);
         //The Vp can not be a negative
     }
 }
