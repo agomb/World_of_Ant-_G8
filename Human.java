@@ -18,7 +18,11 @@ public class Human extends Character
         super(theName);
         
     }
-
+    public Human()
+    {
+        super("Standard");
+        
+    }
     /**
      * Inflic 25 dammage to the life of the StolenAnt
      * @param thief who represent the Stolen Ant and who will be cruch by the human

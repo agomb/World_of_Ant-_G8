@@ -25,11 +25,14 @@ public class StolenAnt extends Player
      * drop delivery stolen in his depot
      * @override 
      */
-    public void drop()
+    public Item drop()
     {
+        Item i;
         if ( getCurrentRoom() == getDepot()){
-            super.drop();
+            i=super.drop(); 
+            return i;
         };
+        return null;
     }
  
      /**

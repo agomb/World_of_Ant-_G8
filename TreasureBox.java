@@ -3,15 +3,15 @@ import java.util.List;
 /**
  * This is a box which can contain keys and special item. It can also be locked.
  *
- * @author Group 8 - Marion Guernoté, Dylan Mielot, Fanny Barbe, Alix Nagot, Ambre Dumontet, Angélique Gombert, Thibault Crouzet
+ * @author Group 8 - Marion Guernoté, Dylan Mielot, Fanny Barbé, Alix Nagot, Ambre Dumontet, Angélique Gombert, Thibault Crouzet
  * @version 19/11/2019
  */
 public class TreasureBox extends Item
 {
-    private Key keyBox; // list of keys countains in the box
+    public List<Special> specials;
     private Special specialBox; // list of special item countains in the box
     private Lock lockBox; // lock which will allows to open the box
-
+    private Key keyBox;
 
     /**
      * Create a treasure box without lock 
@@ -24,7 +24,7 @@ public class TreasureBox extends Item
         super(tName);
         keyBox = theKey;
         specialBox = theSpecial;
-        keyBox = null;
+        
     }
     
     /**
@@ -43,15 +43,6 @@ public class TreasureBox extends Item
     }
     
     /**
-     * Give the keys on the box
-     * @return keys, the list of keys on the box
-     */
-    public Key getKey()
-    {
-        return keyBox;
-    }
-    
-    /**
      * Give the special item on the box
      * @return keys, the list of items on the box
      */
@@ -60,7 +51,17 @@ public class TreasureBox extends Item
         return specialBox;
     }
     
+
+        /**
+     * Give the special item on the box
+     * @return keys, the list of items on the box
+     */
+     public Key getKey()
+    {
+        return keyBox;
+    }
     
+  
     public Lock getLock()
     {
         return lockBox;
@@ -86,10 +87,10 @@ public class TreasureBox extends Item
     } 
     
     /**
-     * 
+     * Remove all the item and key contain inside the treasure box
      * 
      */
-     public void removeItem()
+    public void removeItem()
     {
        keyBox = null;
        specialBox = null;

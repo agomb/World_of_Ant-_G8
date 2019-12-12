@@ -1,16 +1,20 @@
+import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.Color;
+
 /**
- * This class create the interface.
+ * This class create the interface to control the direction of the ant (player).
  * @author Group8 (Alix and Dylan) 
  * @version 2019-11-26
  */
 
 public class ControlDirection extends JPanel implements ActionListener 
 {   
-    private JButton northButton, southButton, eastButton, westButton, upButton, downButton ;
+    private JButton northButton, southButton, eastButton, westButton, upButton, downButton ; // the different button for each direction including up and down
     private InterfaceGame myGameInterface;
     
     public ControlDirection (InterfaceGame anInterface){
@@ -46,14 +50,17 @@ public class ControlDirection extends JPanel implements ActionListener
         myPanel_control1.add(upButton);
         myPanel_control1.add(downButton);
         
-        //Frame
         
+        //placement inside the panel
         this.setLayout(new BorderLayout());
         this.add(northButton, BorderLayout.NORTH);
         this.add(eastButton, BorderLayout.EAST);
         this.add(westButton, BorderLayout.WEST);
         this.add(southButton, BorderLayout.SOUTH);
         this.add(myPanel_control1, BorderLayout.CENTER);
+        
+        disableAllButtons();
+        enableButton();
     }
     
     /**
@@ -71,53 +78,63 @@ public class ControlDirection extends JPanel implements ActionListener
     
     /**
      * This method allows to enable a button
-     * @param   bName   The button name 
+     * 
      */
-    public void enableButton(String bName)
+    public void enableButton()
     {
-        bName.toLowerCase(); //make sure that the string don't have upper case to compare it
-        if(bName.equals("north"))
-            northButton.setEnabled(true);
-        if(bName.equals("south"))
-            southButton.setEnabled(true);
-        if(bName.equals("east"))
-            eastButton.setEnabled(true);
-        if(bName.equals("west"))
-            westButton.setEnabled(true);
-        if(bName.equals("up"))
-            upButton.setEnabled(true);
-        if(bName.equals("down"))
-            downButton.setEnabled(true);
+        List<String> exitsAvailable = new ArrayList<String>();
+        exitsAvailable = myGameInterface.getGame().getPlayer().getCurrentRoom().checkExits();
+        for(String bName : exitsAvailable)
+        {
+            if(bName.equals("North"))
+                northButton.setEnabled(true);
+            if(bName.equals("South"))
+                southButton.setEnabled(true);
+            if(bName.equals("East"))
+                eastButton.setEnabled(true);
+            if(bName.equals("West"))
+                westButton.setEnabled(true);
+            if(bName.equals("Up"))
+                upButton.setEnabled(true);
+            if(bName.equals("Down"))
+                downButton.setEnabled(true);
+        }
     }
     
     /**
-     * 
+     * Implement the movement of the player when a button is pressed 
      */
     public void actionPerformed(ActionEvent e)
     {
         if(e.getSource() == northButton)
         {
-            
+            myGameInterface.getGame().getPlayer().moveRoom("North");
+            myGameInterface.getVisual().updateUI();
         }
         else if(e.getSource() == southButton )
         {
-            
+            myGameInterface.getGame().getPlayer().moveRoom("South");
+            myGameInterface.getVisual().updateUI();
         }
         else if(e.getSource() == eastButton )
         {
-
+            myGameInterface.getGame().getPlayer().moveRoom("East");
+            myGameInterface.getVisual().updateUI();
         }
         else if(e.getSource() == westButton )
         {
-
+            myGameInterface.getGame().getPlayer().moveRoom("West");
+            myGameInterface.getVisual().updateUI();
         }
         else if(e.getSource() == upButton )
         {
-
+            myGameInterface.getGame().getPlayer().moveRoom("Up");
+            myGameInterface.getVisual().updateUI();
         }
         else if(e.getSource() == downButton )
         {
-
+            myGameInterface.getGame().getPlayer().moveRoom("Down");
+            myGameInterface.getVisual().updateUI();
         }
     }
 }

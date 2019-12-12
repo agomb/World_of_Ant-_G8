@@ -36,17 +36,6 @@ public class Game
      * @return type : "deliver" for deliveroo ant 
      *                "stolen" for stolen ant    
      */
-    public String choosePlayer()
-    {
-      return "";
-    }
-    
-    /**
-     * Method to choose the player : deliveroo or stolen ant
-     * 
-     * @return type : "deliver" for deliveroo ant 
-     *                "stolen" for stolen ant    
-     */
     public Player getChoosenPlayer()
     {
       return playerChoose;
@@ -84,7 +73,12 @@ public class Game
         Key theCreatedKey25 = new Key("key25");
         Key theCreatedKeyRuby = new Key("keyRuby");
         
-        Lock theCreatedLockRuby = new Lock(theCreatedKeyRuby); 
+        Lock theCreatedLockRuby = new Lock(theCreatedKeyRuby);
+        Lock Lock1 = new Lock(theCreatedKey1);
+        Lock Lock5 = new Lock(theCreatedKey5);
+        Lock Lock6 = new Lock(theCreatedKey6);
+        Lock Lock14 = new Lock(theCreatedKey14);
+        Lock Lock25 = new Lock(theCreatedKey25);        
         
         Special theCreatedSpecialBonus = new Special("bonus");
         Special theCreatedSpecialMalus = new Special("malus");
@@ -178,10 +172,10 @@ public class Game
         Room roomG = new Room("G");
         room.add(roomG);
 
+
         //Here we create the doors between two rooms - initialization of the Hashmap
 
-
-        
+               
         
         Delivery d1 = new Delivery("d1", roomA);
         Delivery d2 = new Delivery("d2", roomB);
@@ -231,15 +225,14 @@ public class Game
             roomOpponent.addItem((Item)d13);
             roomOpponent.addItem((Item)d14);
         //}
-        
 
         Door.createDoor(roomPlayer, "East", room1, "West");
         Door.createDoor(room1, "North", room2, "South");
-        //Door.createDoor(room1, "East", room3, "West", theLock);
+        Door.createDoor(room1, "East", room3, "West", theCreatedKey1, Lock1);
         Door.createDoor(room3, "East", room4, "West");
         Door.createDoor(room4, "East", room5, "West");
         Door.createDoor(room5, "South", room6, "North");
-        //Door.createDoor(room6, "South", room7, "North", theLock);
+        Door.createDoor(room6, "South", room7, "North", theCreatedKey6, Lock6);
         Door.createDoor(room7, "East", room8, "West");
         Door.createDoor(room8, "South", room9, "North");
         Door.createDoor(room9, "South", room10, "North");
@@ -247,11 +240,11 @@ public class Game
         Door.createDoor(room11, "West", room12, "East");
         Door.createDoor(room12, "West", room13, "East");
         Door.createDoor(room13, "North", room14, "South");
-        //Door.createDoor(room14, "East", room15, "West", theLock);
+        Door.createDoor(room14, "East", room15, "West", theCreatedKey14, Lock14);
         Door.createDoor(room14, "North", room16, "South");
         Door.createDoor(room16, "East", room17, "West");
         Door.createDoor(room17, "East", room7, "West");
-        //Door.createDoor(room5, "West", room18, "East", theLock);
+        Door.createDoor(room5, "West", room18, "East", theCreatedKey5, Lock5);
         Door.createDoor(room18, "East", room19, "West");
         Door.createDoor(room19, "North", room20, "South");
         Door.createDoor(room20, "East", room21, "West");
@@ -259,7 +252,7 @@ public class Game
         Door.createDoor(room22, "East", room23, "West");
         Door.createDoor(room23, "South", room24, "North");
         Door.createDoor(room24, "South", room25, "North");
-        //Door.createDoor(room25, "South", room26, "North", theLock);
+        Door.createDoor(room25, "South", room26, "North", theCreatedKey25, Lock25);
         Door.createDoor(room26, "West", room28, "East");
         Door.createDoor(room28, "West", room29, "East");
         Door.createDoor(room26, "South", room27, "North");
@@ -273,10 +266,7 @@ public class Game
         Door.createDoor(room21, "Up", roomF, "Down");
 
         //roomG.addItem((Item)boxG);
-
     }
-    
- 
     
     public Player getPlayer(){
         return playerChoose;

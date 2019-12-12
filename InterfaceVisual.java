@@ -2,14 +2,14 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 /**
- * Décrivez votre classe Interface_Visual ici.
+ * The Interface_Visual class represent the map inside the game panel
  *
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * @author G8
+ * @version 11/12/2019
  */
 public class InterfaceVisual extends JPanel
 {
-    // variables d'instance - remplacez l'exemple qui suit par le vôtre
+    
     private InterfaceGame myGameInterface; 
 
     /**
@@ -21,10 +21,8 @@ public class InterfaceVisual extends JPanel
     }
 
     /**
-     * Un exemple de méthode - remplacez ce commentaire par le vôtre
-     *
-     * @param  y   le paramètre de la méthode
-     * @return     la somme de x et de y
+     * Visualize the room where the player is.
+     * @Parameter Player myPlayer
      */
     public String getPictureRoom(Player myPlayer)
     {
@@ -50,10 +48,7 @@ public class InterfaceVisual extends JPanel
     }
     
     /**
-     * Un exemple de méthode - remplacez ce commentaire par le vôtre
-     *
-     * @param  y   le paramètre de la méthode
-     * @return     la somme de x et de y
+     * Created the panel containt the map
      */
     public void visualizeRoom(Player myPlayer)
     {
@@ -62,6 +57,4 @@ public class InterfaceVisual extends JPanel
         this.add(mypicture);
         this.setSize(1200,1200);
     }
-
-   
 }

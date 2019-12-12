@@ -14,59 +14,113 @@ import java.util.List;
 public class TreasureBoxTest
 {
     //Attributes of the treasureBox class.
-    List <Key> key;
-    List <Special> special;
-    Lock lock;
-    TreasureBox treasureB;
-
-     /**
-     * Test if getters work correctly.
+    TreasureBox chest1, chest2;
+    Key keychest1, keychest2;
+    Special bonus, malus;
+    Lock lockChest;
+    /**
+     * Sets up the test fixture.
+     *
+     * Called before every test case method.
      */
-    @Test
-    public void testBoxLocked()
+    @Before
+    public void setUp()
     {
-        Key key = new Key("1", 1);
-        Key key2 = new Key("2", 2);
-        lock = new Lock(key);
-        
-        List <Key> keys = new ArrayList<Key>(); 
-        keys.add(key2);
-        
-        List <Special> specials = new ArrayList<Special>(); 
-        Special special1 = new Special("bh", 5);
-        specials.add(special1);
-        
-        treasureB = new TreasureBox("Toto", keys, specials, lock);
-        assertEquals(keys, treasureB.getKey());
-        assertEquals(specials, treasureB.getSpecial());
+        keychest1 = new Key("keychest1");
+        keychest2 = new Key("keychest2");
+        keychest2 = null;
+        lockChest = new Lock(keychest1);
+        bonus = new Special("bonus");
+        malus = new Special("malus");
+        //Test the first constructor
+        chest1 = new TreasureBox("chest1", keychest1, bonus);
+        //Test the second constructor
+        chest2 = new TreasureBox("chest2", keychest2, malus, lockChest );
     }
     
-     /**
-     * Test if items are removed correctly.
-     */
+    /**
+    * Test if getters work correctly.
+    * Get the Key of the treasure chest
+    * if there is no key the result is null
+    */
     @Test
-    public void testRemove()
+    public void testGetKey()
     {
-        Key key = new Key("1", 1);
-        Key key2 = new Key("2", 2);
-        lock = new Lock(key);
-        
-        List <Key> keys = new ArrayList<Key>(); 
-        keys.add(key2);
-        
-        List <Special> specials = new ArrayList<Special>(); 
-        Special special1 = new Special("bh", 5);
-        specials.add(special1);
-        
-        treasureB = new TreasureBox("Toto", keys, specials, lock);
-        
-        treasureB.removeItem();
-        
-        List <Key> k = treasureB.getKey();
-        List <Special> s = treasureB.getSpecial();
-        
-        assertEquals(0, k.size());
-        assertEquals(0, s.size());
+        assertEquals(keychest1, chest1.getKey() );
+    }
+    @Test
+    public void testGetKeyNull()
+    {
+        assertEquals(null, chest2.getKey() );
     }
     
+    /**
+    * Test if getters work correctly.
+    * Get the Special item of the treasure chest
+    * 
+    */
+    @Test
+    public void testGetSpecialBonus()
+    {
+        assertEquals(bonus, chest1.getSpecial() );
+    }
+    @Test
+    public void testGetSpecialMalus()
+    {
+        assertEquals(malus, chest2.getSpecial() );
+    }
+    
+    /**
+    * Test if getters work correctly.
+    * Get the lock of the treasure chest
+    * 
+    */
+    @Test
+    public void testGetLock()
+    {
+        assertEquals( lockChest, chest2.getLock() );
+    }
+    @Test
+    public void testGetLockNull()
+    {
+        assertEquals( null, chest1.getLock() );
+    }
+    
+    /**
+    * Test if getters work correctly.
+    * Get the description what is inside of the treasure chest
+    * Get a string
+    */
+    @Test
+    public void testGetDescriptionBonus()
+    {
+        assertEquals( "In this box there is : \n  a bonus, you win 15hp \nYou pick up 1 key", chest1.getDescription() );
+    }
+    @Test
+    public void testGetDescriptionMalus()
+    {
+        assertEquals( "In this box there is : \n  a malus, you loose -15hp \nYou pick up 1 key", chest2.getDescription() );
+    }
+    
+    /**
+    * Test if getters work correctly.
+    * Remove the item and key inside the treasure of the chest
+    */
+    @Test
+    public void testRemoveItem()
+    {
+        chest1.removeItem();
+        assertEquals( null , chest1.getKey() );
+        assertEquals( null , chest1.getSpecial() );
+    }
+    
+    /**
+     * Tears down the test fixture.
+     *
+     * Called after every test case method.
+     */
+    @After
+    public void tearDown()
+    {
+    }
 }

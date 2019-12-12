@@ -14,7 +14,8 @@ public class DeliverooAnt extends Player
      */
     public DeliverooAnt(String dName, Room playerRoom)
     {
-        super(dName,playerRoom);      
+        super(dName,playerRoom); 
+        playerRoom.checkExits();
     }
 
     /**
@@ -44,16 +45,19 @@ public class DeliverooAnt extends Player
      * drop delivery in his destination room
      * @override 
      */
-    public void drop()
+    public Item drop()
     {
         for ( Item i : getBag() ) {
             if(i instanceof Delivery){  
                 Delivery d = (Delivery)i;
                 if ( getCurrentRoom() == d.getGoal()){
                     getBag().remove(i);
-                    break;
+                    i=super.drop();
+                    return d;
+                    
                 }
             }     
         };
+        return null;
     }
 }

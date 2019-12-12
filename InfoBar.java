@@ -8,14 +8,15 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
- * Write a description of class InfoBar here.
+ * This class print the life, bag current capacity of the player and the time left.
  *
  * @author Dylan Thibault G8
  * @version 27/11/2019
  */
-public class InfoBar extends JPanel 
+public class InfoBar extends JPanel implements ActionListener
 {
     private InterfaceGame myGameInterface;
+    private Player player;
     
     private JProgressBar bagCunter;
     private JProgressBar life;
@@ -45,8 +46,6 @@ public class InfoBar extends JPanel
         
         
         //getting the bag capacity and life/honor point attribute of the player
-        
-        
         currentcapacity = myGameInterface.getGame().getPlayer().getBag().size();
         currentlife = myGameInterface.getGame().getPlayer().getHp();
         
@@ -59,7 +58,7 @@ public class InfoBar extends JPanel
         bagCunter.setValue(currentcapacity);
         bagCunter.setMaximum(20);
         bagCunter.setSize(200, 100);
-        //bagCunter.setBackground(Color.orange); //modify orange to an other color if you want
+        
         bagCunter.setVisible(true);
         
         
@@ -71,7 +70,7 @@ public class InfoBar extends JPanel
         life.setStringPainted(true);
         life.setValue(currentlife);
         life.setMaximum(100);
-        //life.setBackground(Color.red); //modify red to an other color if you want
+        
         life.setVisible(true);
         
         
@@ -91,13 +90,13 @@ public class InfoBar extends JPanel
                 }
                 else
                 {
-                    actualisation(myGameInterface.getGame().getPlayer());
+                    actualisation(player);
                     time.setText("The End Game");
                     timer.cancel();
                     timer.purge();
                     jop1 = new JOptionPane();
                     jop1.showMessageDialog(null, "Game Over", "The Game has ended", JOptionPane.INFORMATION_MESSAGE);
-
+                    //this section is used when the time is up and finish the game
                     
                     
                 }
@@ -119,25 +118,33 @@ public class InfoBar extends JPanel
     
     
     }
-
+    
+    /**
+     * Start the timer
+     */
     public void start()
     {
         timer.scheduleAtFixedRate(task,1000,1000);
     }
     
     /**
-     * Modify the frame when a specific action is used
+     * Modify the frame when a specific action is used and the time pass
      */
-    public void actualisation(Player player)
+    private void actualisation(Player player)
     {
         currentcapacity = myGameInterface.getGame().getPlayer().getBag().size();
-        bagCunter.setString("Bag capacity : "+ currentcapacity + "/"+20);
+        bagCunter.setString("Bag capacity :"+currentcapacity + "/"+20);
         
         currentlife = myGameInterface.getGame().getPlayer().getHp();
-        life.setString("Current life : "+currentlife + "/"+100);
+        life.setString("Current life :"+currentlife + "/"+100);
         
     }
     
     
+    
+    public void actionPerformed(ActionEvent e)
+    {
+        
+    }
     
 }

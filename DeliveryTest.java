@@ -19,7 +19,7 @@ public class DeliveryTest
      * Test that an item is correctly initialised ().
      */
     @Test
-    public void testDel()
+    public void testDelivery()
     {
         Room room = new Room("Room 1");
         delivery = new Delivery("Toto", room);

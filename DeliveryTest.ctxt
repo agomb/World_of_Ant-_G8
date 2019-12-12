@@ -2,6 +2,6 @@
 comment0.target=DeliveryTest
 comment0.text=\r\n\ \r\n\ @author\ Group\ 8\ -\ Marion\ Guernot\u00E9,\ Dylan\ Mielot,\ Fanny\ Barbe,\ Alix\ Nagot,\ Ambre\ Dumontet,\ Ang\u00E9lique\ Gombert,\ Thibault\ Crouzet\r\n\ @version\ 19/11/2019\r\n
 comment1.params=
-comment1.target=void\ testDel()
+comment1.target=void\ testDelivery()
 comment1.text=\r\n\ Test\ that\ an\ item\ is\ correctly\ initialised\ ().\r\n
 numComments=2

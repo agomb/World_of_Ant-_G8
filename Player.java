@@ -36,11 +36,6 @@ public class Player extends Character
     public void setCurrentRoom(Room roomToMove)
     {
         currentRoom = roomToMove;
-        
-        //!\ afficher les bonnes sorties
-            //up_Butoon.setEnabled(false);
-            //up_Butoon.setEnabled(true);
-        //!\ afficher les bonnes couleurs de sorties
     }
     
     /**
@@ -83,13 +78,13 @@ public class Player extends Character
     /**
      * Allow the ant to move between the rooms by crossing a door among the exits available
      */
-    public void moveRoom()
+    public void moveRoom(String direction)
     {
-        currentRoom.checkExits(); // verifie les sorties de la piece
-        //demande la sortie et récupère la Door
-        //Door exitDoor = new Door();
-        //Room futureRoom = Door.crossDoor(currentRoom, exitDoor); // renvoie la piece dans laquelle on sort en travarsant l'exitDoor
-        //setCurrentRoom(futureRoom); // la room dans laquelle on se trouve devient la room de sortie
+        // get the door that correspond to the exit direction
+        Door exitDoor = currentRoom.getDoor(direction);
+        // search the future room
+        Room futureRoom = exitDoor.crossDoor(currentRoom); // renvoie la piece dans laquelle on sort en travarsant l'exitDoor
+        setCurrentRoom(futureRoom); // la room dans laquelle on se trouve devient la room de sortie
     }
     
     /**
@@ -99,9 +94,8 @@ public class Player extends Character
      */
     public void pickUpDelivery(Delivery loot)
     {
-        if (bag.size() < getSizeBag() && loot !=null){
-            bag.add(loot); 
-        }
+        bag.add(loot);
+        //Interface_Info.setMessage("You picked a delivery");
     }
     
     /**
@@ -122,29 +116,29 @@ public class Player extends Character
             }     
         } 
         
-        if (box.getLock().getIsLocked() == false) {
+        if (box.getLock().getIsLocked() == false) 
+        {
             setHp(box.getSpecial().getImpact());
 
-            if (box.getKey() != null && bag.size() < getSizeBag()){
-                bag.add(box.getKey()); 
-            }
+         //   if (box.getKey() != null && bag.size() < getSizeBag()){
+          //      bag.add(box.getKey()); 
         }
-      
-    }
     
     /**
      * Drop an item in the room
      * @parameter  thedropName reprensent the name of the item that will be droped is the room
      * @return thedrop is the item that is droped in the room
      */
-    public void drop()
+    public Item drop()
     {
         for ( Item i : bag) {
             if(i instanceof Delivery){  
                  bag.remove(i);
+                 return i;
             } 
             
         }
+        return null;
     }
 
     /**
