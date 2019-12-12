@@ -118,7 +118,6 @@ public class Player extends Character
                     }             
                 }     
             } else{
-                
                 setHp(box.getSpecial().getImpact());
     
               if (box.getKey() != null && bag.size() < getSizeBag()){
@@ -126,8 +125,9 @@ public class Player extends Character
                }
             }
         }else{
-           setHp(box.getSpecial().getImpact());
-    
+            if(box.getSpecial() != null) {
+                setHp(box.getSpecial().getImpact());
+             }
               if (box.getKey() != null && bag.size() < getSizeBag()){
                     bag.add(box.getKey()); 
                } 
