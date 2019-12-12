@@ -4,8 +4,6 @@ import java.awt.event.*;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
 /**
  * This class print the life, bag current capacity of the player and the time left.
@@ -90,7 +88,7 @@ public class InfoBar extends JPanel implements ActionListener
                 }
                 else
                 {
-                    actualisation(player);
+                    actualisation(myGameInterface.getGame().getPlayer());
                     time.setText("The End Game");
                     timer.cancel();
                     timer.purge();
@@ -130,7 +128,7 @@ public class InfoBar extends JPanel implements ActionListener
     /**
      * Modify the frame when a specific action is used and the time pass
      */
-    private void actualisation(Player player)
+    public void actualisation(Player player)
     {
         currentcapacity = myGameInterface.getGame().getPlayer().getBag().size();
         bagCunter.setString("Bag capacity :"+currentcapacity + "/"+20);

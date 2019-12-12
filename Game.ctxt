@@ -14,12 +14,9 @@ comment4.params=
 comment4.target=void\ createRoom()
 comment4.text=\r\n\ This\ method\ initialize\ the\ doors\ and\ rooms\r\n\ Each\ room\ of\ the\ underground\ has\ a\ number\ and\ the\ doors\ have\ directions\r\n\r\n\ @param\ \ y\ \ \ un\ param\u00E8tre\ pour\ cette\ m\u00E9thode\r\n\ @param\ \ x\ \ \ un\ autre\ param\u00E8tre\r\n\ @return\ \ \ \ \ la\ somme\ des\ deux\ param\u00E8tres\r\n
 comment5.params=
-comment5.target=void\ createRoom()
-comment5.text=\r\n\ This\ method\ initialize\ the\ doors\ and\ rooms\r\n\ Each\ room\ of\ the\ underground\ has\ a\ number\ and\ the\ doors\ have\ directions\r\n\r\n\ @param\ \ y\ \ \ un\ param\u00E8tre\ pour\ cette\ m\u00E9thode\r\n\ @param\ \ x\ \ \ un\ autre\ param\u00E8tre\r\n\ @return\ \ \ \ \ la\ somme\ des\ deux\ param\u00E8tres\r\n
+comment5.target=Player\ getPlayer()
 comment6.params=
-comment6.target=Player\ getPlayer()
-comment7.params=
-comment7.target=Player\ getComputer()
-comment8.params=b
-comment8.target=void\ createPlayer(boolean)
-
+comment6.target=Player\ getComputer()
+comment7.params=b
+comment7.target=void\ createPlayer(boolean)
+numComments=8

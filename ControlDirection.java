@@ -16,6 +16,7 @@ public class ControlDirection extends JPanel implements ActionListener
 {   
     private JButton northButton, southButton, eastButton, westButton, upButton, downButton ; // the different button for each direction including up and down
     private InterfaceGame myGameInterface;
+    private JPanel myPanel_control1;
     
     public ControlDirection (InterfaceGame anInterface){
         super();
@@ -25,16 +26,22 @@ public class ControlDirection extends JPanel implements ActionListener
         //Creation of Buttons
         northButton = new JButton("↑");
         northButton.setBackground(Color.WHITE);
+        northButton.addActionListener(this);
         southButton = new JButton("↓");
         southButton.setBackground(Color.WHITE);
+        southButton.addActionListener(this);
         eastButton = new JButton("→");
         eastButton.setBackground(Color.WHITE);
+        eastButton.addActionListener(this);
         westButton = new JButton("←");
         westButton.setBackground(Color.WHITE);
+        westButton.addActionListener(this);
         upButton = new JButton("UP");
-        upButton.setBackground(Color.GREEN);       
+        upButton.setBackground(Color.GREEN);
+        upButton.addActionListener(this);
         downButton = new JButton("DOWN");
         downButton.setBackground(Color.RED);
+        downButton.addActionListener(this);
         
         //panelArround
         //JPanel myPanel_control = new JPanel();
@@ -45,7 +52,7 @@ public class ControlDirection extends JPanel implements ActionListener
         this.add(westButton);
       
         //panelCenter 
-        JPanel myPanel_control1 = new JPanel();
+        myPanel_control1 = new JPanel();
         myPanel_control1.setLayout(new GridLayout(2,1));
         myPanel_control1.add(upButton);
         myPanel_control1.add(downButton);
@@ -61,6 +68,8 @@ public class ControlDirection extends JPanel implements ActionListener
         
         disableAllButtons();
         enableButton();
+        
+        this.setVisible(true);
     }
     
     /**
@@ -109,32 +118,94 @@ public class ControlDirection extends JPanel implements ActionListener
         if(e.getSource() == northButton)
         {
             myGameInterface.getGame().getPlayer().moveRoom("North");
-            myGameInterface.getVisual().updateUI();
+            
+            myGameInterface.showMap(myGameInterface.getVisual());
+            myGameInterface.getVisual().visualizeRoom(myGameInterface.getGame().getPlayer());
+            
+            myGameInterface.getDirection().disableAllButtons();
+            myGameInterface.getDirection().enableButton();
+            myGameInterface.getDirection().updateUI();
+            
+            myGameInterface.getDoable().enableButton();
+            myGameInterface.getDoable().updateUI();
+            
+            myGameInterface.getInfo().updateUI();
+            myGameInterface.getBar().updateUI();
         }
         else if(e.getSource() == southButton )
         {
             myGameInterface.getGame().getPlayer().moveRoom("South");
-            myGameInterface.getVisual().updateUI();
+            
+            myGameInterface.showMap(myGameInterface.getVisual());
+            myGameInterface.getVisual().visualizeRoom(myGameInterface.getGame().getPlayer());
+            
+            myGameInterface.getDirection().disableAllButtons();
+            myGameInterface.getDirection().enableButton();
+            myGameInterface.getDirection().updateUI();
+            
+            myGameInterface.getDoable().updateUI();
+            myGameInterface.getInfo().updateUI();
+            myGameInterface.getBar().updateUI();
         }
         else if(e.getSource() == eastButton )
         {
             myGameInterface.getGame().getPlayer().moveRoom("East");
-            myGameInterface.getVisual().updateUI();
+            
+            myGameInterface.showMap(myGameInterface.getVisual());
+            myGameInterface.getVisual().visualizeRoom(myGameInterface.getGame().getPlayer());
+            
+            myGameInterface.getDirection().disableAllButtons();
+            myGameInterface.getDirection().enableButton();
+            myGameInterface.getDirection().updateUI();
+            
+            myGameInterface.getDoable().updateUI();
+            myGameInterface.getInfo().updateUI();
+            myGameInterface.getBar().updateUI();
         }
         else if(e.getSource() == westButton )
         {
             myGameInterface.getGame().getPlayer().moveRoom("West");
-            myGameInterface.getVisual().updateUI();
+            
+             myGameInterface.showMap(myGameInterface.getVisual());
+            myGameInterface.getVisual().visualizeRoom(myGameInterface.getGame().getPlayer());
+            
+            myGameInterface.getDirection().disableAllButtons();
+            myGameInterface.getDirection().enableButton();
+            myGameInterface.getDirection().updateUI();
+            
+            myGameInterface.getDoable().updateUI();
+            myGameInterface.getInfo().updateUI();
+            myGameInterface.getBar().updateUI();
         }
         else if(e.getSource() == upButton )
         {
             myGameInterface.getGame().getPlayer().moveRoom("Up");
-            myGameInterface.getVisual().updateUI();
+            
+            myGameInterface.showMap(myGameInterface.getVisual());
+            myGameInterface.getVisual().visualizeRoom(myGameInterface.getGame().getPlayer());
+            
+            myGameInterface.getDirection().disableAllButtons();
+            myGameInterface.getDirection().enableButton();
+            myGameInterface.getDirection().updateUI();
+            
+            myGameInterface.getDoable().updateUI();
+            myGameInterface.getInfo().updateUI();
+            myGameInterface.getBar().updateUI();
         }
         else if(e.getSource() == downButton )
         {
             myGameInterface.getGame().getPlayer().moveRoom("Down");
-            myGameInterface.getVisual().updateUI();
+            
+             myGameInterface.showMap(myGameInterface.getVisual());
+            myGameInterface.getVisual().visualizeRoom(myGameInterface.getGame().getPlayer());
+            
+            myGameInterface.getDirection().disableAllButtons();
+            myGameInterface.getDirection().enableButton();
+            myGameInterface.getDirection().updateUI();
+            
+            myGameInterface.getDoable().updateUI();
+            myGameInterface.getInfo().updateUI();
+            myGameInterface.getBar().updateUI();
         }
     }
 }
