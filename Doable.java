@@ -14,7 +14,7 @@ import java.awt.Color;
  */
 public class Doable extends JPanel implements ActionListener //creation class (public)
 {
-    private JButton myButtonDrop, myButtonDelivery, myButtonTreasure, myButtonHit;
+    private JButton myButtonDrop, myButtonDelivery, myButtonTreasure, myButtonHit, useKey;
     private InterfaceGame myGameInterface;
     
     
@@ -40,12 +40,15 @@ public class Doable extends JPanel implements ActionListener //creation class (p
         myButtonHit = new JButton("Hit");
         myButtonHit.addActionListener(this);
         
+        useKey = new JButton("Use the key");
+        
           
         //JPanel myPanel_Doable = new JPanel(); // create the panel
-        this.setLayout(new GridLayout(3,1)); //create the localisation of the button
+        this.setLayout(new GridLayout(4,1)); //create the localisation of the button
         this.add(myButtonDrop); // add the button in panel
         this.add(myButtonDelivery); // add the button in panel
         this.add(myButtonTreasure); // add the button in panel
+        this.add(useKey);
         
         if (myGameInterface.getGame().getPlayer() instanceof DeliverooAnt){
             this.add(myButtonHit); 
@@ -125,6 +128,7 @@ public class Doable extends JPanel implements ActionListener //creation class (p
     {
         if(e.getSource() == myButtonDrop)
         {
+
              myGameInterface.getGame().getPlayer().drop();
              myGameInterface.getBar().actualisation(myGameInterface.getGame().getPlayer());
              
@@ -141,6 +145,7 @@ public class Doable extends JPanel implements ActionListener //creation class (p
              myGameInterface.getBar().updateUI();
              myGameInterface.getVisual().updateUI();
              myGameInterface.getDoable().updateUI();
+
         }
         else if(e.getSource() == myButtonDelivery )
         {
@@ -150,10 +155,17 @@ public class Doable extends JPanel implements ActionListener //creation class (p
              myGameInterface.getGame().getPlayer().pickUpDelivery(d);
              myGameInterface.getGame().getPlayer().getCurrentRoom().removeItem(d);
 
+
              
              //myGameInterface.getBar().actualisation(myGameInterface.getGame().getPlayer());   
-             
+
              myGameInterface.getBar().updateUI();
+
+
+             myGameInterface.getVisual().updateUI();
+             //myGameInterface.getInfo().updateInfoBox();
+             myGameInterface.getDoable().updateUI();
+
         }
         else if(e.getSource() == myButtonTreasure )
         {
@@ -181,9 +193,11 @@ public class Doable extends JPanel implements ActionListener //creation class (p
             p.hitStolette(s);
             
             myGameInterface.getDirection().updateUI();
+
              myGameInterface.getBar().updateUI();
              myGameInterface.getVisual().updateUI();
              myGameInterface.getDoable().updateUI();
+
         }
     }
 }

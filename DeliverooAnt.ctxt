@@ -12,5 +12,5 @@ comment3.target=void\ pickUpDelivery(Delivery)
 comment3.text=\r\n\ Take\ a\ delivery\ in\ his\ depot\r\n\ @parameter\ loot\ which\ is\ deliveries\ to\ deliver.\ \r\n\ @override\ \r\n
 comment4.params=
 comment4.target=Item\ drop()
-comment4.text=\r\n\ drop\ delivery\ in\ his\ destination\ room\r\n\ @override\ \r\n
+comment4.text=\r\n\ drop\ delivery\ in\ its\ destination\ room\r\n\ @override\ \r\n
 numComments=5
