@@ -8,11 +8,19 @@ import java.util.List;
  */
 public class TreasureBox extends Item
 {
-    public List<Special> specials;
-    private Special specialBox; // list of special item countains in the box
+    private Special specialBox; // list of special item contained in the box
     private Lock lockBox; // lock which will allows to open the box
     private Key keyBox;
-
+    
+    /**
+     * Constructor of empty Treasure box
+     * @param tName allows to give a name to the object
+     */
+    public TreasureBox(String tName)
+    {
+        super(tName);
+    }
+    
     /**
      * Create a treasure box without lock 
      * @param tName allows to give a name to the object
@@ -24,7 +32,6 @@ public class TreasureBox extends Item
         super(tName);
         keyBox = theKey;
         specialBox = theSpecial;
-        
     }
     
     /**
@@ -52,7 +59,8 @@ public class TreasureBox extends Item
     }
     
 
-    /**
+     /**
+
      * Give the special item on the box
      * @return keys, the list of items on the box
      */
@@ -76,7 +84,8 @@ public class TreasureBox extends Item
        String s = "In this box there is : \n " ;
        if (specialBox.getImpact() < 0 ){
                s = s + " a malus, you loose ";  
-       }else{
+       }
+       else{
                s = s + " a bonus, you win ";
        }
        s = s +  Integer.toString(specialBox.getImpact()) + "hp \n" ;     
@@ -94,6 +103,5 @@ public class TreasureBox extends Item
     {
        keyBox = null;
        specialBox = null;
-       
     } 
 }
