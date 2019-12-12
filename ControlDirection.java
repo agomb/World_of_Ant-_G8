@@ -86,7 +86,6 @@ public class ControlDirection extends JPanel implements ActionListener
         exitsAvailable = myGameInterface.getGame().getPlayer().getCurrentRoom().checkExits();
         for(String bName : exitsAvailable)
         {
-            System.out.println("ça marche pas");
             if(bName.equals("North"))
                 northButton.setEnabled(true);
             if(bName.equals("South"))
@@ -109,27 +108,33 @@ public class ControlDirection extends JPanel implements ActionListener
     {
         if(e.getSource() == northButton)
         {
-            
+            myGameInterface.getGame().getPlayer().moveRoom("North");
+            myGameInterface.getVisual().updateUI();
         }
         else if(e.getSource() == southButton )
         {
-            
+            myGameInterface.getGame().getPlayer().moveRoom("South");
+            myGameInterface.getVisual().updateUI();
         }
         else if(e.getSource() == eastButton )
         {
-
+            myGameInterface.getGame().getPlayer().moveRoom("East");
+            myGameInterface.getVisual().updateUI();
         }
         else if(e.getSource() == westButton )
         {
-
+            myGameInterface.getGame().getPlayer().moveRoom("West");
+            myGameInterface.getVisual().updateUI();
         }
         else if(e.getSource() == upButton )
         {
-
+            myGameInterface.getGame().getPlayer().moveRoom("Up");
+            myGameInterface.getVisual().updateUI();
         }
         else if(e.getSource() == downButton )
         {
-
+            myGameInterface.getGame().getPlayer().moveRoom("Down");
+            myGameInterface.getVisual().updateUI();
         }
     }
 }

@@ -59,7 +59,16 @@ public class Door
     {
         return theLock;
     }
-
+    
+    /**
+     * Give the keys on the box
+     * @return keys, the list of keys on the box
+     */
+    public List<Key> getListKeysDoors()
+    {
+        return keyDoors;
+    }
+    
     /**
      * This method return the next room to move to but if the door is locked and you don't have the right key it will return a error type
      * This error need to be catch by the calling method
@@ -67,8 +76,11 @@ public class Door
      * 
      * @return     error or the next room
      */
-    public Room cross()
+    public Room crossDoor(Room currentRoom)
     {
-       return room2;
+       if (room1 == currentRoom)
+            return room2;
+       else 
+            return room1;
     }
 }
