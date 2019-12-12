@@ -246,11 +246,11 @@ public class Game
         Door.createDoor(room11, "West", room12, "East");
         Door.createDoor(room12, "West", room13, "East");
         Door.createDoor(room13, "North", room14, "South");
-        //Door.createDoor(room14, "West", room15, "East", theCreatedKey14, Lock14);
+        Door.createDoor(room15, "East", room14, "West", theCreatedKey14, Lock14);
         Door.createDoor(room14, "North", room16, "South");
         Door.createDoor(room16, "East", room17, "West");
         Door.createDoor(room17, "East", room7, "West");
-        Door.createDoor(room5, "West", room18, "East", theCreatedKey5, Lock5);
+        Door.createDoor(room18, "West", room5, "East", theCreatedKey5, Lock5);
         Door.createDoor(room18, "East", room19, "West");
         Door.createDoor(room19, "North", room20, "South");
         Door.createDoor(room20, "East", room21, "West");
