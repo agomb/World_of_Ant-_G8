@@ -119,6 +119,28 @@ public class ControlDirection extends JPanel implements ActionListener
         if(e.getSource() == northButton)
         {
             myGameInterface.getGame().getPlayer().moveRoom("North");
+        }
+        else if(e.getSource() == southButton )
+        {
+            myGameInterface.getGame().getPlayer().moveRoom("South");
+        }
+        else if(e.getSource() == eastButton )
+        {
+            myGameInterface.getGame().getPlayer().moveRoom("East");
+        }
+        else if(e.getSource() == westButton )
+        {
+            myGameInterface.getGame().getPlayer().moveRoom("West");
+        }
+        else if(e.getSource() == upButton )
+        {
+            myGameInterface.getGame().getPlayer().moveRoom("Up");
+        }
+        else if(e.getSource() == downButton )
+        {
+            myGameInterface.getGame().getPlayer().moveRoom("Down");
+        }
+        
             
             myGameInterface.showMap(myGameInterface.getVisual());
             myGameInterface.getVisual().visualizeRoom(myGameInterface.getGame().getPlayer());
@@ -127,86 +149,13 @@ public class ControlDirection extends JPanel implements ActionListener
             myGameInterface.getDirection().enableButton();
             myGameInterface.getDirection().updateUI();
             
+            myGameInterface.getDoable().disableAllButtons();
             myGameInterface.getDoable().enableButton();
             myGameInterface.getDoable().updateUI();
             
             myGameInterface.getInfo().updateUI();
             myGameInterface.getBar().updateUI();
-        }
-        else if(e.getSource() == southButton )
-        {
-            myGameInterface.getGame().getPlayer().moveRoom("South");
             
-            myGameInterface.showMap(myGameInterface.getVisual());
-            myGameInterface.getVisual().visualizeRoom(myGameInterface.getGame().getPlayer());
-            
-            myGameInterface.getDirection().disableAllButtons();
-            myGameInterface.getDirection().enableButton();
-            myGameInterface.getDirection().updateUI();
-            
-            myGameInterface.getDoable().updateUI();
-            myGameInterface.getInfo().updateUI();
-            myGameInterface.getBar().updateUI();
-        }
-        else if(e.getSource() == eastButton )
-        {
-            myGameInterface.getGame().getPlayer().moveRoom("East");
-            
-            myGameInterface.showMap(myGameInterface.getVisual());
-            myGameInterface.getVisual().visualizeRoom(myGameInterface.getGame().getPlayer());
-            
-            myGameInterface.getDirection().disableAllButtons();
-            myGameInterface.getDirection().enableButton();
-            myGameInterface.getDirection().updateUI();
-            
-            myGameInterface.getDoable().updateUI();
-            myGameInterface.getInfo().updateUI();
-            myGameInterface.getBar().updateUI();
-        }
-        else if(e.getSource() == westButton )
-        {
-            myGameInterface.getGame().getPlayer().moveRoom("West");
-            
-             myGameInterface.showMap(myGameInterface.getVisual());
-            myGameInterface.getVisual().visualizeRoom(myGameInterface.getGame().getPlayer());
-            
-            myGameInterface.getDirection().disableAllButtons();
-            myGameInterface.getDirection().enableButton();
-            myGameInterface.getDirection().updateUI();
-            
-            myGameInterface.getDoable().updateUI();
-            myGameInterface.getInfo().updateUI();
-            myGameInterface.getBar().updateUI();
-        }
-        else if(e.getSource() == upButton )
-        {
-            myGameInterface.getGame().getPlayer().moveRoom("Up");
-            
-            myGameInterface.showMap(myGameInterface.getVisual());
-            myGameInterface.getVisual().visualizeRoom(myGameInterface.getGame().getPlayer());
-            
-            myGameInterface.getDirection().disableAllButtons();
-            myGameInterface.getDirection().enableButton();
-            myGameInterface.getDirection().updateUI();
-            
-            myGameInterface.getDoable().updateUI();
-            myGameInterface.getInfo().updateUI();
-            myGameInterface.getBar().updateUI();
-        }
-        else if(e.getSource() == downButton )
-        {
-            myGameInterface.getGame().getPlayer().moveRoom("Down");
-            
-             myGameInterface.showMap(myGameInterface.getVisual());
-            myGameInterface.getVisual().visualizeRoom(myGameInterface.getGame().getPlayer());
-            
-            myGameInterface.getDirection().disableAllButtons();
-            myGameInterface.getDirection().enableButton();
-            myGameInterface.getDirection().updateUI();
-            
-            myGameInterface.getDoable().updateUI();
-            myGameInterface.getInfo().updateUI();
-            myGameInterface.getBar().updateUI();
-        }
+            System.out.println(" Current room : "+myGameInterface.getGame().getPlayer().getCurrentRoom().getDescription());
     }
 }
