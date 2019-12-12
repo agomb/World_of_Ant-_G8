@@ -25,6 +25,7 @@ public class InterfaceInfo extends JPanel implements ActionListener
     
     /**
      * Allow to create the information interface which will display messages from the game
+     * @param anInterface allows to linked the class InterfaceInfo to the class InterfaceInfo
      */
     public InterfaceInfo(InterfaceGame anInterface)
     {
@@ -36,9 +37,9 @@ public class InterfaceInfo extends JPanel implements ActionListener
         
           
          // Create a label to display the interface name
-        title = new JLabel("Message", JLabel.CENTER);
+        title = new JLabel("Message        ", JLabel.CENTER);
         title.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,35));
-        title.setBackground(Color.RED);
+        title.setBackground(Color.WHITE);
         
         //Create different border to design        
         raisedbevel = BorderFactory.createRaisedBevelBorder();
@@ -49,7 +50,7 @@ public class InterfaceInfo extends JPanel implements ActionListener
          
         //Create a panel to put our border with the messages inside
         compoundBorders = new JPanel();
-        compoundBorders.setBackground(Color.RED);
+        compoundBorders.setBackground(Color.WHITE);
         //set the border
         compoundBorders.setBorder(paneEdge);
         compoundBorders.setLayout(new BoxLayout(compoundBorders,BoxLayout.Y_AXIS));     
@@ -61,13 +62,13 @@ public class InterfaceInfo extends JPanel implements ActionListener
         
         //Create a panel to put button next and previous
         action = new JPanel();
-        action.setBackground(Color.RED);
+        action.setBackground(Color.WHITE);
         next = new JButton("Next");
         next.addActionListener(this);
-        next.setBackground(Color.RED);
+        next.setBackground(Color.WHITE);
         previous = new JButton("Previous");
         previous.addActionListener(this);
-        previous.setBackground(Color.RED);
+        previous.setBackground(Color.WHITE);
         
         action.setLayout(new GridLayout(1,2)); 
         action.add(previous);
@@ -80,8 +81,9 @@ public class InterfaceInfo extends JPanel implements ActionListener
         //finalPanel.add(content);
         finalPanel.add(compoundBorders);
         finalPanel.add(action);
-        finalPanel.setBackground(Color.RED);
+        finalPanel.setBackground(Color.WHITE);
         
+        this.enableButton();
                
         this.add (finalPanel);
         
@@ -89,6 +91,10 @@ public class InterfaceInfo extends JPanel implements ActionListener
         this.setSize(250, 100);
     }
 
+    /**
+     * This method allows to disable all buttons
+     * when this method is used, the user cannot click on the buttons
+     */
     public void disableAllButtons()
     {
         next.setEnabled(false);
@@ -134,7 +140,7 @@ public class InterfaceInfo extends JPanel implements ActionListener
         Character c = myGameInterface.getGame().getPlayer();
         Player p = (Player)c; 
         TreasureBox t = p.getCurrentRoom().getBox();
-        //information.add(t.getDescription());
+        information.add(t.getDescription());
     }
     
     /**
@@ -146,6 +152,7 @@ public class InterfaceInfo extends JPanel implements ActionListener
         Delivery t = p.getCurrentRoom().getDelivery();
         this.information.add("You drop a delivery");
     }
+    
     
     /**
      * Update the message list when we move to another room
@@ -273,13 +280,11 @@ public class InterfaceInfo extends JPanel implements ActionListener
         
         
     }
-    
-    
-    
+
     /**
      * Allow to display text inside border
      */
-    private   void addCompForBorder(Border border,
+    private void addCompForBorder(Border border,
                           JLabel description,
                           Container container) {
         JPanel comp = new JPanel(new GridLayout(1, 1), false);
@@ -289,6 +294,5 @@ public class InterfaceInfo extends JPanel implements ActionListener
         container.add(Box.createRigidArea(new Dimension(0, 10)));
         container.add(comp);
     }
-
 
 }

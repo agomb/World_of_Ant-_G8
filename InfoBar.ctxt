@@ -12,6 +12,4 @@ comment3.text=\r\n\ Start\ the\ timer\r\n
 comment4.params=player
 comment4.target=void\ actualisation(Player)
 comment4.text=\r\n\ Modify\ the\ frame\ when\ a\ specific\ action\ is\ used\ and\ the\ time\ pass\r\n
-comment5.params=e
-comment5.target=void\ actionPerformed(java.awt.event.ActionEvent)
-numComments=6
+numComments=5

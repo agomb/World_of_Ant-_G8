@@ -61,6 +61,7 @@ public class TreasureBox extends Item
 
 
      /**
+
      * Give the special item on the box
      * @return keys, the list of items on the box
      */
@@ -81,14 +82,20 @@ public class TreasureBox extends Item
      public String getDescription()
     {
        String s = "In this box there is : \n " ;
-       if (specialBox.getImpact() < 0 ){
-               s = s + " a malus, you loose ";  
+       if (specialBox != null && specialBox.getImpact() < 0 )
+       {
+               s = s + " a malus, you loose " + Integer.toString(specialBox.getImpact()) + "hp \n";  
        }
-       else{
-               s = s + " a bonus, you win ";
+       else if (specialBox != null && specialBox.getImpact() > 0)
+       {
+               s = s + " a bonus, you win " + Integer.toString(specialBox.getImpact()) + "hp \n";
+       }   
+       
+       if (keyBox != null  )
+       {
+              s = s + "You pick up 1 key";  
        }
-       s = s +  Integer.toString(specialBox.getImpact()) + "hp \n" ;     
-       s = s + "You pick up 1 key";
+
        return s;
     } 
     

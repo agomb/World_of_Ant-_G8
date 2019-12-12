@@ -11,6 +11,10 @@ import javax.swing.*;
  * @version (1)
  */
 public class BcGdMenu extends JPanel {
+  /**
+   * This method allows to add a background to the start interface
+   * @param g is linked to the Graphics package to add a background
+   */
   public void paintComponent(Graphics g){
     try {
       Image img = ImageIO.read(new File("bg_image.jpg"));
