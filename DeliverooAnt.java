@@ -14,7 +14,8 @@ public class DeliverooAnt extends Player
      */
     public DeliverooAnt(String dName, Room playerRoom)
     {
-        super(dName,playerRoom);      
+        super(dName,playerRoom); 
+        playerRoom.checkExits();
     }
 
     /**

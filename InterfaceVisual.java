@@ -38,13 +38,17 @@ public class InterfaceVisual extends JPanel
             return "human_room";
         }else if(myPlayer.getCurrentRoom().getDescription() == "C" || myPlayer.getCurrentRoom().getDescription() == "F" || myPlayer.getCurrentRoom().getDescription() == "G"){
             return "box_human_room";
-        }else if((myGameInterface.getGame().getComputer().getCurrentRoom().getDescription() == myPlayer.getCurrentRoom().getDescription()) && (myPlayer instanceof StolenAnt)){
-            return getPictureRoom(myPlayer)+"_fourmi1";
-        } else if((myGameInterface.getGame().getComputer().getCurrentRoom().getDescription() == myPlayer.getCurrentRoom().getDescription()) && (myPlayer instanceof DeliverooAnt)){
-            return getPictureRoom(myPlayer)+"_fourmi2";
-        }else{
-            return "room";
+        } else{
+            return "galerie";
         }
+        
+        //        }else if((myGameInterface.getGame().getComputer().getCurrentRoom().getDescription() == myPlayer.getCurrentRoom().getDescription()) && (myPlayer instanceof StolenAnt)){
+            //return getPictureRoom(myPlayer)+"_fourmi1";else if((myGameInterface.getGame().getComputer().getCurrentRoom().getDescription() == myPlayer.getCurrentRoom().getDescription()) && (myPlayer instanceof DeliverooAnt)){
+          //  System.out.println("3");
+          //  return getPictureRoom(myPlayer)+"_fourmi2";
+       // }else if(myPlayer.getCurrentRoom().getDescription() == "1" || myPlayer.getCurrentRoom().getDescription() == "6" || myPlayer.getCurrentRoom().getDescription() == "20" || myPlayer.getCurrentRoom().getDescription() == "27" || myPlayer.getCurrentRoom().getDescription() == "10"){
+       //     System.out.println("bug");
+       //     return "up_room";
     }
     
     /**
@@ -57,6 +61,4 @@ public class InterfaceVisual extends JPanel
         this.add(mypicture);
         this.setSize(1200,1200);
     }
-
-   
 }

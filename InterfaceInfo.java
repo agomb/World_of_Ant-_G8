@@ -31,14 +31,14 @@ public class InterfaceInfo extends JPanel implements ActionListener
         myGameInterface = anInterface;
         i = 0; //initialize the number of messages
         information = new ArrayList<String>();
+
         content = new JLabel("There is no message yet", JLabel.CENTER); //message printed when there are no others messages
         
           
-        
          // Create a label to display the interface name
         title = new JLabel("Message", JLabel.CENTER);
         title.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,35));
-        title.setBackground(Color.WHITE);
+        title.setBackground(Color.RED);
         
         //Create different border to design        
         raisedbevel = BorderFactory.createRaisedBevelBorder();
@@ -49,7 +49,7 @@ public class InterfaceInfo extends JPanel implements ActionListener
          
         //Create a panel to put our border with the messages inside
         compoundBorders = new JPanel();
-        compoundBorders.setBackground(Color.WHITE);
+        compoundBorders.setBackground(Color.RED);
         //set the border
         compoundBorders.setBorder(paneEdge);
         compoundBorders.setLayout(new BoxLayout(compoundBorders,BoxLayout.Y_AXIS));     
@@ -61,13 +61,13 @@ public class InterfaceInfo extends JPanel implements ActionListener
         
         //Create a panel to put button next and previous
         action = new JPanel();
-        action.setBackground(Color.WHITE);
+        action.setBackground(Color.RED);
         next = new JButton("Next");
         next.addActionListener(this);
-        next.setBackground(Color.WHITE);
+        next.setBackground(Color.RED);
         previous = new JButton("Previous");
         previous.addActionListener(this);
-        previous.setBackground(Color.WHITE);
+        previous.setBackground(Color.RED);
         
         action.setLayout(new GridLayout(1,2)); 
         action.add(previous);
@@ -79,7 +79,7 @@ public class InterfaceInfo extends JPanel implements ActionListener
         finalPanel.add(title);
         finalPanel.add(compoundBorders);
         finalPanel.add(action);
-        finalPanel.setBackground(Color.WHITE);
+        finalPanel.setBackground(Color.RED);
         
         previous.setEnabled(false);
         
@@ -115,12 +115,16 @@ public class InterfaceInfo extends JPanel implements ActionListener
     
     /**
      * Update the message list 
-     */
-    public void updateInfo(){
+    */
+    public void updateInfoBox(){
         Character c = myGameInterface.getGame().getPlayer();
         Player p = (Player)c; 
         TreasureBox t = p.getCurrentRoom().getBox();
         information.add(t.getDescription());
+    }
+    
+    public void updateInfoDoorLock(){
+
     }
     
     /**

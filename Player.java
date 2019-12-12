@@ -36,11 +36,6 @@ public class Player extends Character
     public void setCurrentRoom(Room roomToMove)
     {
         currentRoom = roomToMove;
-        
-        //!\ afficher les bonnes sorties
-            //up_Butoon.setEnabled(false);
-            //up_Butoon.setEnabled(true);
-        //!\ afficher les bonnes couleurs de sorties
     }
     
     /**
@@ -83,13 +78,13 @@ public class Player extends Character
     /**
      * Allow the ant to move between the rooms by crossing a door among the exits available
      */
-    public void moveRoom()
+    public void moveRoom(String direction)
     {
-        currentRoom.checkExits(); // verifie les sorties de la piece
-        //demande la sortie et récupère la Door
-        //Door exitDoor = new Door();
-        //Room futureRoom = Door.crossDoor(currentRoom, exitDoor); // renvoie la piece dans laquelle on sort en travarsant l'exitDoor
-        //setCurrentRoom(futureRoom); // la room dans laquelle on se trouve devient la room de sortie
+        // get the door that correspond to the exit direction
+        Door exitDoor = currentRoom.getDoor(direction);
+        // search the future room
+        Room futureRoom = exitDoor.crossDoor(currentRoom); // renvoie la piece dans laquelle on sort en travarsant l'exitDoor
+        setCurrentRoom(futureRoom); // la room dans laquelle on se trouve devient la room de sortie
     }
     
     /**
@@ -99,8 +94,9 @@ public class Player extends Character
      */
     public void pickUpDelivery(Delivery loot)
     {
-        bag.add(loot);
-        //Interface_Info.setMessage("You picked a delivery");
+        if (bag.size() < getSizeBag() && loot !=null){
+            bag.add(loot); 
+        }
     }
     
     /**
@@ -110,25 +106,32 @@ public class Player extends Character
      */
     public void pickUpBox(TreasureBox box)
     {
-        if (box.getLock().getIsLocked() == true) {
-            for ( int i = 0 ; i< bag.size() ; i++) {
-                Item a = bag.get(i);
-                if(a instanceof Key){  
-                    box.getLock().unlock((Key)a);
-                    bag.remove(i);
-                    break;
-                }             
-            }     
-        } 
-        
-         if (box.getLock().getIsLocked() == false) {
-            setHp(box.getSpecial().getImpact());
-
-            if (box.getKey() != null && bag.size() < getSizeBag()){
-                bag.add(box.getKey()); 
+        if (box.getLock() != null){
+            if (box.getLock().getIsLocked() == true) {
+                System.out.println("lock");
+                for ( int i = 0 ; i< bag.size() ; i++) {
+                    Item a = bag.get(i);
+                    if(a instanceof Key){  
+                        box.getLock().unlock((Key)a);
+                        bag.remove(i);
+                        break;
+                    }             
+                }     
+            } else{
+                
+                setHp(box.getSpecial().getImpact());
+    
+              if (box.getKey() != null && bag.size() < getSizeBag()){
+                    bag.add(box.getKey()); 
+               }
             }
+        }else{
+           setHp(box.getSpecial().getImpact());
+    
+              if (box.getKey() != null && bag.size() < getSizeBag()){
+                    bag.add(box.getKey()); 
+               } 
         }
-        
     }
     
     /**
@@ -147,6 +150,7 @@ public class Player extends Character
         }
         return null;
     }
+
 
     /**
      * modify the hp
