@@ -3,7 +3,7 @@ import java.util.List;
 /**
  * This super-class allow to create a character which gonna be played by user
  *
- * @author Group 8 - Marion Guernoté, Dylan Mielot, Fanny Barbe, Alix Nagot, Ambre Dumontet, Angélique Gombert, Thibault Crouzet
+ * @author Group 8 - Marion Guernoté, Dylan Mielot, Fanny Barbé, Alix Nagot, Ambre Dumontet, Angélique Gombert, Thibault Crouzet
  * @version (un numéro de version ou une date)
  */
 public class Player extends Character

@@ -25,6 +25,7 @@ public class InterfaceInfo extends JPanel implements ActionListener
     
     /**
      * Allow to create the information interface which will display messages from the game
+     * @param anInterface allows to linked the class InterfaceInfo to the class InterfaceInfo
      */
     public InterfaceInfo(InterfaceGame anInterface)
     {
@@ -88,6 +89,10 @@ public class InterfaceInfo extends JPanel implements ActionListener
         this.setSize(250, 100);
     }
 
+    /**
+     * This method allows to disable all buttons
+     * when this method is used, the user cannot click on the buttons
+     */
     public void disableAllButtons()
     {
         next.setEnabled(false);
@@ -272,13 +277,11 @@ public class InterfaceInfo extends JPanel implements ActionListener
         
         
     }
-    
-    
-    
+
     /**
      * Allow to display text inside border
      */
-    private   void addCompForBorder(Border border,
+    private void addCompForBorder(Border border,
                           JLabel description,
                           Container container) {
         JPanel comp = new JPanel(new GridLayout(1, 1), false);
@@ -288,6 +291,5 @@ public class InterfaceInfo extends JPanel implements ActionListener
         container.add(Box.createRigidArea(new Dimension(0, 10)));
         container.add(comp);
     }
-
 
 }
