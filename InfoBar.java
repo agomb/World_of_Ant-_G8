@@ -8,10 +8,11 @@ import java.util.TimerTask;
 /**
  * This class print the life, bag current capacity of the player and the time left.
  *
- * @author Dylan Thibault G8
+ * @author G8  - Marion Guernoté, Dylan Mielot, Fanny Barbé, Alix Nagot, Ambre Dumontet, Angélique Gombert, Thibault Crouzet
  * @version 27/11/2019
  */
-public class InfoBar extends JPanel implements ActionListener
+
+public class InfoBar extends JPanel
 {
     private InterfaceGame myGameInterface;
     private Player player;
@@ -62,7 +63,7 @@ public class InfoBar extends JPanel implements ActionListener
         time = new JLabel();
         time.setBackground(Color.WHITE);
         
-        task = new TimerTask() {
+        task = new TimerTask(){
             public void run() {
                 if(timeLimit > 0)
                 {
@@ -117,11 +118,4 @@ public class InfoBar extends JPanel implements ActionListener
         life.setString("Current life :"+currentlife + "/"+100);
         
     }
-    
-    
-    
-    public void actionPerformed(ActionEvent e)
-    {  
-    }
-    
 }

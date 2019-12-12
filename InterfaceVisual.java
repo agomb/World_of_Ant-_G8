@@ -22,7 +22,7 @@ public class InterfaceVisual extends JPanel
 
     /**
      * Visualize the room where the player is.
-     * @Parameter Player myPlayer
+     * @param Player myPlayer
      */
     public String getPictureRoom(Player myPlayer)
     {
@@ -34,7 +34,7 @@ public class InterfaceVisual extends JPanel
         }else if(myPlayer.getCurrentRoom().getBox() != null && !myPlayer.getCurrentRoom().getDescription().matches("^[a-zA-Z]")){ //*$
 
             return "box_room";
-        }else if(myPlayer.getCurrentRoom().getDescription() == "3" || myPlayer.getCurrentRoom().getDescription() == "7" || myPlayer.getCurrentRoom().getDescription() == "15" || myPlayer.getCurrentRoom().getDescription() == "18" || myPlayer.getCurrentRoom().getDescription() == "21" || myPlayer.getCurrentRoom().getDescription() == "29"){
+        }else if(myPlayer.getCurrentRoom().getDescription() == "3" || myPlayer.getCurrentRoom().getDescription() == "7" || myPlayer.getCurrentRoom().getDescription() == "10" ||myPlayer.getCurrentRoom().getDescription() == "15" || myPlayer.getCurrentRoom().getDescription() == "18" || myPlayer.getCurrentRoom().getDescription() == "21" || myPlayer.getCurrentRoom().getDescription() == "29"){
             return "up_room";
         }else if(myPlayer.getCurrentRoom().getDescription()== "A" || myPlayer.getCurrentRoom().getDescription() == "B" || myPlayer.getCurrentRoom().getDescription() == "D" || myPlayer.getCurrentRoom().getDescription() == "E"){
             return "human_room";
@@ -55,6 +55,7 @@ public class InterfaceVisual extends JPanel
     
     /**
      * Created the panel containt the map
+     * @param myPlayer allows to selected the right room to display it 
      */
     public void visualizeRoom(Player myPlayer)
     {

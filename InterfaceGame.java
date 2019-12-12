@@ -6,7 +6,7 @@ import java.awt.Color;
 /**
  * The InterfaceGame class correspond to the game when is playing
  *
- * @author G8
+ * @author G8  - Marion Guernoté, Dylan Mielot, Fanny Barbé, Alix Nagot, Ambre Dumontet, Angélique Gombert, Thibault Crouzet
  * @version 27/11/2019
  */
 public class InterfaceGame extends JFrame 

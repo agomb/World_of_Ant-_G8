@@ -8,9 +8,9 @@ import java.awt.Color;
 /**
  * This is the Begin_Interface class.
  * This class is the interface used at the start of the game to present 
- * the rule of the game and which type of ant the layer will be.
+ * The rule of the game and which type of ant the layer will be.
  *
- * @author G8
+ * @author G8 - Marion Guernoté, Dylan Mielot, Fanny Barbé, Alix Nagot, Ambre Dumontet, Angélique Gombert, Thibault Crouzet
  * @version 11/12/2019
  */
 public class InterfaceBegin extends JFrame implements ActionListener 
@@ -100,8 +100,10 @@ public class InterfaceBegin extends JFrame implements ActionListener
 
         
     }
+    
     /**
      * The different actions performed when a button is clicked
+     * @param e is the event when a button is clicked
      */
      public void actionPerformed(ActionEvent e) {     
 
