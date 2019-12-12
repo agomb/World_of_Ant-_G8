@@ -36,8 +36,7 @@ public class DeliverooAnt extends Player
     {
         if ( getCurrentRoom() == getDepot()){
             super.pickUpDelivery(loot);
-        };
-        
+        }        
     }
     
     
@@ -51,13 +50,11 @@ public class DeliverooAnt extends Player
             if(i instanceof Delivery){  
                 Delivery d = (Delivery)i;
                 if ( getCurrentRoom() == d.getGoal()){
-                    getBag().remove(i);
                     i=super.drop();
                     return d;
-                    
                 }
             }     
-        };
+        }
         return null;
     }
 }
