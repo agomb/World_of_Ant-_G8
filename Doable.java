@@ -16,8 +16,11 @@ public class Doable extends JPanel implements ActionListener //creation class (p
 {
     private JButton myButtonDrop, myButtonDelivery, myButtonTreasure, myButtonHit, useKey;
     private InterfaceGame myGameInterface;
-    
-    
+
+    /**
+     * The constructor for the class doable
+     * @param anInterface links the Doable buttons to the interface of the game
+     */
     public Doable(InterfaceGame anInterface) 
     {
         myGameInterface = anInterface;
@@ -120,8 +123,10 @@ public class Doable extends JPanel implements ActionListener //creation class (p
             myButtonHit.setEnabled(true); // function for don't clic on the button
         }
     }
+    
     /**
      * All gestion of the different actions done by the buttons
+     * @param e is the event that hapened when an button is clicked
      */
 
     public void actionPerformed(ActionEvent e)
@@ -147,7 +152,7 @@ public class Doable extends JPanel implements ActionListener //creation class (p
              myGameInterface.getDoable().updateUI();
 
         }
-        else if(e.getSource() == myButtonDelivery )
+        else if(e.getSource() == myButtonDelivery)
         {
 
              Delivery d = myGameInterface.getGame().getPlayer().getCurrentRoom().getDelivery(); 
@@ -165,7 +170,7 @@ public class Doable extends JPanel implements ActionListener //creation class (p
              myGameInterface.getDoable().updateUI();
 
         }
-        else if(e.getSource() == myButtonTreasure )
+        else if(e.getSource() == myButtonTreasure)
         {
              myGameInterface.getInfo().updateInfoBox();
              myGameInterface.getInfo().updateUI();
@@ -184,7 +189,7 @@ public class Doable extends JPanel implements ActionListener //creation class (p
              myGameInterface.getDoable().updateUI();
         }
         
-        else if(e.getSource() == myButtonHit )
+        else if(e.getSource() == myButtonHit)
         {
             DeliverooAnt p = (DeliverooAnt)myGameInterface.getGame().getPlayer();
             StolenAnt s = (StolenAnt)myGameInterface.getGame().getPlayer();     
