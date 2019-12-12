@@ -193,13 +193,13 @@ public class Player extends Character
      */
     public void loseHp(int theHp)
     {
-        if((this.hp - theHp) <= 0)
+        if((this.hp + theHp) <= 0)
         {
             this.hp = 0;
         }
         else 
         {
-            this.hp -= theHp;
+            this.hp += theHp;
         }
     }
     
