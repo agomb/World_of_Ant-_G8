@@ -19,9 +19,9 @@ public class Special extends Item
     public Special(String sName)
     {
         super(sName);
-        if(sName == "bonus"){
+        if(sName.equals("bonus")){
             impact = 15;
-        }else if(sName == "malus"){
+        }else if(sName.equals("malus")){
             impact = -15;
         }
     }

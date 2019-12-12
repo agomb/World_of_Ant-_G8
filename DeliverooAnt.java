@@ -7,7 +7,6 @@
 public class DeliverooAnt extends Player
 
 {
-
     /**
      * Constructeur d'objets de classe Delievroo
      * give the natural hp(honor point)
@@ -24,7 +23,6 @@ public class DeliverooAnt extends Player
     public void hitStolette(StolenAnt theStolen)
     {
         theStolen.setHp(-50);
-        
     }
     
     /**
@@ -36,13 +34,11 @@ public class DeliverooAnt extends Player
     {
         if ( getCurrentRoom() == getDepot()){
             super.pickUpDelivery(loot);
-        };
-        
+        }        
     }
-    
-    
+        
     /**
-     * drop delivery in his destination room
+     * drop delivery in its destination room
      * @override 
      */
     public Item drop()
@@ -51,13 +47,11 @@ public class DeliverooAnt extends Player
             if(i instanceof Delivery){  
                 Delivery d = (Delivery)i;
                 if ( getCurrentRoom() == d.getGoal()){
-                    getBag().remove(i);
                     i=super.drop();
                     return d;
-                    
                 }
             }     
-        };
+        }
         return null;
     }
 }

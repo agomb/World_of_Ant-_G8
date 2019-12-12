@@ -42,10 +42,10 @@ public class InfoBar extends JPanel
         
         bagCunter = new JProgressBar();
         bagCunter.setBackground(Color.WHITE);
-        bagCunter.setString("Bag capacity :"+currentcapacity + "/"+20);
+        bagCunter.setString("Bag capacity :"+currentcapacity + "/"+14);
         bagCunter.setStringPainted(true);
         bagCunter.setValue(currentcapacity);
-        bagCunter.setMaximum(20);
+        bagCunter.setMaximum(14);
         bagCunter.setSize(200, 100);
         bagCunter.setVisible(true);
         
@@ -55,9 +55,7 @@ public class InfoBar extends JPanel
         life.setStringPainted(true);
         life.setValue(currentlife);
         life.setMaximum(100);
-        
-        life.setVisible(true);
-        
+        life.setVisible(true);       
         
         
         //the timer section who start at 300s (5minutes)      
@@ -80,7 +78,7 @@ public class InfoBar extends JPanel
                     timer.cancel();
                     timer.purge();
                     jop1 = new JOptionPane();
-                    jop1.showMessageDialog(null, "Game Over", "The Game has ended", JOptionPane.INFORMATION_MESSAGE);
+                    jop1.showMessageDialog(null, "Time out", "You don't have time anymore", JOptionPane.INFORMATION_MESSAGE);
                     //this section is used when the time is up and finish the game
                     
                     
@@ -90,15 +88,10 @@ public class InfoBar extends JPanel
         
         
         start();//start the timer
-        
-        
-        
         this.add(bagCunter);
         this.add(life);
         this.add(time);
-        
-        this.setLayout(new GridLayout(1,3));
-        
+        this.setLayout(new GridLayout(1,4));
         this.setVisible(true);
     
     
@@ -118,7 +111,7 @@ public class InfoBar extends JPanel
     public void actualisation(Player player)
     {
         currentcapacity = myGameInterface.getGame().getPlayer().getBag().size();
-        bagCunter.setString("Bag capacity :"+currentcapacity + "/"+20);
+        bagCunter.setString("Bag capacity :"+currentcapacity + "/"+14);
         
         currentlife = myGameInterface.getGame().getPlayer().getHp();
         life.setString("Current life :"+currentlife + "/"+100);

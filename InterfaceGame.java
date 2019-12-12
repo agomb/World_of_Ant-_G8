@@ -30,7 +30,8 @@ public class InterfaceGame extends JFrame
     {
         super();
         game =g;
-
+        
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         this.info = new InfoBar(this);
         this.control = new ControlDirection(this);
@@ -38,7 +39,6 @@ public class InterfaceGame extends JFrame
         this.map = new InterfaceVisual(getGame().getPlayer().getCurrentRoom(),getGame().getPlayer(), this);
         this.message = new InterfaceInfo(this);
 
-        
         //First JPanel located at the left center of the panel.
         //this panel commands the meassages and all the different actions a player can do
         panInterfaceGameCentre = new JPanel(); 
@@ -76,6 +76,7 @@ public class InterfaceGame extends JFrame
         this.setLayout(new BorderLayout()); 
         this.add(panInterfaceInfo, BorderLayout.NORTH); 
         this.add(panInterfaceGameCentre, BorderLayout.WEST); 
+
         this.add(panInterfaceGame, BorderLayout.CENTER); 
         this.add(panInterfaceGameBas, BorderLayout.SOUTH); 
         //getLayout().setBackground(Color.WHITE);
@@ -83,7 +84,6 @@ public class InterfaceGame extends JFrame
         this.setSize(1000,800);
         this.setLocationRelativeTo(null); // object position at the center
         this.setVisible(true);
-
 
     }
     
@@ -122,7 +122,6 @@ public class InterfaceGame extends JFrame
     public void showControl(JPanel panel1) {
         control.removeAll();
         
-
         panInterfaceGameBas.setLayout(new GridLayout(0,2));
         blanc = new JButton();
         blanc.setBorderPainted(false); 

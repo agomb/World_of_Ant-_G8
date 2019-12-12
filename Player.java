@@ -23,7 +23,7 @@ public class Player extends Character
     {
         super(pName);
         bag = new ArrayList<Item>();
-        sizeBag = 20; 
+        sizeBag = 14; 
         currentRoom = playerRoom;
         depot = playerRoom;
         hp = 100;
@@ -117,6 +117,7 @@ public class Player extends Character
                         box.getLock().unlock((Key)a); // use the key
                         bag.remove(i); // remove the key from the bag
                         break;
+
                     } 
                 }
                 if (box.getLock().getIsLocked() == true) //if it is still locked because there is not the key in the bag
@@ -137,6 +138,7 @@ public class Player extends Character
                     System.out.println("The box is empty");
                 }
             }
+
        }
        else // if there is no lock
        {
@@ -148,6 +150,7 @@ public class Player extends Character
                 this.currentRoom.removeItem(box);
            } 
        }
+
     }
     
     /**

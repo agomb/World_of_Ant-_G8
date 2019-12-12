@@ -49,10 +49,11 @@ public class InterfaceBegin extends JFrame implements ActionListener
         b2 = new JPanel();
         b2.setOpaque(false);
         
-        sto = new JButton("STOLEN ANT");
+        sto = new JButton("Stolen ant (unable)");
         sto.setBackground(Color.yellow);
         sto.setPreferredSize(new Dimension(150, 150));
         sto.addActionListener(this);
+        sto.setEnabled(false);
         
         del = new JButton("DELIVEROO ANT");
         del.setBackground(Color.magenta);

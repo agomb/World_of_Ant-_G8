@@ -172,7 +172,7 @@ public class Game
         // Herre we add the treasure boxes in the rooms
         room2.addItem((Item)box2); 
         room6.addItem((Item) box6);
-        room10.addItem((Item) box10); 
+        room11.addItem((Item) box10); 
         room20.addItem((Item) box20); 
         room27.addItem((Item) boxRuby); 
         roomC.addItem((Item) boxC); 

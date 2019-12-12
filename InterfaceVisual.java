@@ -30,7 +30,9 @@ public class InterfaceVisual extends JPanel
             return "delivery_room";
         }else if(myPlayer.getCurrentRoom().getDescription() == "PlayerRoom" && (myPlayer instanceof StolenAnt )){
             return "thief_room";
+
         }else if(myPlayer.getCurrentRoom().getBox() != null && !myPlayer.getCurrentRoom().getDescription().matches("^[a-zA-Z]")){ //*$
+
             return "box_room";
         }else if(myPlayer.getCurrentRoom().getDescription() == "3" || myPlayer.getCurrentRoom().getDescription() == "7" || myPlayer.getCurrentRoom().getDescription() == "10" ||myPlayer.getCurrentRoom().getDescription() == "15" || myPlayer.getCurrentRoom().getDescription() == "18" || myPlayer.getCurrentRoom().getDescription() == "21" || myPlayer.getCurrentRoom().getDescription() == "29"){
             return "up_room";
