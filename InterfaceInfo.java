@@ -38,7 +38,7 @@ public class InterfaceInfo extends JPanel implements ActionListener
          // Create a label to display the interface name
         title = new JLabel("Message", JLabel.CENTER);
         title.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,35));
-        title.setBackground(Color.RED);
+        title.setBackground(Color.WHITE);
         
         //Create different border to design        
         raisedbevel = BorderFactory.createRaisedBevelBorder();
@@ -49,7 +49,7 @@ public class InterfaceInfo extends JPanel implements ActionListener
          
         //Create a panel to put our border with the messages inside
         compoundBorders = new JPanel();
-        compoundBorders.setBackground(Color.RED);
+        compoundBorders.setBackground(Color.WHITE);
         //set the border
         compoundBorders.setBorder(paneEdge);
         compoundBorders.setLayout(new BoxLayout(compoundBorders,BoxLayout.Y_AXIS));     
@@ -61,13 +61,13 @@ public class InterfaceInfo extends JPanel implements ActionListener
         
         //Create a panel to put button next and previous
         action = new JPanel();
-        action.setBackground(Color.RED);
+        action.setBackground(Color.WHITE);
         next = new JButton("Next");
         next.addActionListener(this);
-        next.setBackground(Color.RED);
+        next.setBackground(Color.WHITE);
         previous = new JButton("Previous");
         previous.addActionListener(this);
-        previous.setBackground(Color.RED);
+        previous.setBackground(Color.WHITE);
         
         action.setLayout(new GridLayout(1,2)); 
         action.add(previous);
@@ -80,7 +80,7 @@ public class InterfaceInfo extends JPanel implements ActionListener
         //finalPanel.add(content);
         finalPanel.add(compoundBorders);
         finalPanel.add(action);
-        finalPanel.setBackground(Color.RED);
+        finalPanel.setBackground(Color.WHITE);
         
         this.enableButton();
                
@@ -135,7 +135,7 @@ public class InterfaceInfo extends JPanel implements ActionListener
         Character c = myGameInterface.getGame().getPlayer();
         Player p = (Player)c; 
         TreasureBox t = p.getCurrentRoom().getBox();
-        //information.add(t.getDescription());
+        information.add(t.getDescription());
     }
     
     /**

@@ -157,8 +157,7 @@ public class Doable extends JPanel implements ActionListener //creation class (p
 
 
              
-             //myGameInterface.getBar().actualisation(myGameInterface.getGame().getPlayer());   
-
+             myGameInterface.getBar().actualisation(myGameInterface.getGame().getPlayer());   
              myGameInterface.getBar().updateUI();
 
 
@@ -173,14 +172,14 @@ public class Doable extends JPanel implements ActionListener //creation class (p
              myGameInterface.getInfo().updateUI();
             
              myGameInterface.getGame().getPlayer().pickUpBox(myGameInterface.getGame().getPlayer().getCurrentRoom().getBox());
+             
              myGameInterface.getBar().actualisation(myGameInterface.getGame().getPlayer());
+             myGameInterface.getBar().updateUI();
              
              myGameInterface.showMap(myGameInterface.getVisual());
              myGameInterface.getVisual().visualizeRoom(myGameInterface.getGame().getPlayer());
             
              myGameInterface.getDirection().updateUI();
-             myGameInterface.getBar().updateUI();
-             myGameInterface.getVisual().updateUI();
                          
              myGameInterface.getDoable().enableButton();
              myGameInterface.getDoable().updateUI();

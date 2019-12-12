@@ -11,7 +11,7 @@ import java.util.TimerTask;
  * @author Dylan Thibault G8
  * @version 27/11/2019
  */
-public class InfoBar extends JPanel implements ActionListener
+public class InfoBar extends JPanel 
 {
     private InterfaceGame myGameInterface;
     private Player player;
@@ -117,11 +117,6 @@ public class InfoBar extends JPanel implements ActionListener
         life.setString("Current life :"+currentlife + "/"+100);
         
     }
-    
-    
-    
-    public void actionPerformed(ActionEvent e)
-    {  
-    }
+
     
 }
