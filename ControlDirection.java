@@ -32,9 +32,9 @@ public class ControlDirection extends JPanel implements ActionListener
         westButton = new JButton("←");
         westButton.setBackground(Color.WHITE);
         upButton = new JButton("UP");
-        upButton.setBackground(Color.GREEN);       
+        upButton.setBackground(Color.WHITE);       
         downButton = new JButton("DOWN");
-        downButton.setBackground(Color.RED);
+        downButton.setBackground(Color.WHITE);
         
         //panelArround
         //JPanel myPanel_control = new JPanel();

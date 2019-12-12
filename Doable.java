@@ -79,8 +79,7 @@ public class Doable extends JPanel implements ActionListener //creation class (p
         else if(e.getSource() == myButtonHit )
         {
             DeliverooAnt p = (DeliverooAnt)myGameInterface.getGame().getPlayer();
-            StolenAnt s = (StolenAnt)myGameInterface.getGame().getPlayer();
-                  
+            StolenAnt s = (StolenAnt)myGameInterface.getGame().getPlayer();     
             p.hitStolette(s);
         }
     }
