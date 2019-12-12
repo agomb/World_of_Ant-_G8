@@ -72,13 +72,12 @@ public class InterfaceGame extends JFrame
         this.add(info, BorderLayout.NORTH); 
         this.add(panInterfaceGameCentre, BorderLayout.WEST); 
         this.add(map, BorderLayout.CENTER); 
-        this.add(panInterfaceGameBas, BorderLayout.SOUTH); 
+        this.add(panInterfaceGameBas, BorderLayout.SOUTH);
+        this.setBackground(Color.RED);
         
-
         this.setSize(1000,800);
         this.setLocationRelativeTo(null); // object position at the center
         this.setVisible(true);
-
 
     }
     

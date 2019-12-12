@@ -73,8 +73,8 @@ public class Doable extends JPanel implements ActionListener //creation class (p
              myGameInterface.getGame().getPlayer().getCurrentRoom().removeItem(d);
 
              
-             myGameInterface.getBar().actualisation(myGameInterface.getGame().getPlayer());   
-             myGameInterface.getBar().updateUI();
+             myGameInterface.getInfo().actualisation(myGameInterface.getGame().getPlayer());   
+             myGameInterface.getInfo().updateUI();
 
              myGameInterface.getVisual().updateUI();
         }
