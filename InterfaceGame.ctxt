@@ -23,4 +23,3 @@ comment8.target=void\ showMap(javax.swing.JPanel)
 comment9.params=panel1
 comment9.target=void\ showControl(javax.swing.JPanel)
 numComments=11
-
