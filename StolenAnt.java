@@ -35,7 +35,7 @@ public class StolenAnt extends Player
         return null;
     }
  
-     /**
+    /**
      * Steal a delivery in all the map which make lost hp to the deliveroo ant
      * @parameter loot which is deliveries to deliver. 
      * @override 

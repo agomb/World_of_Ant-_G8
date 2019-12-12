@@ -51,8 +51,7 @@ public class TreasureBox extends Item
         return specialBox;
     }
     
-
-        /**
+    /**
      * Give the special item on the box
      * @return keys, the list of items on the box
      */
@@ -61,7 +60,6 @@ public class TreasureBox extends Item
         return keyBox;
     }
     
-  
     public Lock getLock()
     {
         return lockBox;
@@ -80,9 +78,7 @@ public class TreasureBox extends Item
                s = s + " a bonus, you win ";
        }
        s = s +  Integer.toString(specialBox.getImpact()) + "hp \n" ;     
- 
        s = s + "You pick up 1 key";
-        
        return s;
     } 
     
@@ -94,6 +90,5 @@ public class TreasureBox extends Item
     {
        keyBox = null;
        specialBox = null;
-       
     } 
 }

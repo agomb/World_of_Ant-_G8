@@ -77,6 +77,7 @@ public class InterfaceInfo extends JPanel implements ActionListener
         finalPanel = new JPanel();
         finalPanel.setLayout(new BoxLayout(finalPanel, BoxLayout.Y_AXIS));         
         finalPanel.add(title);
+        //finalPanel.add(content);
         finalPanel.add(compoundBorders);
         finalPanel.add(action);
         finalPanel.setBackground(Color.RED);
@@ -120,7 +121,7 @@ public class InterfaceInfo extends JPanel implements ActionListener
         Character c = myGameInterface.getGame().getPlayer();
         Player p = (Player)c; 
         TreasureBox t = p.getCurrentRoom().getBox();
-        information.add(t.getDescription());
+        //information.add(t.getDescription());
     }
     
     public void updateInfoDoorLock(){

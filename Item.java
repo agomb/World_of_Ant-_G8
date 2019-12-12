@@ -23,7 +23,7 @@ public class Item
         else nameItem = "item";
     }
     
-     /**
+    /**
      * Give the name of the object.
      * @return the name of the object.
      */

@@ -23,7 +23,7 @@ public class Player extends Character
     {
         super(pName);
         bag = new ArrayList<Item>();
-        sizeBag = 20; 
+        sizeBag = 14; 
         currentRoom = playerRoom;
         depot = playerRoom;
         hp = 100;
