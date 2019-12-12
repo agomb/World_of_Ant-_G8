@@ -36,7 +36,7 @@ public class InterfaceInfo extends JPanel implements ActionListener
         
           
          // Create a label to display the interface name
-        title = new JLabel("Message", JLabel.CENTER);
+        title = new JLabel("Message        ", JLabel.CENTER);
         title.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,35));
         title.setBackground(Color.WHITE);
         
@@ -147,6 +147,7 @@ public class InterfaceInfo extends JPanel implements ActionListener
         Delivery t = p.getCurrentRoom().getDelivery();
         this.information.add("You drop a delivery");
     }
+    
     
     /**
      * Update the message list when we move to another room

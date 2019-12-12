@@ -20,7 +20,7 @@ public class Doable extends JPanel implements ActionListener //creation class (p
     
     public Doable(InterfaceGame anInterface) 
     {
-           myGameInterface = anInterface;
+        myGameInterface = anInterface;
         
         //create button drop
         myButtonDrop = new JButton("Drop");
@@ -160,9 +160,8 @@ public class Doable extends JPanel implements ActionListener //creation class (p
              myGameInterface.getBar().actualisation(myGameInterface.getGame().getPlayer());   
              myGameInterface.getBar().updateUI();
 
-
-             myGameInterface.getVisual().updateUI();
-             //myGameInterface.getInfo().updateInfoBox();
+             myGameInterface.getDoable().disableAllButtons();
+             myGameInterface.getDoable().enableButton();
              myGameInterface.getDoable().updateUI();
 
         }
@@ -193,9 +192,9 @@ public class Doable extends JPanel implements ActionListener //creation class (p
             
             myGameInterface.getDirection().updateUI();
 
-             myGameInterface.getBar().updateUI();
-             myGameInterface.getVisual().updateUI();
-             myGameInterface.getDoable().updateUI();
+            myGameInterface.getBar().updateUI();
+            myGameInterface.getVisual().updateUI();
+            myGameInterface.getDoable().updateUI();
 
         }
     }
