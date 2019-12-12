@@ -170,6 +170,14 @@ public class Game
         Room roomG = new Room("G");
         room.add(roomG);
 
+        room2.addItem((Item)box2); 
+        room6.addItem((Item) box6);
+        room10.addItem((Item) box10); 
+        room20.addItem((Item) box20); 
+        room27.addItem((Item) boxRuby); 
+        roomC.addItem((Item) boxC); 
+        roomF.addItem((Item) boxF); 
+        roomG.addItem((Item) boxG); 
 
         //Here we create the doors between two rooms - initialization of the Hashmap
 

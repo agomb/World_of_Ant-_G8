@@ -104,7 +104,7 @@ public class InterfaceBegin extends JFrame implements ActionListener
      */
      public void actionPerformed(ActionEvent e) {     
 
-         if(e.getSource() == sto){
+        if(e.getSource() == sto){
             game.createPlayer(true);  
         }
         else if(e.getSource() == del){ 

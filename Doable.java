@@ -16,24 +16,26 @@ public class Doable extends JPanel implements ActionListener //creation class (p
     
     public Doable(InterfaceGame anInterface) 
     {
-        myGameInterface = anInterface;
+           myGameInterface = anInterface;
         
         //create button drop
-        myButtonDrop = new JButton("DROP");
-        myButtonDrop.setBackground(Color.WHITE);
+        myButtonDrop = new JButton("Drop");
+        myButtonDrop.addActionListener(this);
         
         myButtonDelivery = new JButton("Boxe"); //create button Boxe
-        ImageIcon icon1 = new ImageIcon(new ImageIcon("close.jpg").getImage().getScaledInstance(100,100,Image.SCALE_DEFAULT));
+        ImageIcon icon1 = new ImageIcon("close1.png");
         myButtonDelivery = new JButton(icon1); //create the button with images
-        myButtonDelivery.setBackground(Color.BLACK);
+        myButtonDelivery.addActionListener(this);
+        
         
         myButtonTreasure = new JButton("Treasure"); //create button Treasure
-        Icon icon2 = new ImageIcon(new ImageIcon("coffre.jpg").getImage().getScaledInstance(100,100,Image.SCALE_DEFAULT));
+        Icon icon2 = new ImageIcon("coffre1.png");
         myButtonTreasure = new JButton(icon2); //create the button with images
-        myButtonTreasure.setBackground(Color.YELLOW);
+        myButtonTreasure.addActionListener(this);
         
         myButtonHit = new JButton("Hit");
-        myButtonHit.setBackground(Color.WHITE);
+        myButtonHit.addActionListener(this);
+        
           
         //JPanel myPanel_Doable = new JPanel(); // create the panel
         this.setLayout(new GridLayout(3,1)); //create the localisation of the button
@@ -48,11 +50,63 @@ public class Doable extends JPanel implements ActionListener //creation class (p
         this.setVisible(true); // set visible the windows
         this.setSize(150, 100); // set the size of the windows
                
+        if ( myGameInterface.getGame().getPlayer() instanceof DeliverooAnt && myGameInterface.getGame().getPlayer().getCurrentRoom() == myGameInterface.getGame().getPlayer().getDepot() ){
+            myButtonDrop.setEnabled(false); // function for don't clic on the button
+        }else if ( myGameInterface.getGame().getPlayer() instanceof StolenAnt && myGameInterface.getGame().getPlayer().getCurrentRoom() != myGameInterface.getGame().getPlayer().getDepot() ){
+            myButtonDrop.setEnabled(false); // function for don't clic on the button
+        }
         
-        myButtonDrop.setEnabled(false); // function for don't clic on the button
-        myButtonTreasure.setEnabled(false); // function for don't clic on the button
+        if ( myGameInterface.getGame().getPlayer() instanceof DeliverooAnt && myGameInterface.getGame().getPlayer().getCurrentRoom() != myGameInterface.getGame().getPlayer().getDepot() && myGameInterface.getGame().getPlayer().getCurrentRoom().getDelivery() == null){
+            myButtonDelivery.setEnabled(false); // function for don't clic on the button
+        }else if ( myGameInterface.getGame().getPlayer() instanceof StolenAnt && myGameInterface.getGame().getPlayer().getCurrentRoom() == myGameInterface.getGame().getPlayer().getDepot() && myGameInterface.getGame().getPlayer().getCurrentRoom().getDelivery() == null){
+            myButtonDelivery.setEnabled(false); // function for don't clic on the button
+        }    
+       
+        if ( myGameInterface.getGame().getPlayer().getCurrentRoom().getBox() == null ){
+            myButtonTreasure.setEnabled(false); // function for don't clic on the button
+        }
+        
+        if ( myGameInterface.getGame().getPlayer().getCurrentRoom() != myGameInterface.getGame().getComputer().getCurrentRoom() ){
+            myButtonHit.setEnabled(false); // function for don't clic on the button
+        }
     }
     
+    public void disableAllButtons()
+    {
+        myButtonDrop.setEnabled(false);
+        myButtonDelivery.setEnabled(false);
+        myButtonTreasure.setEnabled(false);
+        myButtonHit.setEnabled(false);
+    }
+    
+    /**
+     * This method allows to enable a button
+     * 
+     */
+    public void enableButton()
+    {
+        disableAllButtons();    
+        
+        if ( myGameInterface.getGame().getPlayer() instanceof DeliverooAnt && myGameInterface.getGame().getPlayer().getCurrentRoom() != myGameInterface.getGame().getPlayer().getDepot() ){
+            myButtonDrop.setEnabled(true); // function for don't clic on the button
+        }else if ( myGameInterface.getGame().getPlayer() instanceof StolenAnt && myGameInterface.getGame().getPlayer().getCurrentRoom() == myGameInterface.getGame().getPlayer().getDepot() ){
+            myButtonDrop.setEnabled(true); // function for don't clic on the button
+        }
+        
+        if ( myGameInterface.getGame().getPlayer() instanceof DeliverooAnt && myGameInterface.getGame().getPlayer().getCurrentRoom() == myGameInterface.getGame().getPlayer().getDepot() && myGameInterface.getGame().getPlayer().getCurrentRoom().getDelivery() != null){
+            myButtonDelivery.setEnabled(true); // function for don't clic on the button
+        }else if ( myGameInterface.getGame().getPlayer() instanceof StolenAnt && myGameInterface.getGame().getPlayer().getCurrentRoom() != myGameInterface.getGame().getPlayer().getDepot() && myGameInterface.getGame().getPlayer().getCurrentRoom().getDelivery() != null){
+            myButtonDelivery.setEnabled(true); // function for don't clic on the button
+        }    
+       
+        if ( myGameInterface.getGame().getPlayer().getCurrentRoom().getBox() != null ){
+            myButtonTreasure.setEnabled(true); // function for don't clic on the button
+        }
+        
+        if ( myGameInterface.getGame().getPlayer().getCurrentRoom() == myGameInterface.getGame().getComputer().getCurrentRoom() ){
+            myButtonHit.setEnabled(true); // function for don't clic on the button
+        }
+    }
     /**
      * All gestion of the different actions done by the buttons
      */
@@ -62,7 +116,12 @@ public class Doable extends JPanel implements ActionListener //creation class (p
         if(e.getSource() == myButtonDrop)
         {
             myGameInterface.getGame().getPlayer().drop();
-            myGameInterface.getVisual().updateUI();
+            myGameInterface.getBar().actualisation(myGameInterface.getGame().getPlayer());
+            myGameInterface.getDirection().updateUI();
+             myGameInterface.getBar().updateUI();
+             myGameInterface.getVisual().updateUI();
+             myGameInterface.getInfo().updateInfoBox();
+             myGameInterface.getDoable().updateUI();
         }
         else if(e.getSource() == myButtonDelivery )
         {
@@ -73,16 +132,27 @@ public class Doable extends JPanel implements ActionListener //creation class (p
              myGameInterface.getGame().getPlayer().getCurrentRoom().removeItem(d);
 
              
-             myGameInterface.getInfo().actualisation(myGameInterface.getGame().getPlayer());   
-             myGameInterface.getInfo().updateUI();
+
+             myGameInterface.getBar().actualisation(myGameInterface.getGame().getPlayer());   
+             
+             myGameInterface.getDirection().updateUI();
+             myGameInterface.getBar().updateUI();
 
              myGameInterface.getVisual().updateUI();
+             //myGameInterface.getInfo().updateInfoBox();
+             myGameInterface.getDoable().updateUI();
         }
         else if(e.getSource() == myButtonTreasure )
         {
+             System.out.println( myGameInterface.getGame().getPlayer().getCurrentRoom().getBox());
              myGameInterface.getGame().getPlayer().pickUpBox(myGameInterface.getGame().getPlayer().getCurrentRoom().getBox());
+             myGameInterface.getBar().actualisation(myGameInterface.getGame().getPlayer());
+             
+             myGameInterface.getDirection().updateUI();
+             myGameInterface.getBar().updateUI();
              myGameInterface.getVisual().updateUI();
              myGameInterface.getInfo().updateInfoBox();
+             myGameInterface.getDoable().updateUI();
         }
         
         else if(e.getSource() == myButtonHit )
@@ -90,6 +160,12 @@ public class Doable extends JPanel implements ActionListener //creation class (p
             DeliverooAnt p = (DeliverooAnt)myGameInterface.getGame().getPlayer();
             StolenAnt s = (StolenAnt)myGameInterface.getGame().getPlayer();     
             p.hitStolette(s);
+            
+            myGameInterface.getDirection().updateUI();
+             myGameInterface.getBar().updateUI();
+             myGameInterface.getVisual().updateUI();
+             myGameInterface.getInfo().updateInfoBox();
+             myGameInterface.getDoable().updateUI();
         }
     }
 }

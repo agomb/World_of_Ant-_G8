@@ -94,8 +94,9 @@ public class Player extends Character
      */
     public void pickUpDelivery(Delivery loot)
     {
-        bag.add(loot);
-        //Interface_Info.setMessage("You picked a delivery");
+        if (bag.size() < getSizeBag() && loot !=null){
+            bag.add(loot); 
+        }
     }
     
     /**
@@ -105,23 +106,31 @@ public class Player extends Character
      */
     public void pickUpBox(TreasureBox box)
     {
-        if (box.getLock().getIsLocked() == true) {
-            for ( int i = 0 ; i< bag.size() ; i++) {
-                Item a = bag.get(i);
-                if(a instanceof Key){  
-                    box.getLock().unlock((Key)a);
-                    bag.remove(i);
-                    break;
-                }             
-            }     
-        } 
-        
-        if (box.getLock().getIsLocked() == false) 
-        {
-            setHp(box.getSpecial().getImpact());
-
-         //   if (box.getKey() != null && bag.size() < getSizeBag()){
-          //      bag.add(box.getKey()); 
+        if (box.getLock() != null){
+            if (box.getLock().getIsLocked() == true) {
+                System.out.println("lock");
+                for ( int i = 0 ; i< bag.size() ; i++) {
+                    Item a = bag.get(i);
+                    if(a instanceof Key){  
+                        box.getLock().unlock((Key)a);
+                        bag.remove(i);
+                        break;
+                    }             
+                }     
+            } else{
+                
+                setHp(box.getSpecial().getImpact());
+    
+              if (box.getKey() != null && bag.size() < getSizeBag()){
+                    bag.add(box.getKey()); 
+               }
+            }
+        }else{
+           setHp(box.getSpecial().getImpact());
+    
+              if (box.getKey() != null && bag.size() < getSizeBag()){
+                    bag.add(box.getKey()); 
+               } 
         }
     }
     
