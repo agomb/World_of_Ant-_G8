@@ -66,14 +66,23 @@ public class Doable extends JPanel implements ActionListener //creation class (p
         }
         else if(e.getSource() == myButtonDelivery )
         {
-             myGameInterface.getGame().getPlayer().pickUpDelivery(myGameInterface.getGame().getPlayer().getCurrentRoom().getDelivery());
+
+             Delivery d = myGameInterface.getGame().getPlayer().getCurrentRoom().getDelivery(); 
+          
+             myGameInterface.getGame().getPlayer().pickUpDelivery(d);
+             myGameInterface.getGame().getPlayer().getCurrentRoom().removeItem(d);
+
+             
+             myGameInterface.getBar().actualisation(myGameInterface.getGame().getPlayer());   
+             myGameInterface.getBar().updateUI();
+
              myGameInterface.getVisual().updateUI();
         }
         else if(e.getSource() == myButtonTreasure )
         {
              myGameInterface.getGame().getPlayer().pickUpBox(myGameInterface.getGame().getPlayer().getCurrentRoom().getBox());
              myGameInterface.getVisual().updateUI();
-             myGameInterface.getInfo().updateInfo();
+             myGameInterface.getInfo().updateInfoBox();
         }
         
         else if(e.getSource() == myButtonHit )

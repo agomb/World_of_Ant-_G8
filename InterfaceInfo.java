@@ -31,10 +31,10 @@ public class InterfaceInfo extends JPanel implements ActionListener
         myGameInterface = anInterface;
         i = 0; //initialize the number of messages
         information = new ArrayList<String>();
+
         content = new JLabel("There is no message yet", JLabel.CENTER); //message printed when there are no others messages
         
           
-        
          // Create a label to display the interface name
         title = new JLabel("Message", JLabel.CENTER);
         title.setFont(new java.awt.Font(Font.SERIF,Font.BOLD,35));
@@ -115,12 +115,16 @@ public class InterfaceInfo extends JPanel implements ActionListener
     
     /**
      * Update the message list 
-     */
-    public void updateInfo(){
+    */
+    public void updateInfoBox(){
         Character c = myGameInterface.getGame().getPlayer();
         Player p = (Player)c; 
         TreasureBox t = p.getCurrentRoom().getBox();
         information.add(t.getDescription());
+    }
+    
+    public void updateInfoDoorLock(){
+
     }
     
     /**

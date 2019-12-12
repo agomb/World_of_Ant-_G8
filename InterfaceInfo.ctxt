@@ -1,28 +1,25 @@
+
 #BlueJ class context
 comment0.target=InterfaceInfo
-comment0.text=\r\n\ This\ class\ print\ the\ messages\ and\ informations\ for\ the\ player\r\n\r\n\ @author\ G8\r\n\ @version\ 11/12/2019\r\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Interface_info\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=anInterface
 comment1.target=InterfaceInfo(InterfaceGame)
 comment1.text=\r\n\ Allow\ to\ create\ the\ information\ interface\ which\ will\ display\ messages\ from\ the\ game\r\n
 comment2.params=theMessage
 comment2.target=void\ setMessage(java.lang.String)
-comment2.text=\r\n\ Add\ a\ new\ message\ to\ the\ list\ of\ message\r\n\ @Parameter\ String\ theMessage\ \=>\ correspond\ to\ the\ new\ message\r\n
 comment3.params=
-comment3.target=void\ updateInfo()
-comment3.text=\r\n\ Update\ the\ message\ list\ \r\n
+comment3.target=void\ updateInfoBox()
 comment4.params=
-comment4.target=java.lang.String\ getMessage()
-comment4.text=\r\n\ Return\ the\ message\r\n\ @Return\ String\r\n
+comment4.target=void\ updateInfoDoorLock()
 comment5.params=
-comment5.target=void\ nextMessage()
-comment5.text=\r\n\ Print\ the\ next\ message\r\n\ Verify\ if\ there\ is\ only\ one\ message,\ or\ if\ you\ are\ at\ the\ end\ of\ the\ list\r\n
+comment5.target=java.lang.String\ getMessage()
 comment6.params=
-comment6.target=void\ previousMessage()
-comment6.text=\r\n\ Print\ the\ previous\ message\r\n\ Verify\ if\ there\ is\ only\ one\ message,\ or\ if\ you\ are\ at\ the\ start\ of\ the\ list\r\n
-comment7.params=e
-comment7.target=void\ actionPerformed(java.awt.event.ActionEvent)
-comment7.text=\r\n\ Print\ the\ next\ or\ previous\ message\ \r\n
-comment8.params=border\ description\ container
-comment8.target=void\ addCompForBorder(javax.swing.border.Border,\ javax.swing.JLabel,\ java.awt.Container)
-comment8.text=\r\n\ Allow\ to\ display\ text\ inside\ border\r\n
-numComments=9
+comment6.target=void\ nextMessage()
+comment7.params=
+comment7.target=void\ previousMessage()
+comment8.params=e
+comment8.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment9.params=border\ description\ container
+comment9.target=void\ addCompForBorder(javax.swing.border.Border,\ javax.swing.JLabel,\ java.awt.Container)
+comment9.text=\r\n\ Allow\ to\ display\ text\ inside\ border\r\n
+numComments=10

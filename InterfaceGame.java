@@ -19,7 +19,7 @@ public class InterfaceGame extends JFrame
     private InfoBar info;
     private JPanel panInterfaceGame, panInterfaceGameBas, panInterfaceGameCentre, transparent;    
 
-    
+
     /**
      * Constructor for objects of class GameInterface
      * @Parameter Game g
@@ -31,14 +31,11 @@ public class InterfaceGame extends JFrame
 
         info = new InfoBar(this);
 
-        InfoBar info = new InfoBar(this);
         control = new ControlDirection(this);
-        //control.disableAllButtons();
-        //control.enableButton();
-        
-        Doable doable = new Doable(this);
-        InterfaceVisual map = new InterfaceVisual(getGame().getPlayer().getCurrentRoom(),getGame().getPlayer(), this);
-        InterfaceInfo message = new InterfaceInfo(this);
+        doable = new Doable(this);
+        map = new InterfaceVisual(getGame().getPlayer().getCurrentRoom(),getGame().getPlayer(), this);
+        message = new InterfaceInfo(this);
+
         
         //First JPanel located at the left center of the panel.
         //this panel commands the meassages and all the different actions a player can do
@@ -81,6 +78,7 @@ public class InterfaceGame extends JFrame
         this.setSize(1000,800);
         this.setLocationRelativeTo(null); // object position at the center
         this.setVisible(true);
+
 
     }
     
