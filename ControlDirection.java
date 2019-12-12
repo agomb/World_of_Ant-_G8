@@ -42,6 +42,7 @@ public class ControlDirection extends JPanel implements ActionListener
         downButton = new JButton("DOWN");
         downButton.setBackground(Color.RED);
         downButton.addActionListener(this);
+
         
         //panelArround
         //JPanel myPanel_control = new JPanel();

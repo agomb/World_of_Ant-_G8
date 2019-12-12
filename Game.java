@@ -24,8 +24,6 @@ public class Game
     public Game()
     {
         room = new ArrayList<Room>();
-        
-
         createRoom();
 
     }
