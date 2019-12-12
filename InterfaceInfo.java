@@ -135,7 +135,7 @@ public class InterfaceInfo extends JPanel implements ActionListener
         Character c = myGameInterface.getGame().getPlayer();
         Player p = (Player)c; 
         TreasureBox t = p.getCurrentRoom().getBox();
-        //information.add(t.getDescription());
+        information.add(t.getDescription());
     }
     
     /**
