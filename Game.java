@@ -9,10 +9,9 @@ import java.util.List;
  */
 public class Game
 {
-    // variables d'instance - remplacez l'exemple qui suit par le vôtre
     private List<Room> room; //countain rooms of the map
-    private Player playerChoose; //character plays by the player
-    private Player playerUnplay; //character plays by the computer
+    private Player playerChoose; //character played by the player
+    private Player playerUnplay; //character played by the computer
     private Key theCreatedKey;
     private Special theCreatedSpecial;
     private int timer;
@@ -169,7 +168,8 @@ public class Game
         room.add(roomF);
         Room roomG = new Room("G");
         room.add(roomG);
-
+        
+        // Herre we add the treasure boxes in the rooms
         room2.addItem((Item)box2); 
         room6.addItem((Item) box6);
         room10.addItem((Item) box10); 
@@ -178,7 +178,6 @@ public class Game
         roomC.addItem((Item) boxC); 
         roomF.addItem((Item) boxF); 
         roomG.addItem((Item) boxG); 
-
         //Here we create the doors between two rooms - initialization of the Hashmap
 
                
