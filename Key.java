@@ -1,6 +1,3 @@
-
-
-
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -12,9 +9,8 @@ import java.util.List;
 
 public class Key extends Item
 {
-    private List<Key> keys;
-    private Key keyDoor;
-    /**
+  private Key keyDoor;
+  /**
      * Create a key 
      * @param kName allows to give a name to the object
      * @param ide allows to put an id to the key
@@ -23,17 +19,8 @@ public class Key extends Item
     {
         super(kName);
     }
-    
-    /**
-     * Give the keys on the box
-     * @return keys, the list of keys on the box
-     */
-    public List<Key> getListKeys()
-    {
-        return keys;
-    }
       
-    /**
+  /**
      * Give the keys on the box
      * @return keys, the list of keys on the box
      */
@@ -41,5 +28,4 @@ public class Key extends Item
     {
         return keyDoor;
     }
-
 }

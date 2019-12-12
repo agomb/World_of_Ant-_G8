@@ -24,7 +24,6 @@ public class Game
     {
         room = new ArrayList<Room>();
         createRoom();
-
     }
     
     /**
@@ -62,7 +61,6 @@ public class Game
      */
     public void createRoom()
     {
-
         Key theCreatedKey1 = new Key("key1");
         Key theCreatedKey5 = new Key("key5");
         Key theCreatedKey6 = new Key("key6");
@@ -88,8 +86,6 @@ public class Game
         TreasureBox boxC = new TreasureBox("BoxC", theCreatedKey14, theCreatedSpecialBonus);
         TreasureBox boxF = new TreasureBox("BoxF", theCreatedKey25, theCreatedSpecialMalus); 
         TreasureBox boxG = new TreasureBox("BoxG", theCreatedKeyRuby, null);
-      
-        
 
         // Here we create the rooms
         Room roomPlayer = new Room("PlayerRoom");
@@ -178,10 +174,8 @@ public class Game
         roomC.addItem((Item) boxC); 
         roomF.addItem((Item) boxF); 
         roomG.addItem((Item) boxG); 
-        //Here we create the doors between two rooms - initialization of the Hashmap
-
-               
         
+        //Here we create the doors between two rooms - initialization of the Hashmap
         Delivery d1 = new Delivery("d1", roomA);
         Delivery d2 = new Delivery("d2", roomB);
         Delivery d3 = new Delivery("d3", roomC);
@@ -196,8 +190,7 @@ public class Game
         Delivery d12 = new Delivery("d12", roomE);
         Delivery d13 = new Delivery("d13", roomF);
         Delivery d14 = new Delivery("d14", roomG);
-        
-        
+           
         //if ( playerChoose instanceof DeliverooAnt){
             roomPlayer.addItem((Item)d1);
             roomPlayer.addItem((Item)d2);
@@ -213,7 +206,6 @@ public class Game
             roomPlayer.addItem((Item)d12);
             roomPlayer.addItem((Item)d13);
             roomPlayer.addItem((Item)d14);
-
         //}else{
             roomOpponent.addItem((Item)d1);
             roomOpponent.addItem((Item)d2);
@@ -268,8 +260,7 @@ public class Game
         Door.createDoor(room15, "Up", roomA, "Down");
         Door.createDoor(room10, "Up", roomE, "Down");
         Door.createDoor(room29, "Up", roomG, "Down");
-        Door.createDoor(room21, "Up", roomF, "Down");
-
+        Door.createDoor(room21, "Up", roomF, "Down"); 
         //roomG.addItem((Item)boxG);
     }
     
