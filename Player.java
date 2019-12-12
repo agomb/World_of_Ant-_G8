@@ -106,32 +106,51 @@ public class Player extends Character
      */
     public void pickUpBox(TreasureBox box)
     {
-        if (box.getLock() != null){
-            if (box.getLock().getIsLocked() == true) {
+       if (box.getLock() != null){ //if the box has locked
+            if (box.getLock().getIsLocked() == true) // if it is locked
+            {
                 System.out.println("lock");
-                for ( int i = 0 ; i< bag.size() ; i++) {
+                for ( int i = 0 ; i< bag.size() ; i++) // search the key in the bag
+                {
                     Item a = bag.get(i);
-                    if(a instanceof Key){  
-                        box.getLock().unlock((Key)a);
-                        bag.remove(i);
+                    if(a instanceof Key){  // if the player has the key
+                        box.getLock().unlock((Key)a); // use the key
+                        bag.remove(i); // remove the key from the bag
                         break;
-                    }             
-                }     
-            } else{
-                setHp(box.getSpecial().getImpact());
-    
-              if (box.getKey() != null && bag.size() < getSizeBag()){
+
+                    } 
+                }
+                if (box.getLock().getIsLocked() == true) //if it is still locked because there is not the key in the bag
+                {
+                    System.out.println("Box locked, you need the key");
+                }
+            } 
+            else //if it is open
+            {
+                //setHp(box.getSpecial().getImpact()); need to look for the impact
+                if (box.getKey() != null && bag.size() < getSizeBag()) // if the box is not empty
+                {
                     bag.add(box.getKey()); 
-               }
+                    this.currentRoom.removeItem(box);
+                }
+                else
+                {
+                    System.out.println("The box is empty");
+                }
             }
-        }else{
-            if(box.getSpecial() != null) {
-                setHp(box.getSpecial().getImpact());
-             }
-              if (box.getKey() != null && bag.size() < getSizeBag()){
-                    bag.add(box.getKey()); 
-               } 
-        }
+
+       }
+       else // if there is no lock
+       {
+           //setHp(box.getSpecial().getImpact());
+    
+           if (box.getKey() != null && bag.size() < getSizeBag())
+           {
+                bag.add(box.getKey());
+                this.currentRoom.removeItem(box);
+           } 
+       }
+
     }
     
     /**
@@ -193,13 +212,13 @@ public class Player extends Character
      */
     public void loseHp(int theHp)
     {
-        if((this.hp - theHp) <= 0)
+        if((this.hp + theHp) <= 0)
         {
             this.hp = 0;
         }
         else 
         {
-            this.hp -= theHp;
+            this.hp += theHp;
         }
     }
     

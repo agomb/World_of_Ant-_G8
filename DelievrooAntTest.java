@@ -13,7 +13,7 @@ import org.junit.Test;
  */
 public class DelievrooAntTest
 {
-    DelievrooAnt delive;
+    DelivrooAnt delive;
     /**
      * Default constructor for test class DelievrooAntTest
      */

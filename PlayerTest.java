@@ -18,6 +18,8 @@ public class PlayerTest
     ArrayList<Item> bag;
     Item helmet;
     Delivery loot;
+    Room r1test,r2test;
+    Door testDoor;
     /**
      * Default constructor for test class PlayerTest
      */
@@ -34,8 +36,15 @@ public class PlayerTest
     public void setUp()
     {
         // two rooms are created, they will be separated by the door "testedDoor"
-        Room r1test = new Room("c'est la cuisine pour tester");
-        Room r2test = new Room("c'est la chambre pour tester");
+        r1test = new Room("c'est la cuisine pour tester");
+        
+        r2test = new Room("c'est la chambre pour tester");
+        
+        testDoor = new Door(r1test, "East", r2test , "West" );
+        
+        testDoor.createDoor(r1test, "East", r2test , "West" );
+        
+        
         helmet = new Item("Casque");
         r1test.addItem(helmet);
         
@@ -67,10 +76,11 @@ public class PlayerTest
     {
         // the player is in room r1test
         Room roomBefore = thePlayer.getCurrentRoom();
-        thePlayer.moveRoom();
+        System.out.println(roomBefore);
+        thePlayer.moveRoom("East");
         // the player is now in room r2test
         Room roomAfter = thePlayer.getCurrentRoom();
-        assertEquals(roomAfter.getDescription(), roomBefore.getDescription());
+        assertNotEquals(roomAfter.getDescription(), roomBefore.getDescription());
     }
     
     @Test
@@ -152,7 +162,7 @@ public class PlayerTest
     public void testsetHpLose()
     {
         thePlayer.setHp(-20);
-        assertNotEquals(80, thePlayer.getHp());
+        assertEquals(80, thePlayer.getHp());
     }
     @Test
     /**
@@ -162,7 +172,7 @@ public class PlayerTest
     {
         thePlayer.setHp(-50);
         thePlayer.setHp(25);
-        assertNotEquals(75, thePlayer.getHp());
+        assertEquals(75, thePlayer.getHp());
     }
     
     /**

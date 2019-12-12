@@ -82,23 +82,6 @@ public class InterfaceInfo extends JPanel implements ActionListener
         finalPanel.add(action);
         finalPanel.setBackground(Color.RED);
         
-        previous.setEnabled(false);
-        
-        if(information.size() < 1 )
-        {
-            next.setEnabled(false);
-        }
-        else if(information.size() == 1 )
-        {
-            content.setText(getMessage());
-            next.setEnabled(false);
-        }
-        else
-        {
-            content.setText(getMessage()); 
-            
-        }
-        
                
         this.add (finalPanel);
         
@@ -106,6 +89,36 @@ public class InterfaceInfo extends JPanel implements ActionListener
         this.setSize(250, 100);
     }
 
+    public void disableAllButtons()
+    {
+        next.setEnabled(false);
+        previous.setEnabled(false);
+    }
+    
+    /**
+     * This method allows to enable a button
+     * 
+     */
+    public void enableButton()
+    {
+        disableAllButtons();    
+        
+        if(information.size() > 0 )
+        {
+            next.setEnabled(true);
+        }
+        else if ( i == information.size() )
+        {
+            next.setEnabled(false);
+        }
+        else if(i == 1)
+        {
+            previous.setEnabled(false);
+        }
+
+       
+    }
+    
     /**
      * Add a new message to the list of message
      * @Parameter String theMessage => correspond to the new message
@@ -115,13 +128,32 @@ public class InterfaceInfo extends JPanel implements ActionListener
     }
     
     /**
-     * Update the message list 
+     * Update the message list when a treasure box is picked up 
     */
     public void updateInfoBox(){
         Character c = myGameInterface.getGame().getPlayer();
         Player p = (Player)c; 
         TreasureBox t = p.getCurrentRoom().getBox();
         //information.add(t.getDescription());
+    }
+    
+    /**
+     * Update the message list when a delivery is droped
+    */
+    public void updateInfoDrop(){
+        Character c = myGameInterface.getGame().getPlayer();
+        Player p = (Player)c; 
+        Delivery t = p.getCurrentRoom().getDelivery();
+        this.information.add("You drop a delivery");
+    }
+    
+    /**
+     * Update the message list when we move to another room
+    */
+    public void updateInfoRoom(){
+        Character c = myGameInterface.getGame().getPlayer();
+        Player p = (Player)c; 
+        this.information.add("You are in the room: " + p.getCurrentRoom().getDescription());
     }
     
     public void updateInfoDoorLock(){
