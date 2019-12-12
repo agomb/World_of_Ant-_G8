@@ -13,7 +13,7 @@ import org.junit.Test;
  */
 public class DelievrooAntTest
 {
-    DeliverooAnt delive;
+    DelivrooAnt delive;
     /**
      * Default constructor for test class DelievrooAntTest
      */
@@ -29,7 +29,7 @@ public class DelievrooAntTest
     @Before
     public void setUp()
     {
-        delive = new DeliverooAnt(""); //create an empty field (new delivered) 
+        delive = new DelievrooAnt(""); //create an empty field (new delivered) 
     }
     
     
