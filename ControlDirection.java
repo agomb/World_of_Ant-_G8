@@ -153,6 +153,8 @@ public class ControlDirection extends JPanel implements ActionListener
             myGameInterface.getDoable().enableButton();
             myGameInterface.getDoable().updateUI();
             
+            myGameInterface.getInfo().updateInfoRoom();
+            myGameInterface.getInfo().enableButton();
             myGameInterface.getInfo().updateUI();
             myGameInterface.getBar().updateUI();
             

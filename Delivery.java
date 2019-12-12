@@ -9,7 +9,6 @@ public class Delivery extends Item
 {
     //goal is the room where the delivery should be droped.
     private Room goal;
-
     /**
      * Create the delivery with a name and its destination
      * @param dName allows to give a name to the object
@@ -21,7 +20,7 @@ public class Delivery extends Item
         goal = goalR;
     }
     
-     /**
+    /**
      * Give the room goal of the delivery
      * @return goal, the room goal of the delivery
      */
