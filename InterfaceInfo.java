@@ -81,6 +81,7 @@ public class InterfaceInfo extends JPanel implements ActionListener
         finalPanel.add(action);
         finalPanel.setBackground(Color.RED);
         
+        this.enableButton();
                
         this.add (finalPanel);
         
