@@ -270,13 +270,18 @@ public class Game
         return playerUnplay; //retunr a character unplaying
     }
     
+    /**
+     * This method allows to create a player which can be a deliveroo ant or a stolent ant 
+     * @param boolean b : true if it is a stolen ant 
+     * @param boolean b : false if it is a deliveroo ant 
+     */
     public void createPlayer(boolean b)
     {
         Room departPlayer  = null;
         Room departOpponent = null; 
-        for ( Room r : room) {
+        for ( Room r : room) { //check all the room in the list
             if (r.getDescription() == "PlayerRoom"){
-                departPlayer = r;
+                departPlayer = r; // Player room become the begin room
             }
             if (r.getDescription() == "OpponentRoom"){
                 departOpponent = r;
