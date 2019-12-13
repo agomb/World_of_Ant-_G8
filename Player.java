@@ -79,9 +79,10 @@ public class Player extends Character
     {
         //Get the door that correspond to the exit direction
         Door exitDoor = currentRoom.getDoor(direction);
-        //Search the future room
-        Room futureRoom = exitDoor.crossDoor(currentRoom); // return the room on the other side of the door
-        setCurrentRoom(futureRoom); // room where the player is become the former room
+
+        // search the future room
+        Room futureRoom = exitDoor.crossDoor(currentRoom, bag); // renvoie la piece dans laquelle on sort en travarsant l'exitDoor
+        setCurrentRoom(futureRoom); // la room dans laquelle on se trouve devient la room de sortie
     }
     
     /**
@@ -106,19 +107,30 @@ public class Player extends Character
        if (box.getLock() != null){ //if the box has locked
             if (box.getLock().getIsLocked() == true) // if it is locked
             {
-                System.out.println("lock");
                 for ( int i = 0 ; i< bag.size() ; i++) // search the key in the bag
                 {
                     Item a = bag.get(i);
                     if(a instanceof Key){  // if the player has the key
                         box.getLock().unlock((Key)a); // use the key
-                        bag.remove(i); // remove the key from the bag
-                        break;
+                        if ( box.getLock().getIsLocked() == false ){
+                            bag.remove(i); // remove the key from the bag
+                            break;
+                        }
                     } 
                 }
-                if (box.getLock().getIsLocked() == true) //if it is still locked because there is not the key in the bag
+                
+                if (box.getLock().getIsLocked() == false) //if it is still locked because there is not the key in the bag
                 {
-                    System.out.println("Box locked, you need the key");
+                     if (box.getKey() != null && bag.size() < getSizeBag())
+                     {
+                         bag.add(box.getKey());
+                         this.currentRoom.removeItem(box);
+                     } 
+                     if(box.getSpecial() != null && bag.size() < getSizeBag())
+                     {
+                         setHp(box.getSpecial().getImpact());
+                         this.currentRoom.removeItem(box);
+                     }
                 }
             } 
             else //if it is open
@@ -142,7 +154,7 @@ public class Player extends Character
                 bag.add(box.getKey());
                 this.currentRoom.removeItem(box);
            } 
-           else if(box.getSpecial() != null && bag.size() < getSizeBag())
+           if(box.getSpecial() != null && bag.size() < getSizeBag())
            {
                 setHp(box.getSpecial().getImpact());
                 this.currentRoom.removeItem(box);

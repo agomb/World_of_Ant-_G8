@@ -109,17 +109,13 @@ public class InterfaceInfo extends JPanel implements ActionListener
     {
         disableAllButtons();    
         
-        if(information.size() > 0 )
+        if(information.size() > 0 && i != information.size()  )
         {
             next.setEnabled(true);
         }
-        else if ( i == information.size() )
+        if(i > 1)
         {
-            next.setEnabled(false);
-        }
-        else if(i == 1)
-        {
-            previous.setEnabled(false);
+            previous.setEnabled(true);
         }
 
        
@@ -136,11 +132,8 @@ public class InterfaceInfo extends JPanel implements ActionListener
     /**
      * Update the message list when a treasure box is picked up 
     */
-    public void updateInfoBox(){
-        Character c = myGameInterface.getGame().getPlayer();
-        Player p = (Player)c; 
-        TreasureBox t = p.getCurrentRoom().getBox();
-        information.add(t.getDescription());
+    public void updateInfoBox(TreasureBox box){
+        information.add(box.getDescription());
     }
     
     /**
@@ -163,8 +156,26 @@ public class InterfaceInfo extends JPanel implements ActionListener
         this.information.add("You are in the room: " + p.getCurrentRoom().getDescription());
     }
     
-    public void updateInfoDoorLock(){
-
+    /**
+     * Update the message list when we try to open a door which is locked
+    */
+    public void updateInfoDoorLock(Room before, Room after){
+        Character c = myGameInterface.getGame().getPlayer();
+        Player p = (Player)c; 
+        if ( before.getDescription() == after.getDescription() ){
+            this.information.add("You haven't the key which open this door");
+        }
+    }
+    
+    /**
+     * Update the message list when we try to open a box which is locked
+    */
+    public void updateInfoBoxLock(){
+        Character c = myGameInterface.getGame().getPlayer();
+        Player p = (Player)c; 
+        if ( p.getCurrentRoom().getBox().getLock().getIsLocked() == true){
+            this.information.add("You haven't the key which open this box");
+        }
     }
     
     /**
@@ -179,7 +190,7 @@ public class InterfaceInfo extends JPanel implements ActionListener
      * Print the next message
      * Verify if there is only one message, or if you are at the end of the list
      */
-    private void nextMessage()
+    public void nextMessage()
     {       
             if(information.size() <= 1 )
             {
