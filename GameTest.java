@@ -60,7 +60,43 @@ public class GameTest
         // Initialisez ici vos engagements
         myGame = new Game(); 
     }
-
+    @Test
+    /**
+     * Test the creation of the player stolen ant
+     */
+    public void testcreatePlayerStolen()
+    {
+        myGame.createPlayer(true);
+        assertEquals(myGame.getPlayer().getClass(),myGame.getChoosenPlayer().getClass() );
+    }
+    @Test
+    /**
+     * Test the creation of the player deliveroo ant
+     */
+    public void testcreatePlayerDelievroo()
+    {
+        myGame.createPlayer(false);
+        assertEquals(myGame.getPlayer().getClass(),myGame.getChoosenPlayer().getClass() );
+    }
+    @Test
+    /**
+     * Test the getter of the non player ant
+     */
+    public void testgetComputer()
+    {
+        myGame.createPlayer(false);
+        assertNotEquals(myGame.getPlayer().getClass(),myGame.getComputer().getClass() );
+    }
+    @Test
+    /**
+     * Test the getter of the player deliveroo ant
+     */
+    public void testgetPlayer()
+    {
+        myGame.createPlayer(false);
+        DeliverooAnt playertest = new DeliverooAnt("testplayer",new Room("testroom") );
+        assertEquals(playertest.getClass(),myGame.getPlayer().getClass() );
+    }
     /**
      * Supprime les engagements
      *

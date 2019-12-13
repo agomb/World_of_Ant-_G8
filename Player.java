@@ -150,7 +150,7 @@ public class Player extends Character
            } 
            else if(box.getSpecial() != null && bag.size() < getSizeBag())
            {
-                //setHp(box.getSpecial().getImpact());
+                setHp(box.getSpecial().getImpact());
                 this.currentRoom.removeItem(box);
            }
        }

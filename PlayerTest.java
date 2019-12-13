@@ -108,7 +108,7 @@ public class PlayerTest
         
         if(loot != null )//the object containing the delivery cannot be null
         {
-            assertEquals( 85 , thePlayer.getHp() );
+            assertEquals( 100 , thePlayer.getHp() );
         }
     }
     
@@ -139,7 +139,7 @@ public class PlayerTest
      */
     public void testGetSizeBag()
     {
-        assertEquals(thePlayer.getSizeBag(),20);
+        assertEquals(thePlayer.getSizeBag(),14);
     }
     @Test
     /**
