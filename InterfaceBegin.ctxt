@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=InterfaceBegin
-comment0.text=\r\n\ This\ is\ the\ Begin_Interface\ class.\r\n\ This\ class\ is\ the\ interface\ used\ at\ the\ start\ of\ the\ game\ to\ present\ \r\n\ The\ rule\ of\ the\ game\ and\ which\ type\ of\ ant\ the\ layer\ will\ be.\r\n\r\n\ @author\ G8\ -\ Marion\ Guernot\u00E9,\ Dylan\ Mielot,\ Fanny\ Barb\u00E9,\ Alix\ Nagot,\ Ambre\ Dumontet,\ Ang\u00E9lique\ Gombert,\ Thibault\ Crouzet\r\n\ @version\ 11/12/2019\r\n
+comment0.text=\r\n\ This\ is\ the\ Begin_Interface\ class.\r\n\ This\ class\ is\ the\ interface\ used\ at\ the\ beginning\ of\ the\ game\ to\ present\ \r\n\ It\ contains\ the\ rules\ of\ the\ game\ \r\n\ It\ contains\ also\ two\ buttons\ \:\ these\ two\ buttons\ allow\ the\ player\ to\ choose\ which\ kind\ of\ character\ he/she\ wants\ to\ be.\ \r\n\ \r\n\ @author\ G8\ -\ Marion\ Guernot\u00E9,\ Dylan\ Mielot,\ Fanny\ Barb\u00E9,\ Alix\ Nagot,\ Ambre\ Dumontet,\ Ang\u00E9lique\ Gombert,\ Thibault\ Crouzet\r\n\ @version\ 11/12/2019\r\n
 comment1.params=
 comment1.target=InterfaceBegin()
 comment1.text=\r\n\ Constructor\ of\ the\ class\ Begin_Interface\r\n
 comment2.params=e
 comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
-comment2.text=\r\n\ The\ different\ actions\ performed\ when\ a\ button\ is\ clicked\r\n\ @param\ e\ is\ the\ event\ when\ a\ button\ is\ clicked\r\n
+comment2.text=\r\n\ The\ different\ actions\ performed\ when\ the\ player\ click\ on\ a\ button.\ Those\ listener\ are\ related\ two\ the\ two\ buttons\r\n\ @param\ e\ is\ the\ event\ when\ a\ player\ click\ on\ a\ button\r\n
 numComments=3

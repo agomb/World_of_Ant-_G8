@@ -2,9 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.Color;
-
 /**
- * The InterfaceGame class correspond to the game when is playing
+ * The InterfaceGame class is the main interface.It is the frame which regroups all the panels
  *
  * @author G8  - Marion Guernoté, Dylan Mielot, Fanny Barbé, Alix Nagot, Ambre Dumontet, Angélique Gombert, Thibault Crouzet
  * @version 27/11/2019
@@ -24,66 +23,64 @@ public class InterfaceGame extends JFrame
 
     /**
      * Constructor for objects of class GameInterface
+     * The constructor regroups all the panels
      * @Parameter Game g
      */
     public InterfaceGame(Game g)
     {
         super();
         game =g;
-        
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
+        //Create the different panels in the frame
         this.info = new InfoBar(this);
         this.control = new ControlDirection(this);
         this.doable = new Doable(this);
         this.map = new InterfaceVisual(getGame().getPlayer().getCurrentRoom(),getGame().getPlayer(), this);
         this.message = new InterfaceInfo(this);
 
-        //First JPanel located at the left center of the panel.
-        //this panel commands the meassages and all the different actions a player can do
+        //First JPanel located at the left of the frame.
+        //this panel commands the meassages and all the different actions that a player can do
         panInterfaceGameCentre = new JPanel(); 
         panInterfaceGameCentre.setBackground(Color.WHITE);
         panInterfaceGameCentre.setLayout(new GridLayout(2,0)); 
         panInterfaceGameCentre.add(this.message); 
         panInterfaceGameCentre.add(this.doable); 
-
+        
+        //The second panel located at bottom of the frame contains the control direction,
         panInterfaceGameBas = new JPanel();
-        panInterfaceGameBas.setBackground(Color.WHITE);
-
-        //second JPanel located at bottom of the panel,
-        //this panel controls the direction 
+        panInterfaceGameBas.setBackground(Color.WHITE);        
         panInterfaceGameBas = new JPanel();
         panInterfaceGameBas.setBackground(Color.WHITE);
         panInterfaceGameBas.setLayout(new GridLayout(0,2));
-        blanc = new JButton();
+        blanc = new JButton(); //create a button enabled to use 
         blanc.setBorderPainted(false); 
         blanc.setContentAreaFilled(false);
         blanc.setFocusPainted(false); 
         panInterfaceGameBas.add(blanc);
         panInterfaceGameBas.add(control); 
 
-        //third JPanel located at the center and represents the map 
+        //The third JPanel located at the center of the frame and represents the different rooms of the game 
         panInterfaceGame = new JPanel(); 
         panInterfaceGame.setBackground(Color.WHITE);
         panInterfaceGame.add(this.map); 
 
-        //fourth Jpanel that containt all of the others.
+        //The fourth Jpanel regroups the information such as timer, bag capacity and life points
         panInterfaceInfo = new JPanel(); 
         panInterfaceInfo.setBackground(Color.WHITE);
         panInterfaceInfo.add(this.info); 
         
-
+        //Here all the pabels are added to the frame
         this.setLayout(new BorderLayout()); 
         this.add(panInterfaceInfo, BorderLayout.NORTH); 
         this.add(panInterfaceGameCentre, BorderLayout.WEST); 
-
         this.add(panInterfaceGame, BorderLayout.CENTER); 
         this.add(panInterfaceGameBas, BorderLayout.SOUTH); 
         //getLayout().setBackground(Color.WHITE);
 
-        this.setSize(1000,800);
+        this.setSize(1000,800);//size of the frame
         this.setLocationRelativeTo(null); // object position at the center
-        this.setVisible(true);
+        this.setVisible(true); //allows the frame to be visible
 
     }
     
@@ -92,52 +89,50 @@ public class InterfaceGame extends JFrame
     }
    
     public InterfaceVisual getVisual(){
-        return this.map;
+        return this.map; //return the interface with the map
     }
     
     public InterfaceInfo getInfo(){
-        return this.message;
+        return this.message; //return the interface with messages and informations about the room
     }
     
      public InfoBar getBar(){
-        return this.info;
+        return this.info; //retunr the interface with bag capacity, timer and points
     }
     
     public Doable getDoable(){
-        return this.doable;
+        return this.doable; //return the interface that allows the player to do something
     }
     
     public ControlDirection getDirection(){
-        return this.control;
+        return this.control; //return the interface with the direction 
     }
     
+    /**
+     * The showMap method allows to update the map panel when an action is performed. 
+     * @param panel 
+     */
     public void showMap(JPanel panel) {
-        map.removeAll();
-        panInterfaceGame.add(panel);
+        map.removeAll(); //remove all the things containing in the panel
+        panInterfaceGame.add(panel); //add the new panel
         panInterfaceGame.revalidate();
-        panInterfaceGame.repaint();
+        panInterfaceGame.repaint();//repaint the panel with the new one
     }
     
-    
+     /**
+     * The showCOntrol method allows to update the controlDirection panel when an action is performed. 
+     * @param panel1
+     */
     public void showControl(JPanel panel1) {
-        control.removeAll();
-        
+        control.removeAll();//remove all the things in the control panel
         panInterfaceGameBas.setLayout(new GridLayout(0,2));
         blanc = new JButton();
         blanc.setBorderPainted(false); 
         blanc.setContentAreaFilled(false);
         blanc.setFocusPainted(false); 
         panInterfaceGameBas.add(blanc);
-        panInterfaceGameBas.add(panel1); 
-        
+        panInterfaceGameBas.add(panel1);    
         panInterfaceGameBas.revalidate();
         panInterfaceGameBas.repaint();
     }
-    
-    
-    public void main()
-    {
-        
-    }
-
 }

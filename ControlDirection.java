@@ -5,7 +5,6 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.Color;
-
 /**
  * This class create the interface to control the direction of the ant (player).
  * @author Group8 (Alix and Dylan) 
@@ -14,18 +13,16 @@ import java.awt.Color;
 
 public class ControlDirection extends JPanel implements ActionListener 
 {   
-    private JButton northButton, southButton, eastButton, westButton, upButton, downButton ; // the different button for each direction including up and down
-    private InterfaceGame myGameInterface;
-    private JPanel myPanel_control1;
-    
-    /**
+   private JButton northButton, southButton, eastButton, westButton, upButton, downButton ; // the different button for each direction including up and down
+   private InterfaceGame myGameInterface;
+   private JPanel myPanelControl1;   
+   /**
      * The constructor of the panel that will control the direction to move
      * @param anInterface links the panel with the direction with the InterfaceGame
      */
     public ControlDirection (InterfaceGame anInterface){
         super();
         myGameInterface = anInterface;
-        
         
         //Creation of Buttons
         northButton = new JButton("↑");
@@ -41,35 +38,32 @@ public class ControlDirection extends JPanel implements ActionListener
         westButton.setBackground(Color.WHITE);
         westButton.addActionListener(this);
         upButton = new JButton("UP");
-        upButton.setBackground(Color.GREEN);
+        upButton.setBackground(Color.WHITE);
         upButton.addActionListener(this);
         downButton = new JButton("DOWN");
-        downButton.setBackground(Color.RED);
+        downButton.setBackground(Color.WHITE);
         downButton.addActionListener(this);
 
-        
-        //panelArround
-        //JPanel myPanel_control = new JPanel();
+        //Creation of a GridLayout panel to add the buttons
         this.setLayout(new GridLayout(3,3));
         this.add(northButton);
         this.add(southButton);
         this.add(eastButton);
         this.add(westButton);
       
-        //panelCenter 
-        myPanel_control1 = new JPanel();
-        myPanel_control1.setLayout(new GridLayout(2,1));
-        myPanel_control1.add(upButton);
-        myPanel_control1.add(downButton);
         
+        myPanelControl1 = new JPanel();
+        myPanelControl1.setLayout(new GridLayout(2,1));
+        myPanelControl1.add(upButton);
+        myPanelControl1.add(downButton);
         
-        //placement inside the panel
+        //Add all the buttons to the final panel
         this.setLayout(new BorderLayout());
         this.add(northButton, BorderLayout.NORTH);
         this.add(eastButton, BorderLayout.EAST);
         this.add(westButton, BorderLayout.WEST);
         this.add(southButton, BorderLayout.SOUTH);
-        this.add(myPanel_control1, BorderLayout.CENTER);
+        this.add(myPanelControl1, BorderLayout.CENTER);
         
         disableAllButtons();
         enableButton();
@@ -77,8 +71,8 @@ public class ControlDirection extends JPanel implements ActionListener
         this.setVisible(true);
     }
     
-    /**
-     *  This method allows to make all the direction buttons disabled
+   /**
+     *  This method disable all the buttons
      */
     public void disableAllButtons()
     {
@@ -90,8 +84,8 @@ public class ControlDirection extends JPanel implements ActionListener
         downButton.setEnabled(false);
     }
     
-    /**
-     * This method allows to enable a button
+   /**
+     * This method enable the different buttons
      * 
      */
     public void enableButton()
@@ -115,8 +109,8 @@ public class ControlDirection extends JPanel implements ActionListener
         }
     }
     
-    /**
-     * Implement the movement of the player when a button is pressed 
+   /**
+     * Add a listener to eahc buttons to allows the player to move in the posible direction
      */
     public void actionPerformed(ActionEvent e)
     {

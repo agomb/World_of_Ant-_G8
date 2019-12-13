@@ -1,13 +1,10 @@
 #BlueJ class context
 comment0.target=Key
-comment0.text=\r\n\ Key\ is\ create\ with\ a\ name\ ans\ an\ id\ to\ be\ associate\ to\ a\ lock\ to\ open\ it\ if\ is\ closed,\ and\ if\ the\ key\ belongs\ at\ the\ lock.\r\n\r\n\ @author\ Group\ 8\ -\ Marion\ Guernot\u00E9,\ Dylan\ Mielot,\ Fanny\ Barbe,\ Alix\ Nagot,\ Ambre\ Dumontet,\ Ang\u00E9lique\ Gombert,\ Thibault\ Crouzet\r\n\ @version\ 19/11/2019\r\n
+comment0.text=\r\n\ Keys\ are\ created\ to\ door\ locked\ and\ treasure\ box\ locked.\ \r\n\ These\ keys\ allows\ to\ open\ the\ locked\ box\ and\ door.\r\n\ @author\ Group\ 8\ -\ Marion\ Guernot\u00E9,\ Dylan\ Mielot,\ Fanny\ Barbe,\ Alix\ Nagot,\ Ambre\ Dumontet,\ Ang\u00E9lique\ Gombert,\ Thibault\ Crouzet\r\n\ @version\ 19/11/2019\r\n
 comment1.params=kName
 comment1.target=Key(java.lang.String)
-comment1.text=\r\n\ Create\ a\ key\ \r\n\ @param\ kName\ allows\ to\ give\ a\ name\ to\ the\ object\r\n\ @param\ ide\ allows\ to\ put\ an\ id\ to\ the\ key\r\n
+comment1.text=\r\n\ Constructor\ \:\ Create\ a\ key\ \r\n\ @param\ kName\ allows\ to\ give\ a\ name\ to\ the\ object\r\n
 comment2.params=
-comment2.target=java.util.List\ getListKeys()
-comment2.text=\r\n\ Give\ the\ keys\ on\ the\ box\r\n\ @return\ keys,\ the\ list\ of\ keys\ on\ the\ box\r\n
-comment3.params=
-comment3.target=Key\ getKey()
-comment3.text=\r\n\ Give\ the\ keys\ on\ the\ box\r\n\ @return\ keys,\ the\ list\ of\ keys\ on\ the\ box\r\n
-numComments=4
+comment2.target=Key\ getKey()
+comment2.text=\r\n\ Get\ the\ keys\r\n\ @return\ keys\r\n
+numComments=3

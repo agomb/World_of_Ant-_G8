@@ -8,14 +8,11 @@ import java.util.List;
  */
 public class Player extends Character
 {
-    
     private List<Item> bag; //simulate the inventory of the ant
     private int sizeBag; // the maximum size of the bag
     private Room currentRoom; // the room where the player is
-    private Room depot; //his room where he can store his delivery
+    private Room beginRoom; //his room where he can store his delivery
     private int hp; //the hp of the player
-    
-    
     /**
      * Create a player by giving a name and instantiate the current room 
      */
@@ -25,7 +22,7 @@ public class Player extends Character
         bag = new ArrayList<Item>();
         sizeBag = 14; 
         currentRoom = playerRoom;
-        depot = playerRoom;
+        beginRoom = playerRoom;
         hp = 100;
     }
     
@@ -35,40 +32,39 @@ public class Player extends Character
      */
     public void setCurrentRoom(Room roomToMove)
     {
-        currentRoom = roomToMove;
+        currentRoom = roomToMove; //allows the player to move
     }
     
     /**
      * return the inventory of the player
-     * @return bag which
-     * is a list of Item
+     * @return bag which is a list of Item
      */
     public List<Item> getBag()
     {
-        return bag;
+        return bag; //return the list of items
     }
     
     /**
-     * return the depot room
-     * @return depot which is the room where ant can pick up if it's a deliveroo and drop if it's a stolen
+     * Return the being room
+     * @return beginRoom which is the room where an ant can pick up if it is a deliveroo and drop if it is a stolen ant
      */
-    public Room getDepot()
+    public Room getBeginRoom()
     {
-        return depot;
+        return beginRoom;
     }
     
     /**
      * return the maximum size of the inventory
-     * return sizeBag whho is a integer representing the maximum size of the inventory
+     * @return sizeBag which is an integer representing the maximum size of the bag
      */
     public int getSizeBag()
     {
-        return sizeBag;
+        return sizeBag; //return the size of the bag
     }
     
     /**
      * Return the room where the player is
-     * @ return the current room where the player is
+     * @return the current room where the player is
      */
     public Room getCurrentRoom()
     {
@@ -77,11 +73,13 @@ public class Player extends Character
     
     /**
      * Allow the ant to move between the rooms by crossing a door among the exits available
+     * @param direction : direction where the player wants to go
      */
     public void moveRoom(String direction)
     {
-        // get the door that correspond to the exit direction
+        //Get the door that correspond to the exit direction
         Door exitDoor = currentRoom.getDoor(direction);
+
         // search the future room
         Room futureRoom = exitDoor.crossDoor(currentRoom, bag); // renvoie la piece dans laquelle on sort en travarsant l'exitDoor
         setCurrentRoom(futureRoom); // la room dans laquelle on se trouve devient la room de sortie
@@ -89,19 +87,19 @@ public class Player extends Character
     
     /**
      * Take a delivery in the Room and put it in the bag
-     * @parameter loot who is an item in the room who is a item class
+     * @param loot which is an item in the room 
      * 
      */
     public void pickUpDelivery(Delivery loot)
     {
-        if (bag.size() < getSizeBag() && loot !=null){
-            bag.add(loot); 
+        if (bag.size() < getSizeBag() && loot !=null){ //check if there is enough place in the bag
+            bag.add(loot); //add a delivery to the bag
         }
     }
     
     /**
      * Open a treasure box and pick up items
-     * @parameter loot who is an item in the room who is a item class
+     * @param loot who is an item in the room who is a item class
      * 
      */
     public void pickUpBox(TreasureBox box)
@@ -135,7 +133,19 @@ public class Player extends Character
                      }
                 }
             } 
-            
+            else //if it is open
+            {
+                //setHp(box.getSpecial().getImpact()); need to look for the impact
+                if (box.getKey() != null && bag.size() < getSizeBag()) // if the box is not empty
+                {
+                    bag.add(box.getKey()); 
+                    this.currentRoom.removeItem(box);
+                }
+                else
+                {
+                    System.out.println("The box is empty");
+                }
+            }
        }
        else // if there is no lock
        {
@@ -150,31 +160,28 @@ public class Player extends Character
                 this.currentRoom.removeItem(box);
            }
        }
-
     }
     
     /**
      * Drop an item in the room
-     * @parameter  thedropName reprensent the name of the item that will be droped is the room
+     * @param  thedropName reprensent the name of the item that will be droped is the room
      * @return thedrop is the item that is droped in the room
      */
     public Item drop()
     {
-        for ( Item i : bag) {
+        for ( Item i : bag) { //check all the items of the bag
             if(i instanceof Delivery){  
-                 bag.remove(i);
+                 bag.remove(i); //remove the item of the bag
                  return i;
             } 
-            
         }
         return null;
     }
 
-
     /**
-     * modify the hp
+     * Modify the hp
      * cannot pass the hp bellow 0 or more that 100
-     * @parameter thehp represent how much the delievroo ant will lose or gain hp
+     * @param thehp represent how much the delievroo ant will lose or gain hp
      */
     public void setHp(int thehp)
     {
@@ -191,7 +198,7 @@ public class Player extends Character
     /**
      * Add Hp to the delivroo ant
      * cannot pass the hp more that 100
-     * @parameter thehp represent how much hp the delievroo ant will gain
+     * @param thehp represent how much hp the delievroo ant will gain
      */
     public void addHp(int theHp)
     {
@@ -206,9 +213,9 @@ public class Player extends Character
     }
     
     /**
-     * lose hp
+     * Lose hp
      * cannot pass the hp bellow 0
-     * @parameter thehp represent how much hp the delievroo ant will lose
+     * @param thehp represent how much hp the delievroo ant will lose
      */
     public void loseHp(int theHp)
     {
@@ -224,11 +231,10 @@ public class Player extends Character
     
     /**
      * return the hp
-     * @return the hp of the stolen ant who is a integer
+     * @return the hp of the stolen ant 
      */
     public int getHp()
     {
-        // Insérez votre code ici
-        return hp;
+        return hp; //return the hp 
     } 
 }

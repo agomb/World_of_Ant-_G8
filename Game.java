@@ -2,8 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 /**
  * Class Game 
- * Contains the main that allows to the user to start a game
- *
+ * This class initialize room, treasure box, lock, key and door (which are the exits)
  * @author Group8
  * @version 13/11/2019
  */
@@ -24,13 +23,11 @@ public class Game
     {
         room = new ArrayList<Room>();
         createRoom();
-
     }
     
     /**
      * Method to choose the player : deliveroo or stolen ant
-     * 
-     * @return type : "deliver" for deliveroo ant 
+     * @return playerChoose : "deliver" for deliveroo ant 
      *                "stolen" for stolen ant    
      */
     public Player getChoosenPlayer()
@@ -42,9 +39,8 @@ public class Game
      * Method that give if the player win or loose
      * It will check on the bag of the player : 
      * if the deliveroo ant have more than 5 deliveries on the bag 
-     * or if the stolent ant have less than 5 deliveries on the bag 
+     * or if the stolen ant have less than 5 deliveries on the bag 
      * the player is a looser !!
-     *
      * @param  ant type of player (deliveroo or stolen)
      */
     public void result(Player ant)
@@ -55,14 +51,11 @@ public class Game
     /**
      * This method initialize the doors and rooms
      * Each room of the underground has a number and the doors have directions
-     *
-     * @param  y   un paramètre pour cette méthode
-     * @param  x   un autre paramètre
-     * @return     la somme des deux paramètres
+     * Each human room are intializa with a letter
      */
     public void createRoom()
     {
-
+        //Initializationof the key
         Key theCreatedKey1 = new Key("key1");
         Key theCreatedKey5 = new Key("key5");
         Key theCreatedKey6 = new Key("key6");
@@ -70,6 +63,7 @@ public class Game
         Key theCreatedKey25 = new Key("key25");
         Key theCreatedKeyRuby = new Key("keyRuby");
         
+        //Initialization of the lock
         Lock theCreatedLockRuby = new Lock(theCreatedKeyRuby);
         Lock Lock1 = new Lock(theCreatedKey1);
         Lock Lock5 = new Lock(theCreatedKey5);
@@ -80,6 +74,7 @@ public class Game
         Special theCreatedSpecialBonus = new Special("bonus");
         Special theCreatedSpecialMalus = new Special("malus");
         
+        //Initializationof the treasure box
         TreasureBox box2 = new TreasureBox("Box2", theCreatedKey1, null);
         TreasureBox box6 = new TreasureBox("Box6", theCreatedKey5, null);
         TreasureBox box10 = new TreasureBox("Box10", null, theCreatedSpecialMalus);
@@ -88,10 +83,8 @@ public class Game
         TreasureBox boxC = new TreasureBox("BoxC", theCreatedKey14, theCreatedSpecialBonus);
         TreasureBox boxF = new TreasureBox("BoxF", theCreatedKey25, theCreatedSpecialMalus); 
         TreasureBox boxG = new TreasureBox("BoxG", theCreatedKeyRuby, null);
-      
-        
 
-        // Here we create the rooms
+        // //Initializationof the rooms
         Room roomPlayer = new Room("PlayerRoom");
         room.add(roomPlayer);
         Room roomOpponent  = new Room("OpponentRoom");
@@ -178,10 +171,8 @@ public class Game
         roomC.addItem((Item) boxC); 
         roomF.addItem((Item) boxF); 
         roomG.addItem((Item) boxG); 
-        //Here we create the doors between two rooms - initialization of the Hashmap
-
-               
         
+        ////Initializationof the delivery goal room 
         Delivery d1 = new Delivery("d1", roomA);
         Delivery d2 = new Delivery("d2", roomB);
         Delivery d3 = new Delivery("d3", roomC);
@@ -196,41 +187,40 @@ public class Game
         Delivery d12 = new Delivery("d12", roomE);
         Delivery d13 = new Delivery("d13", roomF);
         Delivery d14 = new Delivery("d14", roomG);
+           
+        //Add the delivery to the begin room which is called the Player room when the player is a deliveroo ant
+        roomPlayer.addItem((Item)d1);
+        roomPlayer.addItem((Item)d2);
+        roomPlayer.addItem((Item)d3);
+        roomPlayer.addItem((Item)d4);
+        roomPlayer.addItem((Item)d5);
+        roomPlayer.addItem((Item)d6);
+        roomPlayer.addItem((Item)d7);
+        roomPlayer.addItem((Item)d8);
+        roomPlayer.addItem((Item)d9);
+        roomPlayer.addItem((Item)d10);
+        roomPlayer.addItem((Item)d11);
+        roomPlayer.addItem((Item)d12);
+        roomPlayer.addItem((Item)d13);
+        roomPlayer.addItem((Item)d14);
         
+        //Add the delivery to the begin room which is called the Player room when the player is a stolen ant
+        roomOpponent.addItem((Item)d1);
+        roomOpponent.addItem((Item)d2);
+        roomOpponent.addItem((Item)d3);
+        roomOpponent.addItem((Item)d4);
+        roomOpponent.addItem((Item)d5);
+        roomOpponent.addItem((Item)d6);
+        roomOpponent.addItem((Item)d7);
+        roomOpponent.addItem((Item)d8);
+        roomOpponent.addItem((Item)d9);
+        roomOpponent.addItem((Item)d10);
+        roomOpponent.addItem((Item)d11);
+        roomOpponent.addItem((Item)d12);
+        roomOpponent.addItem((Item)d13);
+        roomOpponent.addItem((Item)d14);
         
-        //if ( playerChoose instanceof DeliverooAnt){
-            roomPlayer.addItem((Item)d1);
-            roomPlayer.addItem((Item)d2);
-            roomPlayer.addItem((Item)d3);
-            roomPlayer.addItem((Item)d4);
-            roomPlayer.addItem((Item)d5);
-            roomPlayer.addItem((Item)d6);
-            roomPlayer.addItem((Item)d7);
-            roomPlayer.addItem((Item)d8);
-            roomPlayer.addItem((Item)d9);
-            roomPlayer.addItem((Item)d10);
-            roomPlayer.addItem((Item)d11);
-            roomPlayer.addItem((Item)d12);
-            roomPlayer.addItem((Item)d13);
-            roomPlayer.addItem((Item)d14);
-
-        //}else{
-            roomOpponent.addItem((Item)d1);
-            roomOpponent.addItem((Item)d2);
-            roomOpponent.addItem((Item)d3);
-            roomOpponent.addItem((Item)d4);
-            roomOpponent.addItem((Item)d5);
-            roomOpponent.addItem((Item)d6);
-            roomOpponent.addItem((Item)d7);
-            roomOpponent.addItem((Item)d8);
-            roomOpponent.addItem((Item)d9);
-            roomOpponent.addItem((Item)d10);
-            roomOpponent.addItem((Item)d11);
-            roomOpponent.addItem((Item)d12);
-            roomOpponent.addItem((Item)d13);
-            roomOpponent.addItem((Item)d14);
-        //}
-
+        //Initialize the door between each room and the direction
         Door.createDoor(roomPlayer, "East", room1, "West");
         Door.createDoor(room1, "North", room2, "South");
         Door.createDoor(room1, "East", room3, "West", theCreatedKey1, Lock1);
@@ -268,23 +258,22 @@ public class Game
         Door.createDoor(room15, "Up", roomA, "Down");
         Door.createDoor(room10, "Up", roomE, "Down");
         Door.createDoor(room29, "Up", roomG, "Down");
-        Door.createDoor(room21, "Up", roomF, "Down");
-
+        Door.createDoor(room21, "Up", roomF, "Down"); 
         //roomG.addItem((Item)boxG);
     }
     
     public Player getPlayer(){
-        return playerChoose;
+        return playerChoose; //return the player
     }
     
     public Player getComputer(){
-        return playerUnplay;
+        return playerUnplay; //retunr a character unplaying
     }
     
-    public void createPlayer(boolean b){
+    public void createPlayer(boolean b)
+    {
         Room departPlayer  = null;
-        Room departOpponent = null;
-        
+        Room departOpponent = null; 
         for ( Room r : room) {
             if (r.getDescription() == "PlayerRoom"){
                 departPlayer = r;
@@ -292,8 +281,7 @@ public class Game
             if (r.getDescription() == "OpponentRoom"){
                 departOpponent = r;
             }        
-        };
-        
+        }
         
         if (b == true){
             playerChoose = new  StolenAnt("play", departPlayer);
@@ -302,8 +290,5 @@ public class Game
             playerUnplay  = new  StolenAnt("unplay", departOpponent);
             playerChoose = new DeliverooAnt("play", departPlayer);
         }
-        
-        
-    }
-    
+    }    
 }
