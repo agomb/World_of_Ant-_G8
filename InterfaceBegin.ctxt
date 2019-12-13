@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=InterfaceBegin
-comment0.text=\r\n\ This\ is\ the\ Begin_Interface\ class.\r\n\ This\ class\ is\ the\ interface\ used\ at\ the\ start\ of\ the\ game\ to\ present\ \r\n\ The\ rule\ of\ the\ game\ and\ which\ type\ of\ ant\ the\ layer\ will\ be.\r\n\r\n\ @author\ G8\r\n\ @version\ 11/12/2019\r\n
+comment0.text=\r\n\ This\ is\ the\ Begin_Interface\ class.\r\n\ This\ class\ is\ the\ interface\ used\ at\ the\ start\ of\ the\ game\ to\ present\ \r\n\ The\ rule\ of\ the\ game\ and\ which\ type\ of\ ant\ the\ layer\ will\ be.\r\n\r\n\ @author\ G8\ -\ Marion\ Guernot\u00E9,\ Dylan\ Mielot,\ Fanny\ Barb\u00E9,\ Alix\ Nagot,\ Ambre\ Dumontet,\ Ang\u00E9lique\ Gombert,\ Thibault\ Crouzet\r\n\ @version\ 11/12/2019\r\n
 comment1.params=
 comment1.target=InterfaceBegin()
 comment1.text=\r\n\ Constructor\ of\ the\ class\ Begin_Interface\r\n

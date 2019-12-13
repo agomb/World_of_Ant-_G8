@@ -99,6 +99,7 @@ public class TreasureBoxTest
     @Test
     public void testGetDescriptionMalus()
     {
+        chest2 = new TreasureBox("chest2", keychest1, malus, lockChest );
         assertEquals( "In this box there is : \n  a malus, you loose -15hp \nYou pick up 1 key", chest2.getDescription() );
     }
     

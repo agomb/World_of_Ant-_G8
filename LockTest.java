@@ -12,7 +12,7 @@ import org.junit.Test;
  */
 public class LockTest
 {
-    int idKey;
+    Key aKey;
     Lock aLock;
     
     /**
@@ -29,8 +29,8 @@ public class LockTest
     public void setUp()
     {
         
-        idKey = 3;//creation of a id for a key. This key will also be used inside the test
-        aLock  = new Lock(idKey); //creation of the lock object for the tests
+        aKey = new Key("testkey");//creation of a id for a key. This key will also be used inside the test
+        aLock  = new Lock(aKey); //creation of the lock object for the tests
     }
     @Test
     /**
@@ -42,92 +42,26 @@ public class LockTest
         assertEquals(aLock.getIsLocked(),true);
         
     }
+    
     @Test
     /**
-     * Verify if the lock is locked
-     * By default this test should fail
+     * Verify if the lock is unlocked correcly with the key
+     * 
      */
-    public void testGetIsLockInvalid()
+    public void testUnlock()
     {
-        assertEquals(aLock.getIsLocked(),false);
+        assertEquals(aLock.unlock(aKey),true);
         
     }
     @Test
     /**
-     * test if the unlock method change correctly the isLocked attribut
-     * the test is true if the method work correctly
+     * Verify if the lock is unlocked correcly
+     * 
      */
-    public void testUnlockValid()
+    public void testAlreadyUnlock()
     {
-        aLock.unlock(idKey);
-        assertEquals(aLock.getIsLocked(),false);
-        
-    }
-    @Test
-    /**
-     * test if the unlock method change correctly the isLocked attribut
-     * the test is false if the method work correctly
-     */
-    public void testUnlockInvalid()
-    {
-        aLock.unlock(idKey);
-        assertEquals(aLock.getIsLocked(),true);
-        
-    }
-    @Test
-    /**
-     * test if the unlock method return the correct verification
-     * the test should be true if the method work correctly
-     */
-    public void testUnlockReturnValid()
-    {
-        
-        assertEquals(aLock.unlock(idKey),true);
-        
-    }
-    @Test
-    /**
-     * test if the unlock method return the incorrect verification
-     * the test should be fase if the method work correctly
-     */
-    public void testUnlockReturnInvalid()
-    {
-        
-        assertEquals(aLock.unlock(idKey),false);
-        
-    }
-    @Test
-    /**
-     * test if the unlock method return the correct verification in the case when the object is already unlocked
-     * the test should be true if the method work correctly
-     */
-    public void testUnlockReturnOpen()
-    {
-        aLock.unlock(idKey);
-        assertEquals(aLock.unlock(idKey),true);
-        
-    }
-    @Test
-    /**
-     * test if the unlock method return the correct verification in the case when the object is already unlocked 
-     * but no keys are given to unlock the object
-     * the test should be true if the method work correctly
-     */
-    public void testUnlockReturnAlreadyOpenWithoutKey()
-    {
-        aLock.unlock(idKey);
-        assertEquals(aLock.unlock(),true);
-        
-    }
-    @Test
-    /**
-     * test if the unlock method return the correct verification in the case when the object is locked
-     * but no keys are given to unlock the object
-     * the test should be true if the method work correctly
-     */
-    public void testUnlockReturnCloseWithoutKey()
-    {
-        assertEquals(aLock.unlock(),false);
+        aLock.unlock(aKey);
+        assertEquals(aLock.unlock(aKey),true);
         
     }
     /**
