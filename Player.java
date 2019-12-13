@@ -3,7 +3,7 @@ import java.util.List;
 /**
  * This super-class allow to create a character which gonna be played by user
  *
- * @author Group 8 - Marion Guernoté, Dylan Mielot, Fanny Barbe, Alix Nagot, Ambre Dumontet, Angélique Gombert, Thibault Crouzet
+ * @author Group 8 - Marion Guernoté, Dylan Mielot, Fanny Barbé, Alix Nagot, Ambre Dumontet, Angélique Gombert, Thibault Crouzet
  * @version (un numéro de version ou une date)
  */
 public class Player extends Character
@@ -117,7 +117,6 @@ public class Player extends Character
                         box.getLock().unlock((Key)a); // use the key
                         bag.remove(i); // remove the key from the bag
                         break;
-
                     } 
                 }
                 if (box.getLock().getIsLocked() == true) //if it is still locked because there is not the key in the bag
@@ -142,13 +141,18 @@ public class Player extends Character
        }
        else // if there is no lock
        {
-           //setHp(box.getSpecial().getImpact());
+           
     
            if (box.getKey() != null && bag.size() < getSizeBag())
            {
                 bag.add(box.getKey());
                 this.currentRoom.removeItem(box);
            } 
+           else if(box.getSpecial() != null && bag.size() < getSizeBag())
+           {
+                //setHp(box.getSpecial().getImpact());
+                this.currentRoom.removeItem(box);
+           }
        }
 
     }

@@ -119,7 +119,7 @@ public class Room
     {
          for ( Item i : item) {
              if(i instanceof TreasureBox){  
-                 return ( (TreasureBox)i);
+                 return ((TreasureBox)i);
              }     
          }
          return null; 

@@ -18,6 +18,10 @@ public class ControlDirection extends JPanel implements ActionListener
     private InterfaceGame myGameInterface;
     private JPanel myPanel_control1;
     
+    /**
+     * The constructor of the panel that will control the direction to move
+     * @param anInterface links the panel with the direction with the InterfaceGame
+     */
     public ControlDirection (InterfaceGame anInterface){
         super();
         myGameInterface = anInterface;
