@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=InterfaceVisual
-comment0.text=\r\n\ The\ Interface_Visual\ class\ represent\ the\ map\ inside\ the\ game\ panel\r\n\r\n\ @author\ G8\r\n\ @version\ 11/12/2019\r\n
+comment0.text=\r\n\ The\ Interface_Visual\ class\ represents\ the\ different\ rooms\ of\ the\ game.\ \r\n\ Those\ rooms\ are\ differents\ depending\ on\ what\ is\ inside.\ It\ can\ be\ possible\ to\ be\ in\ a\ room\ whitout\ anything\ on\ the\ underground\r\n\ It\ can\ be\ possible\ to\ be\ in\ a\ room\ that\ contains\ a\ treasure\ box\ or\ a\ room\ that\ contains\ a\ scale\ to\ go\ on\ the\ human\ ground\ (on\ the\ underground).\ \r\n\ Finally,\ there\ are\ room\ on\ the\ ground\ with\ only\ human\ or\ with\ human\ and\ a\ treausre\ box.\ \r\n\r\n\ @author\ G8\r\n\ @version\ 11/12/2019\r\n
 comment1.params=myRoom\ myPlayer\ theInterface
 comment1.target=InterfaceVisual(Room,\ Player,\ InterfaceGame)
 comment1.text=\r\n\ Constructeur\ d'objets\ de\ classe\ Interface_Visual\r\n

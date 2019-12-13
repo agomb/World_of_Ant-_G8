@@ -6,41 +6,35 @@ import java.util.Map;
 import java.util.Set;
 /**
  * Room is the class that represents each accessible room in the game
- * There is two levels : level up and level down.
+ * There are two levels : level up and level down.
  * Level up represents the surface (human houses)
  * and the level down represents ants gallery.
  *
- * @author Group 8 (Angélique and Dylan)
+ * @author Group 8 
  * @version 13/11/2019
  */
 public class Room
 {
-    
     private List<Human> human;
     private List<Item> item;
-    
     private HashMap<String, Door> exits;  // Sring = north,east,south,west **************************
     private String description;
-    
     /**
+     * Constructor of the Room class
      * Adds a description to the room
      * @param rDescription is a description of the room.
      */
     public Room(String rDescription)
     {
-       //exits = new HashMap<>();
        description = rDescription;
-       exits = new HashMap<String, Door>();
-       //the Hashmap is empty, when a door is created, it is added as an exit in the Hashmap
-       
+       exits = new HashMap<String, Door>(); //the Hashmap is empty, when a door is created, it is added as an exit in the Hashmap
        human = new ArrayList<Human>();
-       item = new ArrayList<Item>();
-       
+       item = new ArrayList<Item>();       
     }
 
     /**
-     * displays the possible exits in the room.
-     * @ return List<String> the list of exit that exists (directions)
+     * Displays the possible exits in the room.
+     * @ return List<String> : the list of exit that exists (directions)
      */
     public Door getDoor(String direction)
     {
@@ -53,12 +47,12 @@ public class Room
     }
     
     /**
-     * displays the possible exits in the room.
-     * @ return List<String> the list of exit that exists (directions)
+     * Chekc the available exits
+     * @ return List<String> the list of possible exits
      */
     public List<String> checkExits()
     {
-        // Make the exits available clickable
+        // Enable the button to click on (when exits available) 
         List<String> exitsAvailable = new ArrayList<String>();
         for(Map.Entry<String, Door> e : this.exits.entrySet())
         {
@@ -69,33 +63,35 @@ public class Room
     }
     
     /**
-     * Use the direction to selecct the exit door
+     * Use the direction to choose an exit door available
      * @ return Door the door that correspond to the given exit direction
      */
     public Door chooseExit(Room currentRoom, String theDirection)
     {
-        for(Map.Entry<String, Door> e : currentRoom.exits.entrySet())
+        for(Map.Entry<String, Door> e : currentRoom.exits.entrySet()) //check all the key/value couple of the hashmap
         {
-            if(e.getKey() == theDirection)
+            if(e.getKey() == theDirection) 
             {
-                return e.getValue();
+                return e.getValue(); //return the value of the searched exit 
             }
         }
-        return null;
+        return null; //return nothing when the exit is not find
     }
     
     /**
-     * Add a door as exit in the room
-     * @param exitDoor is the exit door, direction is the direction where the exit is in the room 
+     * Add a door as an exit in the room
+     * @param r : current room
+     * @param exitDoor : the exit door
+     * @param direction : the direction where the exit is in the room 
      */
     public void addExit(Room r, String direction, Door exitDoor)
     {
-        r.exits.put(direction, exitDoor);
+        r.exits.put(direction, exitDoor); //allows to add an exits to the Hashmap
     }
     
     /**
      * return the description of the room
-     * @return description is the description of the room
+     * @return description 
      */
     public String getDescription()
     {
@@ -103,8 +99,8 @@ public class Room
     }
     
     /**
-     * displays the available items in the room.
-     *
+     * This method retunr the list of item
+     *@return item
      */
     public List<Item> getItem()
     {
@@ -112,7 +108,7 @@ public class Room
     }
     
     /**
-     * displays the boxin the room.
+     * displays the item in the treasure box.
      *
      */
     public TreasureBox getBox()
@@ -125,37 +121,37 @@ public class Room
          return null; 
     }
     
-     /**
-     * displays the boxin the room.
+    /**
+     * displays the delivered box in the room.
      *
      */
     public Delivery getDelivery()
     {
-         for ( Item i : item) {
-             if(i instanceof Delivery){  
-                 return ( (Delivery)i);
+         for ( Item i : item) { //check all the items of the list
+             if(i instanceof Delivery){  // if the item correspond to the delivery
+                 return ( (Delivery)i); //return the delivery
              }     
          }
          return null; 
     }
     
     /**
-     * adds an item
+     * Adds an item
      *
      *@param anItem The item added in the room
      */
     public void addItem(Item anItem)
     {
-        item.add(anItem);
+        item.add(anItem); //add the item
     }
     
     /**
-     * remove an item from the room (When it's picked up by an ant).
+     * Remove an item from the room (When it's picked up by the stolen ant).
      *
      * @param anItem the item removed in the room
      */
     public void removeItem(Item anItem)
     {
-        item.remove(anItem);
+        item.remove(anItem); //remove the item
     }
 }

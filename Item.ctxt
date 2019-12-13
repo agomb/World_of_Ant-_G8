@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Item
-comment0.text=\r\n\ This\ class\ allows\ to\ be\ able\ to\ create\ an\ item.\ \ \r\n\r\n\ @author\ Group\ 8\ -\ Marion\ Guernot\u00E9,\ Dylan\ Mielot,\ Fanny\ Barbe,\ Alix\ Nagot,\ Ambre\ Dumontet,\ Ang\u00E9lique\ Gombert,\ Thibault\ Crouzet\r\n\ @version\ 19/11/2019\r\n
+comment0.text=\r\n\ This\ is\ the\ mother\ class\ to\ create\ the\ different\ kind\ of\ items.\ \ \ \r\n\ @author\ Group\ 8\ -\ Marion\ Guernot\u00E9,\ Dylan\ Mielot,\ Fanny\ Barbe,\ Alix\ Nagot,\ Ambre\ Dumontet,\ Ang\u00E9lique\ Gombert,\ Thibault\ Crouzet\r\n\ @version\ 19/11/2019\r\n
 comment1.params=iName
 comment1.target=Item(java.lang.String)
 comment1.text=\r\n\ This\ constructor\ create\ an\ item\ object\ and\ give\ him\ a\ name.\r\n\ @param\ iName\ allows\ to\ give\ a\ name\ to\ the\ object\r\n

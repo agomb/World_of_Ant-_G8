@@ -9,9 +9,8 @@ import java.util.List;
 public class TreasureBox extends Item
 {
     private Special specialBox; // list of special item contained in the box
-    private Lock lockBox; // lock which will allows to open the box
-    private Key keyBox;
-    
+    private Lock lockBox; // lock which allows to open the box
+    private Key keyBox; // key of the box   
     /**
      * Constructor of empty Treasure box
      * @param tName allows to give a name to the object
@@ -58,21 +57,18 @@ public class TreasureBox extends Item
         return specialBox;
     }
     
-
-
-     /**
-
-     * Give the special item on the box
+    /**
+     * 
      * @return keys, the list of items on the box
      */
      public Key getKey()
     {
-        return keyBox;
+        return keyBox; //return the key of the box
     }
     
     public Lock getLock()
     {
-        return lockBox;
+        return lockBox; //retunr the lock of the box
     }
     
     /**
@@ -95,7 +91,6 @@ public class TreasureBox extends Item
        {
               s = s + "You pick up 1 key";  
        }
-
        return s;
     } 
     
