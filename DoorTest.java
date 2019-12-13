@@ -87,8 +87,9 @@ public class DoorTest
      */
     public void testCrossDoor()
     {
-        
-        assertEquals( room2 ,testDoor.crossDoor(room1) );
+        List<Item> bag = new ArrayList<Item>();
+        bag.add(keytest);
+        assertEquals( room2 , testDoor.crossDoor(room1,bag));
     }
     @Test
     /**
@@ -97,8 +98,9 @@ public class DoorTest
      */
     public void testCrossDoorOpposite()
     {
-        
-        assertEquals( room1 ,testDoor.crossDoor(room2) );
+        List<Item> bag = new ArrayList<Item>();
+        bag.add(keytest);
+        assertEquals( room1 ,testDoor.crossDoor(room2,bag) );
     }
     
     
