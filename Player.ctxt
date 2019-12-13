@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Player
-comment0.text=\r\n\ This\ super-class\ allow\ to\ create\ a\ character\ which\ gonna\ be\ played\ by\ user\r\n\r\n\ @author\ Group\ 8\ -\ Marion\ Guernot\u00E9,\ Dylan\ Mielot,\ Fanny\ Barbe,\ Alix\ Nagot,\ Ambre\ Dumontet,\ Ang\u00E9lique\ Gombert,\ Thibault\ Crouzet\r\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\r\n
+comment0.text=\r\n\ This\ super-class\ allow\ to\ create\ a\ character\ which\ gonna\ be\ played\ by\ user\r\n\r\n\ @author\ Group\ 8\ -\ Marion\ Guernot\u00E9,\ Dylan\ Mielot,\ Fanny\ Barb\u00E9,\ Alix\ Nagot,\ Ambre\ Dumontet,\ Ang\u00E9lique\ Gombert,\ Thibault\ Crouzet\r\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\r\n
 comment1.params=pName\ playerRoom
 comment1.target=Player(java.lang.String,\ Room)
 comment1.text=\r\n\ Create\ a\ player\ by\ giving\ a\ name\ and\ instantiate\ the\ current\ room\ \r\n

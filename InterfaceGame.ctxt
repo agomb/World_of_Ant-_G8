@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=InterfaceGame
-comment0.text=\r\n\ The\ InterfaceGame\ class\ correspond\ to\ the\ game\ when\ is\ playing\r\n\r\n\ @author\ G8\r\n\ @version\ 27/11/2019\r\n
+comment0.text=\r\n\ The\ InterfaceGame\ class\ correspond\ to\ the\ game\ when\ is\ playing\r\n\r\n\ @author\ G8\ \ -\ Marion\ Guernot\u00E9,\ Dylan\ Mielot,\ Fanny\ Barb\u00E9,\ Alix\ Nagot,\ Ambre\ Dumontet,\ Ang\u00E9lique\ Gombert,\ Thibault\ Crouzet\r\n\ @version\ 27/11/2019\r\n
 comment1.params=g
 comment1.target=InterfaceGame(Game)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ GameInterface\r\n\ @Parameter\ Game\ g\r\n
