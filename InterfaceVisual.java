@@ -37,8 +37,12 @@ public class InterfaceVisual extends JPanel
             return "up_room";
         }else if(myPlayer.getCurrentRoom().getBox() != null && myPlayer.getCurrentRoom().getDescription().matches("^[a-zA-Z]")){ 
             return "box_human_room";
-        }else if (myPlayer.getCurrentRoom().getDescription().matches("^[a-zA-Z]")){ 
+        }else if (myPlayer.getCurrentRoom().getDelivery() == null && myPlayer.getCurrentRoom().getBox() == null && myPlayer.getCurrentRoom().getDescription().matches("^[a-zA-Z]")){ 
             return "human_room";
+       } else if (myPlayer.getCurrentRoom().getDelivery() != null && myPlayer.getCurrentRoom().getBox() == null && myPlayer.getCurrentRoom().getDescription().matches("^[a-zA-Z]")){ 
+            return "human_room_colis";
+       }else if (myPlayer.getCurrentRoom().getDelivery() != null && myPlayer.getCurrentRoom().getBox() != null && myPlayer.getCurrentRoom().getDescription().matches("^[a-zA-Z]")){ 
+            return "box_human_room_colis";
        } else{
             return "galerie";
        }
