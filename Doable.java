@@ -146,10 +146,12 @@ public class Doable extends JPanel implements ActionListener
              myGameInterface.getDoable().enableButton();
              myGameInterface.getDoable().updateUI();
              
-             myGameInterface.getDirection().updateUI();
+             myGameInterface.showMap(myGameInterface.getVisual());
+             myGameInterface.getVisual().visualizeRoom(myGameInterface.getGame().getPlayer());
+            
+
              myGameInterface.getBar().updateUI();
-             myGameInterface.getVisual().updateUI();
-             myGameInterface.getDoable().updateUI();
+     
         }
         else if(e.getSource() == myButtonDelivery) //Action for the delivery button
         {

@@ -171,10 +171,12 @@ public class Player extends Character
     {
         for ( Item i : bag) { //check all the items of the bag
             if(i instanceof Delivery){  
-                 bag.remove(i); //remove the item of the bag
+                this.getCurrentRoom().addItem(i); 
+                bag.remove(i); //remove the item of the bag
                  return i;
             } 
         }
+        
         return null;
     }
 
