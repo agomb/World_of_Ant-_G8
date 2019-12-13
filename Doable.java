@@ -15,7 +15,7 @@ import java.awt.Color;
  */
 public class Doable extends JPanel implements ActionListener 
 {
-    private JButton myButtonDrop, myButtonDelivery, myButtonTreasure, myButtonHit, useKey;
+    private JButton myButtonDrop, myButtonDelivery, myButtonTreasure, myButtonHit;
     private InterfaceGame myGameInterface;
     /**
      * Constructor of the class doable. 
@@ -41,17 +41,16 @@ public class Doable extends JPanel implements ActionListener
         myButtonTreasure.addActionListener(this); //add the listener to the button
         
         myButtonHit = new JButton("Hit");
-        myButtonHit.addActionListener(this); //add the listener to the button
-        
-        useKey = new JButton("Use the key"); //create the button that allows to open the door when they are locked
-         
+
+        myButtonHit.addActionListener(this);
+       
+          
         //JPanel myPanel_Doable = new JPanel(); // create the panel
         this.setLayout(new GridLayout(4,1)); //create the localisation of the button
-        //Add all the buttons in the main panel
-        this.add(myButtonDrop); 
-        this.add(myButtonDelivery); 
-        this.add(myButtonTreasure);
-        this.add(useKey);        
+        this.add(myButtonDrop); // add the button in panel
+        this.add(myButtonDelivery); // add the button in panel
+        this.add(myButtonTreasure); // add the button in panel
+        
         if (myGameInterface.getGame().getPlayer() instanceof DeliverooAnt){
             this.add(myButtonHit); 
         }

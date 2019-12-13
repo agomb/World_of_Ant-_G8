@@ -160,10 +160,10 @@ public class ControlDirection extends JPanel implements ActionListener
             {
                 myGameInterface.getInfo().updateInfoRoom();
                 myGameInterface.getInfo().nextMessage();
-            }   
-        myGameInterface.getInfo().enableButton();
-        myGameInterface.getInfo().updateUI();
-        myGameInterface.getBar().updateUI();
-        System.out.println(" Current room : "+myGameInterface.getGame().getPlayer().getCurrentRoom().getDescription());
+            }  
+
+            myGameInterface.getInfo().enableButton();
+            myGameInterface.getInfo().updateUI();
+            myGameInterface.getBar().updateUI();
     }
 }

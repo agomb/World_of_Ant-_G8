@@ -17,5 +17,5 @@ comment5.params=
 comment5.target=Lock\ getLockDoor()
 comment6.params=currentRoom\ bag
 comment6.target=Room\ crossDoor(Room,\ java.util.List)
-comment6.text=\r\n\ This\ method\ return\ the\ next\ room\ to\ move\ to\ but\ if\ the\ door\ is\ locked\ and\ you\ don't\ have\ the\ right\ key\ it\ will\ return\ a\ error\ type\r\n\ This\ error\ need\ to\ be\ catch\ by\ the\ calling\ method\r\n\r\n\ \r\n\ @return\ \ \ \ \ error\ or\ the\ next\ room\r\n
+comment6.text=\r\n\ This\ method\ return\ the\ next\ room\ to\ move\ to\ but\ if\ the\ door\ is\ locked\ and\ you\ don't\ have\ the\ right\ key\ it\ will\ return\ a\ error\ type\r\n\ This\ error\ need\ to\ be\ catch\ by\ the\ calling\ method\r\n\r\n\ @return\ \ \ \ \ error\ or\ the\ next\ room\r\n
 numComments=7
