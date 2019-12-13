@@ -19,4 +19,5 @@ comment6.params=
 comment6.target=Player\ getComputer()
 comment7.params=b
 comment7.target=void\ createPlayer(boolean)
+comment7.text=\r\n\ This\ method\ allows\ to\ create\ a\ player\ which\ can\ be\ a\ deliveroo\ ant\ or\ a\ stolent\ ant\ \r\n\ @param\ boolean\ b\ \:\ true\ if\ it\ is\ a\ stolen\ ant\ \r\n\ @param\ boolean\ b\ \:\ false\ if\ it\ is\ a\ deliveroo\ ant\ \r\n
 numComments=8
