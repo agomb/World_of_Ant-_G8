@@ -1,16 +1,16 @@
 #BlueJ class context
 comment0.target=DeliverooAnt
-comment0.text=\r\n\ This\ class\ represent\ a\ delivroo\ ant,\ with\ hp.\r\n\r\n\ @author\ Group\ 8\ -\ Marion\ Guernot\u00E9,\ Dylan\ Mielot,\ Fanny\ Barbe,\ Alix\ Nagot,\ Ambre\ Dumontet,\ Ang\u00E9lique\ Gombert,\ Thibault\ Crouzet\r\n\ @version\ 20/11/2019\r\n
+comment0.text=\r\n\ This\ class\ represent\ the\ player\ when\ it\ is\ a\ deliveroo\ ant.\r\n\ This\ deliveroo\ ant\ can\ deliver\ its\ delivery\ only\ in\ human\ room\ (on\ the\ gorund)\r\n\ It\ can\ pick\ up\ the\ delivery\ only\ in\ the\ begin\ room\r\n\r\n\ @author\ Group\ 8\ -\ Marion\ Guernot\u00E9,\ Dylan\ Mielot,\ Fanny\ Barbe,\ Alix\ Nagot,\ Ambre\ Dumontet,\ Ang\u00E9lique\ Gombert,\ Thibault\ Crouzet\r\n\ @version\ 20/11/2019\r\n
 comment1.params=dName\ playerRoom
 comment1.target=DeliverooAnt(java.lang.String,\ Room)
-comment1.text=\r\n\ Constructeur\ d'objets\ de\ classe\ Delievroo\r\n\ give\ the\ natural\ hp(honor\ point)\r\n
+comment1.text=\r\n\ Constructor\ of\ the\ DeliverooAnt\ class\r\n\ give\ the\ natural\ hp(honor\ point)\r\n\ @param\ name\ \:\ name\ of\ the\ player\r\n\ @playerRoom\ \:\ start\ in\ the\ begin\ room\r\n
 comment2.params=theStolen
 comment2.target=void\ hitStolette(StolenAnt)
-comment2.text=\r\n\ allow\ the\ delivery\ ant\ to\ hit\ the\ Stolen\ Ant\r\n
+comment2.text=\r\n\ Allow\ the\ delivery\ ant\ to\ hit\ the\ Stolen\ Ant\r\n
 comment3.params=loot
 comment3.target=void\ pickUpDelivery(Delivery)
-comment3.text=\r\n\ Take\ a\ delivery\ in\ his\ depot\r\n\ @parameter\ loot\ which\ is\ deliveries\ to\ deliver.\ \r\n\ @override\ \r\n
+comment3.text=\r\n\ Take\ a\ delivery\ in\ the\ begin\ room\r\n\ @parameter\ loot\ which\ is\ the\ deliveries\ to\ deliverin\ human\ room\ \r\n\ @override\ \r\n
 comment4.params=
 comment4.target=Item\ drop()
-comment4.text=\r\n\ drop\ delivery\ in\ its\ destination\ room\r\n\ @override\ \r\n
+comment4.text=\r\n\ Drop\ delivery\ in\ its\ destination\ room\r\n\ @override\ \r\n
 numComments=5

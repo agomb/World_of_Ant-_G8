@@ -1,15 +1,12 @@
-
 /**
- * This class allows to be able to create an item.  
- *
+ * This is the mother class to create the different kind of items.   
  * @author Group 8 - Marion Guernoté, Dylan Mielot, Fanny Barbe, Alix Nagot, Ambre Dumontet, Angélique Gombert, Thibault Crouzet
  * @version 19/11/2019
  */
 public class Item
 {
-    // This variables gives name to item
+    // This variables gives name to the items
     private String nameItem;
-
     /**
      * This constructor create an item object and give him a name.
      * @param iName allows to give a name to the object
@@ -29,8 +26,6 @@ public class Item
      */
     public String getName()
     {
-      return nameItem;
+      return nameItem; //return the name of the items
     }
-    
-    
 }

@@ -1,15 +1,16 @@
 #BlueJ class context
 comment0.target=Doable
-comment0.text=\r\n\ This\ class\ is\ all\ the\ button\ corespond\ to\ the\ diffeerent\ action\ that\ a\ player\ can\ do\ except\ the\ movement\r\n\ \r\n\ @author\ Group\ 8\ (Alix\ and\ Dylan)\ \r\n\ @version\ 2019-11-26\r\n
+comment0.text=\r\n\ This\ class\ is\ the\ interface\ which\ contains\ all\ the\ buttons\ available\ for\ the\ player.\ \r\n\ Depending\ on\ which\ player\ it\ is,\ there\ are\ different\ buttons\ available\ (drop,\ pick\ up,\ take\ delivery)\r\n\ \r\n\ @author\ Group\ 8\ \ \r\n\ @version\ 2019-11-26\r\n
 comment1.params=anInterface
 comment1.target=Doable(InterfaceGame)
-comment1.text=\r\n\ The\ constructor\ for\ the\ class\ doable\r\n\ @param\ anInterface\ links\ the\ Doable\ buttons\ to\ the\ interface\ of\ the\ game\r\n
+comment1.text=\r\n\ Constructor\ of\ the\ class\ doable.\ \r\n\ In\ this\ constructor\ are\ created\ all\ the\ buttons\ of\ the\ interface\ and\ the\ associated\ events.\r\n\ @param\ anInterface\ links\ the\ Doable\ buttons\ to\ the\ interface\ of\ the\ game\r\n
 comment2.params=
 comment2.target=void\ disableAllButtons()
+comment2.text=\r\n\ The\ function\ allows\ to\ disable\ all\ the\ button\ of\ the\ Interface\ doable\r\n
 comment3.params=
 comment3.target=void\ enableButton()
 comment3.text=\r\n\ This\ method\ allows\ to\ enable\ a\ button\r\n\ \r\n
 comment4.params=e
 comment4.target=void\ actionPerformed(java.awt.event.ActionEvent)
-comment4.text=\r\n\ All\ gestion\ of\ the\ different\ actions\ done\ by\ the\ buttons\r\n\ @param\ e\ is\ the\ event\ that\ hapened\ when\ an\ button\ is\ clicked\r\n
+comment4.text=\r\n\ This\ method\ contains\ the\ listeners\ for\ all\ the\ buttons\ of\ the\ Doable\ interface\ \r\n\ @param\ e\ is\ the\ event\ that\ happened\ when\ a\ player\ click\ on\ a\ button\r\n
 numComments=5
