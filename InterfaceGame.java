@@ -84,26 +84,50 @@ public class InterfaceGame extends JFrame
 
     }
     
+    /**
+     * Allows to return the game
+     * @return the game
+     */
     public Game getGame(){
         return this.game;
     }
    
+    /**
+     * Allows to return the panel which contains the picture of the map
+     * @return panel of the map
+     */
     public InterfaceVisual getVisual(){
         return this.map; //return the interface with the map
     }
     
+    /**
+     * Allows to return the panel of messages
+     * @return panel of messages
+     */
     public InterfaceInfo getInfo(){
         return this.message; //return the interface with messages and informations about the room
     }
     
-     public InfoBar getBar(){
+    /**
+     * Allows to return the panel of timer, health and bag capacity
+     * @return panel of timer, health and bag capacity
+     */
+    public InfoBar getBar(){
         return this.info; //retunr the interface with bag capacity, timer and points
     }
     
+    /**
+     * Allows to return the panel of action
+     * @return panel of action : doable
+     */
     public Doable getDoable(){
         return this.doable; //return the interface that allows the player to do something
     }
     
+    /**
+     * Allows to return the panel of control direction
+     * @return panel of direction
+     */
     public ControlDirection getDirection(){
         return this.control; //return the interface with the direction 
     }
@@ -118,21 +142,5 @@ public class InterfaceGame extends JFrame
         panInterfaceGame.revalidate();
         panInterfaceGame.repaint();//repaint the panel with the new one
     }
-    
-     /**
-     * The showCOntrol method allows to update the controlDirection panel when an action is performed. 
-     * @param panel1
-     */
-    public void showControl(JPanel panel1) {
-        control.removeAll();//remove all the things in the control panel
-        panInterfaceGameBas.setLayout(new GridLayout(0,2));
-        blanc = new JButton();
-        blanc.setBorderPainted(false); 
-        blanc.setContentAreaFilled(false);
-        blanc.setFocusPainted(false); 
-        panInterfaceGameBas.add(blanc);
-        panInterfaceGameBas.add(panel1);    
-        panInterfaceGameBas.revalidate();
-        panInterfaceGameBas.repaint();
-    }
+   
 }

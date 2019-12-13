@@ -65,6 +65,8 @@ public class Room
     /**
      * Use the direction to choose an exit door available
      * @ return Door the door that correspond to the given exit direction
+     * @param take the current room 
+     * @param theDirection the exit which is chosen
      */
     public Door chooseExit(Room currentRoom, String theDirection)
     {
@@ -109,7 +111,7 @@ public class Room
     
     /**
      * displays the item in the treasure box.
-     *
+     *@retun the object TreasureBox
      */
     public TreasureBox getBox()
     {
@@ -123,7 +125,7 @@ public class Room
     
     /**
      * displays the delivered box in the room.
-     *
+     *@return a delivery
      */
     public Delivery getDelivery()
     {

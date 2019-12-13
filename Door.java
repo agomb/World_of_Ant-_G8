@@ -72,7 +72,9 @@ public class Door
      * This method return the next room to move to but if the door is locked and you don't have the right key it will return a error type
      * This error need to be catch by the calling method
      *
-     * @return     error or the next room
+     * @return  the room where the player is after using the door (or the same if it's locked)
+     * @param currentRoom the room where the player is
+     * @param bag its bag to know if he has the key
      */
     public Room crossDoor(Room currentRoom, List<Item> bag)
     {

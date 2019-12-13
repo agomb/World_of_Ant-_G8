@@ -123,7 +123,7 @@ public class InterfaceInfo extends JPanel implements ActionListener
     
     /**
      * Add a new message to the list of message
-     * @Parameter String theMessage => correspond to the new message
+     * @parameter String theMessage => correspond to the new message
      */
     private void setMessage(String theMessage){      
         information.add(theMessage);
@@ -180,7 +180,7 @@ public class InterfaceInfo extends JPanel implements ActionListener
     
     /**
      * Return the message
-     * @Return String
+     * @return String
      */
     private String getMessage(){      
         return(information.get(i));
