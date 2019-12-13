@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ControlDirection
-comment0.text=\r\n\ This\ class\ create\ the\ interface\ to\ control\ the\ direction\ of\ the\ ant\ (player).\r\n\ @author\ Group8\ (Alix\ and\ Dylan)\ \r\n\ @version\ 2019-11-26\r\n
+comment0.text=\r\n\ This\ class\ create\ the\ interface\ to\ control\ the\ direction\ of\ the\ ant\ (player).\r\n\ @author\ Group8\ \ \r\n\ @version\ 2019-11-26\r\n
 comment1.params=anInterface
 comment1.target=ControlDirection(InterfaceGame)
 comment1.text=\r\n\ The\ constructor\ of\ the\ panel\ that\ will\ control\ the\ direction\ to\ move\r\n\ @param\ anInterface\ links\ the\ panel\ with\ the\ direction\ with\ the\ InterfaceGame\r\n

@@ -7,7 +7,7 @@ import java.util.List;
 import java.awt.Color;
 /**
  * This class create the interface to control the direction of the ant (player).
- * @author Group8 (Alix and Dylan) 
+ * @author Group8  
  * @version 2019-11-26
  */
 
@@ -138,23 +138,21 @@ public class ControlDirection extends JPanel implements ActionListener
         else if(e.getSource() == downButton )
         {
             myGameInterface.getGame().getPlayer().moveRoom("Down");
-        }
+        } 
+        Room after = myGameInterface.getGame().getPlayer().getCurrentRoom();       
+        myGameInterface.showMap(myGameInterface.getVisual());
+        myGameInterface.getVisual().visualizeRoom(myGameInterface.getGame().getPlayer());
+            
+        myGameInterface.getDirection().disableAllButtons();
+        myGameInterface.getDirection().enableButton();
+        myGameInterface.getDirection().updateUI();       
+            
+        myGameInterface.getDoable().disableAllButtons();
+        myGameInterface.getDoable().enableButton();
+        myGameInterface.getDoable().updateUI();
+        myGameInterface.getInfo().updateInfoDoorLock(before, after);
         
-        Room after = myGameInterface.getGame().getPlayer().getCurrentRoom();  
-            
-            myGameInterface.showMap(myGameInterface.getVisual());
-            myGameInterface.getVisual().visualizeRoom(myGameInterface.getGame().getPlayer());
-            
-            myGameInterface.getDirection().disableAllButtons();
-            myGameInterface.getDirection().enableButton();
-            myGameInterface.getDirection().updateUI();       
-            
-            myGameInterface.getDoable().disableAllButtons();
-            myGameInterface.getDoable().enableButton();
-            myGameInterface.getDoable().updateUI();
-            
-            myGameInterface.getInfo().updateInfoDoorLock(before, after);
-            if (before.getDescription() == after.getDescription())
+        if (before.getDescription() == after.getDescription())
             {
                 myGameInterface.getInfo().nextMessage();
             }
@@ -162,11 +160,10 @@ public class ControlDirection extends JPanel implements ActionListener
             {
                 myGameInterface.getInfo().updateInfoRoom();
                 myGameInterface.getInfo().nextMessage();
-            }   
+            }  
+
             myGameInterface.getInfo().enableButton();
             myGameInterface.getInfo().updateUI();
-          
             myGameInterface.getBar().updateUI();
-            
     }
 }
