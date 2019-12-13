@@ -15,7 +15,7 @@ import java.awt.Color;
  */
 public class Doable extends JPanel implements ActionListener //creation class (public)
 {
-    private JButton myButtonDrop, myButtonDelivery, myButtonTreasure, myButtonHit, useKey;
+    private JButton myButtonDrop, myButtonDelivery, myButtonTreasure, myButtonHit;
     private InterfaceGame myGameInterface;
 
     /**
@@ -43,16 +43,13 @@ public class Doable extends JPanel implements ActionListener //creation class (p
         
         myButtonHit = new JButton("Hit");
         myButtonHit.addActionListener(this);
-        
-        useKey = new JButton("Use the key");
-        
+       
           
         //JPanel myPanel_Doable = new JPanel(); // create the panel
         this.setLayout(new GridLayout(4,1)); //create the localisation of the button
         this.add(myButtonDrop); // add the button in panel
         this.add(myButtonDelivery); // add the button in panel
         this.add(myButtonTreasure); // add the button in panel
-        this.add(useKey);
         
         if (myGameInterface.getGame().getPlayer() instanceof DeliverooAnt){
             this.add(myButtonHit); 
