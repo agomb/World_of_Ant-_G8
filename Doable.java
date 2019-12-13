@@ -1,3 +1,4 @@
+
 import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -138,6 +139,7 @@ public class Doable extends JPanel implements ActionListener //creation class (p
              myGameInterface.getBar().actualisation(myGameInterface.getGame().getPlayer());
              
              myGameInterface.getInfo().updateInfoDrop();
+             myGameInterface.getInfo().nextMessage();
              myGameInterface.getInfo().enableButton();
              myGameInterface.getInfo().updateUI();
              
@@ -172,10 +174,24 @@ public class Doable extends JPanel implements ActionListener //creation class (p
         }
         else if(e.getSource() == myButtonTreasure)
         {
-             myGameInterface.getInfo().updateInfoBox();
-             myGameInterface.getInfo().updateUI();
-            
+              
+             if ( myGameInterface.getGame().getPlayer().getCurrentRoom().getBox().getLock() == null)
+             {
+                 myGameInterface.getInfo().updateInfoBox(myGameInterface.getGame().getPlayer().getCurrentRoom().getBox());
+                 myGameInterface.getInfo().nextMessage();
+                 myGameInterface.getInfo().updateUI();
+             }   
+             
              myGameInterface.getGame().getPlayer().pickUpBox(myGameInterface.getGame().getPlayer().getCurrentRoom().getBox());
+             
+             
+             if (myGameInterface.getGame().getPlayer().getCurrentRoom().getBox() != null && myGameInterface.getGame().getPlayer().getCurrentRoom().getBox().getLock().getIsLocked() == true)
+             {  
+                myGameInterface.getInfo().updateInfoBoxLock();
+                myGameInterface.getInfo().nextMessage();
+                myGameInterface.getInfo().updateUI();
+             }
+             
              
              myGameInterface.getBar().actualisation(myGameInterface.getGame().getPlayer());
              myGameInterface.getBar().updateUI();
@@ -185,6 +201,7 @@ public class Doable extends JPanel implements ActionListener //creation class (p
             
              myGameInterface.getDirection().updateUI();
                          
+             
              myGameInterface.getDoable().enableButton();
              myGameInterface.getDoable().updateUI();
         }

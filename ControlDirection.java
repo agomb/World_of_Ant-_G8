@@ -120,6 +120,7 @@ public class ControlDirection extends JPanel implements ActionListener
      */
     public void actionPerformed(ActionEvent e)
     {
+        Room before = myGameInterface.getGame().getPlayer().getCurrentRoom();
         if(e.getSource() == northButton)
         {
             myGameInterface.getGame().getPlayer().moveRoom("North");
@@ -145,21 +146,32 @@ public class ControlDirection extends JPanel implements ActionListener
             myGameInterface.getGame().getPlayer().moveRoom("Down");
         }
         
+        Room after = myGameInterface.getGame().getPlayer().getCurrentRoom();  
             
             myGameInterface.showMap(myGameInterface.getVisual());
             myGameInterface.getVisual().visualizeRoom(myGameInterface.getGame().getPlayer());
             
             myGameInterface.getDirection().disableAllButtons();
             myGameInterface.getDirection().enableButton();
-            myGameInterface.getDirection().updateUI();
+            myGameInterface.getDirection().updateUI();       
             
             myGameInterface.getDoable().disableAllButtons();
             myGameInterface.getDoable().enableButton();
             myGameInterface.getDoable().updateUI();
             
-            myGameInterface.getInfo().updateInfoRoom();
+            myGameInterface.getInfo().updateInfoDoorLock(before, after);
+            if (before.getDescription() == after.getDescription())
+            {
+                myGameInterface.getInfo().nextMessage();
+            }
+            else 
+            {
+                myGameInterface.getInfo().updateInfoRoom();
+                myGameInterface.getInfo().nextMessage();
+            }   
             myGameInterface.getInfo().enableButton();
             myGameInterface.getInfo().updateUI();
+          
             myGameInterface.getBar().updateUI();
             
             System.out.println(" Current room : "+myGameInterface.getGame().getPlayer().getCurrentRoom().getDescription());

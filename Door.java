@@ -20,6 +20,7 @@ public class Door
     {
         room1 = r1;
         room2 = r2;
+        theLock = null;
     }
     
     /**
@@ -67,11 +68,50 @@ public class Door
      * 
      * @return     error or the next room
      */
-    public Room crossDoor(Room currentRoom)
+    public Room crossDoor(Room currentRoom, List<Item> bag)
     {
-       if (room1 == currentRoom)
-            return room2;
-       else 
+        if (getLockDoor() == null || getLockDoor().getIsLocked() == false ){
+           if (room1 == currentRoom)
+                return room2;
+           else 
+                return room1;
+        }
+        else
+        {
+            if (getLockDoor().getIsLocked() == true) // if it is locked
+            {
+                for ( int i = 0 ; i< bag.size() ; i++) // search the key in the bag
+                {
+                    Item a = bag.get(i);
+                    if(a instanceof Key){  // if the player has the key
+                        getLockDoor().unlock((Key)a); // use the key
+                        if ( getLockDoor().getIsLocked() == false ){
+                            bag.remove(i); // remove the key from the bag
+                            break;
+                        }
+                    } 
+                }
+                if (getLockDoor().getIsLocked() == true) //if it is still locked because there is not the key in the bag
+                {
+                    if (room1 == currentRoom)
+                        return room1;
+                    else 
+                        return room2;
+                       
+                }
+                else
+                {
+                    if (room1 == currentRoom)
+                        return room2;
+                    else 
+                        return room1;
+                }
+            }          
+        }
+       
+        if (room1 == currentRoom)
             return room1;
+        else 
+            return room2;
     }
 }
