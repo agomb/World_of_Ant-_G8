@@ -262,10 +262,18 @@ public class Game
         //roomG.addItem((Item)boxG);
     }
     
+    /**
+     * This method returns the player which is played by user
+     * @return player plays by user
+     */
     public Player getPlayer(){
         return playerChoose; //return the player
     }
     
+     /**
+     * This method returns the player which is played by computer
+     * @return player plays by computer
+     */
     public Player getComputer(){
         return playerUnplay; //retunr a character unplaying
     }
